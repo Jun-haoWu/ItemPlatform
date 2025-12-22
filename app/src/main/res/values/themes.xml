@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.ItemPlatform" parent="Base.Theme.ItemPlatform" />
+    
+    <style name="Theme.ItemPlatform.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
