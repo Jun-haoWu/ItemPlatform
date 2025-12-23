@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.wujunhao.a202302010306.itemplatform"
-        minSdk = 35
+        minSdk = 34
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"

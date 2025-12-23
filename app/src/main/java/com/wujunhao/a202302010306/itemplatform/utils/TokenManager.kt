@@ -65,4 +65,20 @@ object TokenManager {
             .remove(TOKEN_EXPIRY_KEY)
             .apply()
     }
+    
+    data class UserInfo(
+        val userId: Long,
+        val username: String,
+        val email: String
+    )
+    
+    fun getUserInfo(context: Context): UserInfo? {
+        if (!isTokenValid(context)) return null
+        
+        val userId = getUserId(context)
+        val username = getUsername(context) ?: return null
+        val email = getEmail(context) ?: return null
+        
+        return UserInfo(userId, username, email)
+    }
 }

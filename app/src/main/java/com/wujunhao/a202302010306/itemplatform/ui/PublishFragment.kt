@@ -1,0 +1,283 @@
+package com.wujunhao.a202302010306.itemplatform.ui
+
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Bundle
+import android.provider.MediaStore
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.wujunhao.a202302010306.itemplatform.adapter.SelectedImagesAdapter
+import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
+import com.wujunhao.a202302010306.itemplatform.database.ProductDao
+import com.wujunhao.a202302010306.itemplatform.databinding.FragmentPublishBinding
+import com.wujunhao.a202302010306.itemplatform.model.Product
+import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
+import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+class PublishFragment : Fragment() {
+    
+    private var _binding: FragmentPublishBinding? = null
+    private val binding get() = _binding!!
+    
+    private lateinit var productDao: ProductDao
+    private lateinit var imagesAdapter: SelectedImagesAdapter
+    private val selectedImages = mutableListOf<Any>() // Can be Uri or String (file path)
+    private var productId: Long = 0 // Will be set after product is created
+    
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentPublishBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
+        // Initialize DAO
+        val databaseHelper = DatabaseHelper(requireContext())
+        productDao = ProductDao(databaseHelper)
+        
+        setupSpinners()
+        setupImagesRecyclerView()
+        setupClickListeners()
+    }
+    
+    private fun setupSpinners() {
+        // Category spinner
+        val categories = arrayOf("电子产品", "书籍资料", "生活用品", "服装鞋帽", "运动器材", "其他")
+        val categoryAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            categories
+        )
+        binding.spinnerCategory.setAdapter(categoryAdapter)
+        binding.spinnerCategory.setText(categories[0], false)
+        
+        // Condition spinner
+        val conditions = arrayOf("全新", "几乎全新", "轻微使用痕迹", "明显使用痕迹", "有瑕疵但仍可使用")
+        val conditionAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            conditions
+        )
+        binding.spinnerCondition.setAdapter(conditionAdapter)
+        binding.spinnerCondition.setText(conditions[0], false)
+    }
+    
+    private fun setupClickListeners() {
+        binding.btnPublish.setOnClickListener {
+            publishProduct()
+        }
+        
+        binding.btnAddImage.setOnClickListener {
+            openImagePicker()
+        }
+    }
+    
+    private fun publishProduct() {
+        val title = binding.etTitle.text.toString().trim()
+        val description = binding.etDescription.text.toString().trim()
+        val priceText = binding.etPrice.text.toString().trim()
+        val category = binding.spinnerCategory.text.toString()
+        val condition = binding.spinnerCondition.text.toString()
+        val location = binding.etLocation.text.toString().trim()
+        
+        // Validate input
+        if (title.isEmpty()) {
+            binding.etTitle.error = "请输入商品标题"
+            return
+        }
+        
+        if (description.isEmpty()) {
+            binding.etDescription.error = "请输入商品描述"
+            return
+        }
+        
+        if (priceText.isEmpty()) {
+            binding.etPrice.error = "请输入价格"
+            return
+        }
+        
+        val price = try {
+            priceText.toDouble()
+        } catch (e: NumberFormatException) {
+            binding.etPrice.error = "请输入有效的价格"
+            return
+        }
+        
+        if (location.isEmpty()) {
+            binding.etLocation.error = "请输入交易地点"
+            return
+        }
+        
+        // Get current user ID from token
+        val userInfo = TokenManager.getUserInfo(requireContext())
+        if (userInfo == null) {
+            Toast.makeText(context, "请先登录", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        val currentTime = System.currentTimeMillis()
+        val product = Product(
+            title = title,
+            description = description,
+            price = price,
+            category = category,
+            condition = condition,
+            location = location,
+            images = null, // Will be updated after product creation
+            sellerId = userInfo.userId,
+            status = Product.STATUS_ACTIVE,
+            viewCount = 0,
+            likeCount = 0,
+            createdAt = currentTime,
+            updatedAt = currentTime
+        )
+        
+        // Publish product
+        lifecycleScope.launch {
+            try {
+                val result = withContext(Dispatchers.IO) {
+                    productDao.insertProduct(product)
+                }
+                
+                if (result != -1L) {
+                    productId = result
+                    
+                    // Save images if any were selected
+                    if (selectedImages.isNotEmpty()) {
+                        val imagePaths = saveProductImages(productId)
+                        if (imagePaths != null) {
+                            // Update product with image paths
+                            val updatedProduct = product.copy(id = productId, images = imagePaths)
+                            withContext(Dispatchers.IO) {
+                                productDao.updateProductImages(productId, imagePaths)
+                            }
+                        }
+                    }
+                    
+                    Toast.makeText(context, "商品发布成功！", Toast.LENGTH_SHORT).show()
+                    clearForm()
+                } else {
+                    Toast.makeText(context, "商品发布失败", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(context, "发布失败: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    
+    private fun clearForm() {
+        binding.etTitle.text?.clear()
+        binding.etDescription.text?.clear()
+        binding.etPrice.text?.clear()
+        binding.etLocation.text?.clear()
+        
+        // Reset spinners to default values
+        val categories = arrayOf("电子产品", "书籍资料", "生活用品", "服装鞋帽", "运动器材", "其他")
+        binding.spinnerCategory.setText(categories[0], false)
+        
+        val conditions = arrayOf("全新", "几乎全新", "轻微使用痕迹", "明显使用痕迹", "有瑕疵但仍可使用")
+        binding.spinnerCondition.setText(conditions[0], false)
+        
+        // Clear selected images
+        selectedImages.clear()
+        imagesAdapter.updateImages(emptyList())
+    }
+    
+    private fun setupImagesRecyclerView() {
+        imagesAdapter = SelectedImagesAdapter(
+            images = selectedImages,
+            onImageClick = { position ->
+                // Handle image click - could implement image preview
+                Toast.makeText(context, "图片 ${position + 1}", Toast.LENGTH_SHORT).show()
+            },
+            onDeleteClick = { position ->
+                // Handle delete click
+                selectedImages.removeAt(position)
+                imagesAdapter.updateImages(selectedImages)
+            }
+        )
+        
+        binding.rvSelectedImages.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvSelectedImages.adapter = imagesAdapter
+    }
+    
+    private fun openImagePicker() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        startActivityForResult(Intent.createChooser(intent, "选择图片"), PICK_IMAGES_REQUEST)
+    }
+    
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        
+        if (requestCode == PICK_IMAGES_REQUEST && resultCode == Activity.RESULT_OK) {
+            data?.let { intent ->
+                // Handle multiple image selection
+                val clipData = intent.clipData
+                if (clipData != null) {
+                    for (i in 0 until clipData.itemCount) {
+                        val uri = clipData.getItemAt(i).uri
+                        selectedImages.add(uri)
+                    }
+                } else {
+                    // Handle single image selection
+                    intent.data?.let { uri ->
+                        selectedImages.add(uri)
+                    }
+                }
+                imagesAdapter.updateImages(selectedImages)
+            }
+        }
+    }
+    
+    private fun saveProductImages(productId: Long): String? {
+        if (selectedImages.isEmpty()) return null
+        
+        val savedImagePaths = mutableListOf<String>()
+        
+        for (image in selectedImages) {
+            when (image) {
+                is Uri -> {
+                    val savedPath = ImageUtils.saveImageFromUri(requireContext(), image, productId)
+                    savedPath?.let { savedImagePaths.add(it) }
+                }
+                is String -> {
+                    // Already a saved path
+                    savedImagePaths.add(image)
+                }
+            }
+        }
+        
+        return if (savedImagePaths.isNotEmpty()) {
+            ImageUtils.convertImagePathsToString(savedImagePaths)
+        } else {
+            null
+        }
+    }
+    
+    companion object {
+        private const val PICK_IMAGES_REQUEST = 1001
+    }
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +42,16 @@
             android:name=".ui.AdminActivity"
             android:exported="false"
             android:theme="@style/Theme.ItemPlatform.NoActionBar" />
+            
+        <activity
+            android:name=".ui.MyProductsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ItemPlatform" />
+            
+        <activity
+            android:name=".ui.EditProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ItemPlatform" />
     </application>
 
 </manifest>

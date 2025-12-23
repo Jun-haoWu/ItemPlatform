@@ -17,6 +17,7 @@ data class LocalUser(
     val realName: String,
     val studentId: String,
     val department: String,
+    val avatar: String? = null,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis()
 ) {
@@ -29,7 +30,7 @@ data class LocalUser(
             realName = realName,
             studentId = studentId,
             department = department,
-            avatar = null,
+            avatar = avatar,
             createdAt = createdAt.toString(),
             updatedAt = updatedAt.toString()
         )
@@ -49,6 +50,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             put(DatabaseContract.UserEntry.COLUMN_REAL_NAME, user.realName)
             put(DatabaseContract.UserEntry.COLUMN_STUDENT_ID, user.studentId)
             put(DatabaseContract.UserEntry.COLUMN_DEPARTMENT, user.department)
+            put(DatabaseContract.UserEntry.COLUMN_AVATAR, user.avatar)
             put(DatabaseContract.UserEntry.COLUMN_CREATED_AT, user.createdAt)
             put(DatabaseContract.UserEntry.COLUMN_UPDATED_AT, user.updatedAt)
         }
@@ -68,6 +70,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             DatabaseContract.UserEntry.COLUMN_REAL_NAME,
             DatabaseContract.UserEntry.COLUMN_STUDENT_ID,
             DatabaseContract.UserEntry.COLUMN_DEPARTMENT,
+            DatabaseContract.UserEntry.COLUMN_AVATAR,
             DatabaseContract.UserEntry.COLUMN_CREATED_AT,
             DatabaseContract.UserEntry.COLUMN_UPDATED_AT
         )
@@ -106,6 +109,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             DatabaseContract.UserEntry.COLUMN_REAL_NAME,
             DatabaseContract.UserEntry.COLUMN_STUDENT_ID,
             DatabaseContract.UserEntry.COLUMN_DEPARTMENT,
+            DatabaseContract.UserEntry.COLUMN_AVATAR,
             DatabaseContract.UserEntry.COLUMN_CREATED_AT,
             DatabaseContract.UserEntry.COLUMN_UPDATED_AT
         )
@@ -144,6 +148,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             DatabaseContract.UserEntry.COLUMN_REAL_NAME,
             DatabaseContract.UserEntry.COLUMN_STUDENT_ID,
             DatabaseContract.UserEntry.COLUMN_DEPARTMENT,
+            DatabaseContract.UserEntry.COLUMN_AVATAR,
             DatabaseContract.UserEntry.COLUMN_CREATED_AT,
             DatabaseContract.UserEntry.COLUMN_UPDATED_AT
         )
@@ -205,6 +210,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             DatabaseContract.UserEntry.COLUMN_REAL_NAME,
             DatabaseContract.UserEntry.COLUMN_STUDENT_ID,
             DatabaseContract.UserEntry.COLUMN_DEPARTMENT,
+            DatabaseContract.UserEntry.COLUMN_AVATAR,
             DatabaseContract.UserEntry.COLUMN_CREATED_AT,
             DatabaseContract.UserEntry.COLUMN_UPDATED_AT
         )
@@ -227,6 +233,27 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
         return users
     }
     
+    fun updateUser(user: User): Boolean {
+        val db = databaseHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseContract.UserEntry.COLUMN_USERNAME, user.username)
+            put(DatabaseContract.UserEntry.COLUMN_PHONE, user.phone)
+            put(DatabaseContract.UserEntry.COLUMN_REAL_NAME, user.realName)
+            put(DatabaseContract.UserEntry.COLUMN_DEPARTMENT, user.department)
+            put(DatabaseContract.UserEntry.COLUMN_AVATAR, user.avatar)
+            put(DatabaseContract.UserEntry.COLUMN_UPDATED_AT, System.currentTimeMillis())
+        }
+        
+        val rowsAffected = db.update(
+            DatabaseContract.UserEntry.TABLE_NAME,
+            values,
+            "${BaseColumns._ID} = ?",
+            arrayOf(user.id.toString())
+        )
+        
+        return rowsAffected > 0
+    }
+
     private fun cursorToUser(cursor: Cursor): LocalUser {
         return LocalUser(
             id = cursor.getLong(cursor.getColumnIndexOrThrow(BaseColumns._ID)),
@@ -237,6 +264,7 @@ class UserDao(private val databaseHelper: DatabaseHelper) {
             realName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_REAL_NAME)),
             studentId = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_STUDENT_ID)),
             department = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_DEPARTMENT)),
+            avatar = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_AVATAR)),
             createdAt = cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_CREATED_AT)),
             updatedAt = cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseContract.UserEntry.COLUMN_UPDATED_AT))
         )
