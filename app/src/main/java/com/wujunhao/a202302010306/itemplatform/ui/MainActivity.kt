@@ -17,8 +17,27 @@ class MainActivity : AppCompatActivity() {
         
         setupBottomNavigation()
         
-        // Load default fragment
-        if (savedInstanceState == null) {
+        // Check if we need to navigate to publish fragment for editing
+        val navigateToPublish = intent.getBooleanExtra("navigate_to_publish", false)
+        val editProductId = intent.getLongExtra("edit_product_id", -1L)
+        
+        android.util.Log.d("MainActivity", "接收到的参数: navigateToPublish=$navigateToPublish, editProductId=$editProductId")
+        
+        if (navigateToPublish && editProductId != -1L) {
+            android.util.Log.d("MainActivity", "进入编辑模式，商品ID: $editProductId")
+            // Navigate to publish fragment in edit mode
+            val publishFragment = PublishFragment().apply {
+                arguments = Bundle().apply {
+                    putLong("edit_product_id", editProductId)
+                }
+            }
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, publishFragment)
+                .commit()
+            // Select the publish tab
+            binding.bottomNavigation.selectedItemId = R.id.nav_publish
+        } else if (savedInstanceState == null) {
+            // Load default fragment
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()

@@ -34,6 +34,8 @@ class PublishFragment : Fragment() {
     private lateinit var imagesAdapter: SelectedImagesAdapter
     private val selectedImages = mutableListOf<Any>() // Can be Uri or String (file path)
     private var productId: Long = 0 // Will be set after product is created
+    private var isEditMode: Boolean = false
+    private var editingProduct: Product? = null
     
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +49,12 @@ class PublishFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Check if we're in edit mode
+        val editProductId = arguments?.getLong("edit_product_id", -1L)
+        isEditMode = editProductId != null && editProductId != -1L
+        
+        android.util.Log.d("PublishFragment", "onViewCreated - editProductId: $editProductId, isEditMode: $isEditMode")
+        
         // Initialize DAO
         val databaseHelper = DatabaseHelper(requireContext())
         productDao = ProductDao(databaseHelper)
@@ -54,6 +62,11 @@ class PublishFragment : Fragment() {
         setupSpinners()
         setupImagesRecyclerView()
         setupClickListeners()
+        
+        // If in edit mode, load the existing product
+        if (isEditMode && editProductId != null) {
+            loadProductForEdit(editProductId)
+        }
     }
     
     private fun setupSpinners() {
@@ -80,7 +93,11 @@ class PublishFragment : Fragment() {
     
     private fun setupClickListeners() {
         binding.btnPublish.setOnClickListener {
-            publishProduct()
+            if (isEditMode) {
+                updateProduct()
+            } else {
+                publishProduct()
+            }
         }
         
         binding.btnAddImage.setOnClickListener {
@@ -197,6 +214,137 @@ class PublishFragment : Fragment() {
         // Clear selected images
         selectedImages.clear()
         imagesAdapter.updateImages(emptyList())
+    }
+    
+    private fun loadProductForEdit(productId: Long) {
+        android.util.Log.d("PublishFragment", "loadProductForEdit - 开始加载商品ID: $productId")
+        lifecycleScope.launch {
+            try {
+                val product = withContext(Dispatchers.IO) {
+                    productDao.getProductById(productId)
+                }
+                
+                android.util.Log.d("PublishFragment", "loadProductForEdit - 查询结果: ${product?.title ?: "null"}")
+                
+                if (product != null) {
+                    editingProduct = product
+                    populateProductData(product)
+                } else {
+                    // Safely handle fragment state
+                    if (isAdded && context != null) {
+                        Toast.makeText(requireContext(), "商品不存在", Toast.LENGTH_SHORT).show()
+                        requireActivity().onBackPressed()
+                    }
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("PublishFragment", "loadProductForEdit - 加载商品失败", e)
+                // Safely handle fragment state
+                if (isAdded && context != null) {
+                    Toast.makeText(requireContext(), "加载商品失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                    requireActivity().onBackPressed()
+                }
+            }
+        }
+    }
+    
+    private fun populateProductData(product: Product) {
+        // Populate form fields
+        binding.etTitle.setText(product.title)
+        binding.etDescription.setText(product.description)
+        binding.etPrice.setText(product.price.toString())
+        binding.etLocation.setText(product.location)
+        binding.spinnerCategory.setText(product.category, false)
+        binding.spinnerCondition.setText(product.condition, false)
+        
+        // Change button text to indicate editing
+        binding.btnPublish.text = "更新商品"
+        
+        // Load existing images
+        if (!product.images.isNullOrEmpty()) {
+            val imagePaths = ImageUtils.getProductImagePaths(product.images)
+            for (imagePath in imagePaths) {
+                selectedImages.add(imagePath) // Add as String path
+            }
+            imagesAdapter.updateImages(selectedImages)
+        }
+    }
+    
+    private fun updateProduct() {
+        val title = binding.etTitle.text.toString().trim()
+        val description = binding.etDescription.text.toString().trim()
+        val priceText = binding.etPrice.text.toString().trim()
+        val category = binding.spinnerCategory.text.toString()
+        val condition = binding.spinnerCondition.text.toString()
+        val location = binding.etLocation.text.toString().trim()
+        
+        // Validate input
+        if (title.isEmpty()) {
+            binding.etTitle.error = "请输入商品标题"
+            return
+        }
+        
+        if (description.isEmpty()) {
+            binding.etDescription.error = "请输入商品描述"
+            return
+        }
+        
+        if (priceText.isEmpty()) {
+            binding.etPrice.error = "请输入价格"
+            return
+        }
+        
+        val price = try {
+            priceText.toDouble()
+        } catch (e: NumberFormatException) {
+            binding.etPrice.error = "请输入有效的价格"
+            return
+        }
+        
+        if (location.isEmpty()) {
+            binding.etLocation.error = "请输入交易地点"
+            return
+        }
+        
+        val currentTime = System.currentTimeMillis()
+        val updatedProduct = editingProduct!!.copy(
+            title = title,
+            description = description,
+            price = price,
+            category = category,
+            condition = condition,
+            location = location,
+            updatedAt = currentTime
+        )
+        
+        // Update product
+        lifecycleScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    // Update product in database
+                    productDao.updateProduct(updatedProduct)
+                    
+                    // Handle image updates
+                    if (selectedImages.isNotEmpty()) {
+                        val imagePaths = saveProductImages(updatedProduct.id)
+                        if (imagePaths != null) {
+                            productDao.updateProductImages(updatedProduct.id, imagePaths)
+                        }
+                    }
+                }
+                
+                // Safely handle fragment state
+                if (isAdded && context != null) {
+                    Toast.makeText(requireContext(), "商品更新成功！", Toast.LENGTH_SHORT).show()
+                    requireActivity().onBackPressed()
+                }
+                
+            } catch (e: Exception) {
+                // Safely handle fragment state
+                if (isAdded && context != null) {
+                    Toast.makeText(requireContext(), "更新失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
     
     private fun setupImagesRecyclerView() {

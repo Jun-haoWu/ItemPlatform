@@ -10,15 +10,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
-    private const val BASE_URL = "http://10.0.2.2:8080/api/"
-    private const val CONNECT_TIMEOUT = 30L
-    private const val READ_TIMEOUT = 30L
+    private val BASE_URL = CloudConfig.getCurrentBaseUrl()
+    private const val CONNECT_TIMEOUT = CloudConfig.NetworkConfig.CONNECT_TIMEOUT
+    private const val READ_TIMEOUT = CloudConfig.NetworkConfig.READ_TIMEOUT
     
     // 模拟模式开关 - 在没有真实服务器时使用
     private const val USE_MOCK_MODE = false
     
     // 本地数据库模式 - 使用SQLite存储数据
-    private const val USE_LOCAL_DATABASE = true
+    private const val USE_LOCAL_DATABASE = false
     
     private fun createLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {

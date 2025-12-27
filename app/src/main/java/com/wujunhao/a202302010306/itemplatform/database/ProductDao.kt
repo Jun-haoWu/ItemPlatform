@@ -117,18 +117,23 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
     }
     
     fun getProductsBySeller(sellerId: Long): List<Product> {
-        val db = databaseHelper.readableDatabase
-        val cursor = db.query(
-            DatabaseContract.ProductEntry.TABLE_NAME,
-            null,
-            "${DatabaseContract.ProductEntry.COLUMN_SELLER_ID} = ?",
-            arrayOf(sellerId.toString()),
-            null,
-            null,
-            "${DatabaseContract.ProductEntry.COLUMN_CREATED_AT} DESC"
-        )
-        
-        return cursor.use { cursorToProductList(it) }
+        return try {
+            val db = databaseHelper.readableDatabase
+            val cursor = db.query(
+                DatabaseContract.ProductEntry.TABLE_NAME,
+                null,
+                "${DatabaseContract.ProductEntry.COLUMN_SELLER_ID} = ?",
+                arrayOf(sellerId.toString()),
+                null,
+                null,
+                "${DatabaseContract.ProductEntry.COLUMN_CREATED_AT} DESC"
+            )
+            
+            cursor.use { cursorToProductList(it) }
+        } catch (e: Exception) {
+            // Table doesn't exist yet, return empty list
+            emptyList()
+        }
     }
     
     fun incrementViewCount(productId: Long) {
@@ -171,6 +176,98 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
             "${BaseColumns._ID} = ?",
             arrayOf(productId.toString())
         )
+    }
+    
+    fun getProductById(productId: Long): Product? {
+        return try {
+            val db = databaseHelper.readableDatabase
+            android.util.Log.d("ProductDao", "getProductById - 查询商品ID: $productId")
+            val cursor = db.query(
+                DatabaseContract.ProductEntry.TABLE_NAME,
+                null,
+                "${BaseColumns._ID} = ?",
+                arrayOf(productId.toString()),
+                null,
+                null,
+                null
+            )
+            
+            cursor.use {
+                android.util.Log.d("ProductDao", "getProductById - 查询到记录数: ${it.count}")
+                val products = cursorToProductList(it)
+                android.util.Log.d("ProductDao", "getProductById - 转换后的商品数: ${products.size}")
+                if (products.isNotEmpty()) products[0] else null
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("ProductDao", "getProductById - 查询失败", e)
+            null
+        }
+    }
+    
+    fun updateProduct(product: Product) {
+        val db = databaseHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseContract.ProductEntry.COLUMN_TITLE, product.title)
+            put(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION, product.description)
+            put(DatabaseContract.ProductEntry.COLUMN_PRICE, product.price)
+            put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.category)
+            put(DatabaseContract.ProductEntry.COLUMN_CONDITION, product.condition)
+            put(DatabaseContract.ProductEntry.COLUMN_LOCATION, product.location)
+            put(DatabaseContract.ProductEntry.COLUMN_UPDATED_AT, product.updatedAt)
+        }
+        
+        db.update(
+            DatabaseContract.ProductEntry.TABLE_NAME,
+            values,
+            "${BaseColumns._ID} = ?",
+            arrayOf(product.id.toString())
+        )
+    }
+    
+    fun incrementLikeCount(productId: Long): Int {
+        val db = databaseHelper.writableDatabase
+        return try {
+            val currentCount = getProductById(productId)?.likeCount ?: 0
+            val newCount = currentCount + 1
+            val values = ContentValues().apply {
+                put(DatabaseContract.ProductEntry.COLUMN_LIKE_COUNT, newCount)
+                put(DatabaseContract.ProductEntry.COLUMN_UPDATED_AT, System.currentTimeMillis())
+            }
+            
+            db.update(
+                DatabaseContract.ProductEntry.TABLE_NAME,
+                values,
+                "${BaseColumns._ID} = ?",
+                arrayOf(productId.toString())
+            )
+            newCount
+        } catch (e: Exception) {
+            android.util.Log.e("ProductDao", "增加收藏数失败", e)
+            getProductById(productId)?.likeCount ?: 0
+        }
+    }
+    
+    fun decrementLikeCount(productId: Long): Int {
+        val db = databaseHelper.writableDatabase
+        return try {
+            val currentCount = getProductById(productId)?.likeCount ?: 0
+            val newCount = maxOf(0, currentCount - 1)
+            val values = ContentValues().apply {
+                put(DatabaseContract.ProductEntry.COLUMN_LIKE_COUNT, newCount)
+                put(DatabaseContract.ProductEntry.COLUMN_UPDATED_AT, System.currentTimeMillis())
+            }
+            
+            db.update(
+                DatabaseContract.ProductEntry.TABLE_NAME,
+                values,
+                "${BaseColumns._ID} = ?",
+                arrayOf(productId.toString())
+            )
+            newCount
+        } catch (e: Exception) {
+            android.util.Log.e("ProductDao", "减少收藏数失败", e)
+            getProductById(productId)?.likeCount ?: 0
+        }
     }
     
     private fun cursorToProductList(cursor: Cursor): List<Product> {

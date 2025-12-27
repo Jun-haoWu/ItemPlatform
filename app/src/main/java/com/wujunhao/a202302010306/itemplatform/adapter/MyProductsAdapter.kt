@@ -14,7 +14,8 @@ import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
 class MyProductsAdapter(
     private var products: List<Product>,
     private val onEditClick: (Product) -> Unit,
-    private val onDeleteClick: (Product) -> Unit
+    private val onDeleteClick: (Product) -> Unit,
+    private val onItemClick: (Product) -> Unit
 ) : RecyclerView.Adapter<MyProductsAdapter.MyProductViewHolder>() {
 
     inner class MyProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -70,6 +71,9 @@ class MyProductsAdapter(
             // Set click listeners
             btnEdit.setOnClickListener { onEditClick(product) }
             btnDelete.setOnClickListener { onDeleteClick(product) }
+            
+            // Set item click listener for the entire item view
+            itemView.setOnClickListener { onItemClick(product) }
         }
     }
 

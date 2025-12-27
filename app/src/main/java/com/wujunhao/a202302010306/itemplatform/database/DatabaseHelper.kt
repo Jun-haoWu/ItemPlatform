@@ -44,12 +44,22 @@ object DatabaseContract {
         const val COLUMN_CREATED_AT = "created_at"
         const val COLUMN_UPDATED_AT = "updated_at"
     }
+    
+    object FavoriteEntry : BaseColumns {
+        const val TABLE_NAME = "favorites"
+        const val COLUMN_USER_ID = "user_id"
+        const val COLUMN_PRODUCT_ID = "product_id"
+        const val COLUMN_CREATED_AT = "created_at"
+        const val COLUMN_UPDATED_AT = "updated_at"
+        const val COLUMN_IS_SYNCED = "is_synced"  // 同步状态
+        const val COLUMN_SYNC_ACTION = "sync_action"  // 同步操作: add/remove
+    }
 }
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
         const val DATABASE_NAME = "ItemPlatform.db"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 3
         
         private const val SQL_CREATE_USERS_TABLE = """
             CREATE TABLE ${DatabaseContract.UserEntry.TABLE_NAME} (
@@ -100,15 +110,34 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             )
         """
         
+        private const val SQL_CREATE_FAVORITES_TABLE = """
+            CREATE TABLE ${DatabaseContract.FavoriteEntry.TABLE_NAME} (
+                ${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT,
+                ${DatabaseContract.FavoriteEntry.COLUMN_USER_ID} INTEGER NOT NULL,
+                ${DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID} INTEGER NOT NULL,
+                ${DatabaseContract.FavoriteEntry.COLUMN_CREATED_AT} INTEGER NOT NULL,
+                ${DatabaseContract.FavoriteEntry.COLUMN_UPDATED_AT} INTEGER NOT NULL,
+                ${DatabaseContract.FavoriteEntry.COLUMN_IS_SYNCED} INTEGER NOT NULL DEFAULT 0,
+                ${DatabaseContract.FavoriteEntry.COLUMN_SYNC_ACTION} TEXT,
+                UNIQUE(${DatabaseContract.FavoriteEntry.COLUMN_USER_ID}, ${DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID}),
+                FOREIGN KEY(${DatabaseContract.FavoriteEntry.COLUMN_USER_ID}) 
+                REFERENCES ${DatabaseContract.UserEntry.TABLE_NAME}(${BaseColumns._ID}),
+                FOREIGN KEY(${DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID}) 
+                REFERENCES ${DatabaseContract.ProductEntry.TABLE_NAME}(${BaseColumns._ID})
+            )
+        """
+        
         private const val SQL_DELETE_USERS_TABLE = "DROP TABLE IF EXISTS ${DatabaseContract.UserEntry.TABLE_NAME}"
         private const val SQL_DELETE_AUTH_TABLE = "DROP TABLE IF EXISTS ${DatabaseContract.AuthEntry.TABLE_NAME}"
         private const val SQL_DELETE_PRODUCTS_TABLE = "DROP TABLE IF EXISTS ${DatabaseContract.ProductEntry.TABLE_NAME}"
+        private const val SQL_DELETE_FAVORITES_TABLE = "DROP TABLE IF EXISTS ${DatabaseContract.FavoriteEntry.TABLE_NAME}"
     }
     
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(SQL_CREATE_USERS_TABLE)
         db.execSQL(SQL_CREATE_AUTH_TABLE)
         db.execSQL(SQL_CREATE_PRODUCTS_TABLE)
+        db.execSQL(SQL_CREATE_FAVORITES_TABLE)
     }
     
     fun ensureProductsTableExists() {
@@ -136,6 +165,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 db.execSQL("ALTER TABLE ${DatabaseContract.UserEntry.TABLE_NAME} ADD COLUMN ${DatabaseContract.UserEntry.COLUMN_AVATAR} TEXT")
             } catch (e: Exception) {
                 // Column might already exist, ignore error
+                e.printStackTrace()
+            }
+        }
+        
+        // Handle migration from version 2 to 3 (add favorites table)
+        if (oldVersion < 3) {
+            try {
+                db.execSQL(SQL_CREATE_FAVORITES_TABLE)
+            } catch (e: Exception) {
+                // Table might already exist, ignore error
                 e.printStackTrace()
             }
         }

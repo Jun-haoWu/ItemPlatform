@@ -1,5 +1,6 @@
 package com.wujunhao.a202302010306.itemplatform.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +18,13 @@ import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
 import com.wujunhao.a202302010306.itemplatform.database.ProductDao
 import com.wujunhao.a202302010306.itemplatform.databinding.FragmentHomeBinding
 import com.wujunhao.a202302010306.itemplatform.model.Product
+import com.wujunhao.a202302010306.itemplatform.network.ApiClient
+import com.wujunhao.a202302010306.itemplatform.network.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.HttpException
+import java.io.IOException
 
 class HomeFragment : Fragment() {
     
@@ -28,6 +33,7 @@ class HomeFragment : Fragment() {
     
     private lateinit var productDao: ProductDao
     private lateinit var productAdapter: ProductAdapter
+    private lateinit var apiService: ApiService
     private var currentProducts: List<Product> = emptyList()
     
     override fun onCreateView(
@@ -47,6 +53,9 @@ class HomeFragment : Fragment() {
         databaseHelper.ensureProductsTableExists() // Ensure products table exists
         productDao = ProductDao(databaseHelper)
         
+        // Initialize API Service
+        apiService = ApiClient.createApiService(requireContext())
+        
         // Setup RecyclerView with StaggeredGridLayoutManager for waterfall effect
         setupRecyclerView()
         
@@ -65,8 +74,12 @@ class HomeFragment : Fragment() {
     
     private fun setupRecyclerView() {
         productAdapter = ProductAdapter(emptyList()) { product ->
-            // Handle product click
-            Toast.makeText(context, "点击了: ${product.title}", Toast.LENGTH_SHORT).show()
+            // Handle product click - navigate to product detail page
+            val intent = Intent(context, ProductDetailActivity::class.java).apply {
+                putExtra("product_id", product.id)
+            }
+            startActivity(intent)
+            
             // Increment view count
             lifecycleScope.launch {
                 productDao.incrementViewCount(product.id)
@@ -139,15 +152,83 @@ class HomeFragment : Fragment() {
         showLoading()
         lifecycleScope.launch {
             try {
-                val products = withContext(Dispatchers.IO) {
-                    productDao.getAllProducts()
+                // 先尝试从云端获取商品列表
+                val response = withContext(Dispatchers.IO) {
+                    apiService.getProducts(
+                        page = 1,
+                        limit = 100
+                    )
                 }
-                currentProducts = products
-                updateProductList(products)
+                
+                if (response.isSuccessful && response.body() != null) {
+                    val cloudProducts = response.body()!!.products
+                    
+                    // 将云端商品同步到本地数据库
+                    withContext(Dispatchers.IO) {
+                        for (cloudProduct in cloudProducts) {
+                            val existingProduct = productDao.getProductById(cloudProduct.id)
+                            val localProduct = cloudProduct.toLocalProduct(-1L)
+                            
+                            if (existingProduct == null) {
+                                // 如果本地不存在，插入新商品
+                                productDao.insertProduct(localProduct)
+                            } else {
+                                // 如果本地已存在，更新商品信息
+                                productDao.updateProduct(localProduct)
+                            }
+                        }
+                    }
+                    
+                    // 从本地数据库加载所有商品
+                    val products = withContext(Dispatchers.IO) {
+                        productDao.getAllProducts()
+                    }
+                    currentProducts = products
+                    updateProductList(products)
+                } else {
+                    // 云端获取失败，从本地数据库加载
+                    val products = withContext(Dispatchers.IO) {
+                        productDao.getAllProducts()
+                    }
+                    currentProducts = products
+                    updateProductList(products)
+                }
+            } catch (e: IOException) {
+                // 网络错误，从本地数据库加载
+                try {
+                    val products = withContext(Dispatchers.IO) {
+                        productDao.getAllProducts()
+                    }
+                    currentProducts = products
+                    updateProductList(products)
+                } catch (e2: Exception) {
+                    currentProducts = emptyList()
+                    updateProductList(emptyList())
+                }
+            } catch (e: HttpException) {
+                // HTTP错误，从本地数据库加载
+                try {
+                    val products = withContext(Dispatchers.IO) {
+                        productDao.getAllProducts()
+                    }
+                    currentProducts = products
+                    updateProductList(products)
+                } catch (e2: Exception) {
+                    currentProducts = emptyList()
+                    updateProductList(emptyList())
+                }
             } catch (e: Exception) {
-                // Show empty state instead of error for missing table
-                currentProducts = emptyList()
-                updateProductList(emptyList())
+                // 其他错误，从本地数据库加载
+                try {
+                    val products = withContext(Dispatchers.IO) {
+                        productDao.getAllProducts()
+                    }
+                    currentProducts = products
+                    updateProductList(products)
+                } catch (e2: Exception) {
+                    currentProducts = emptyList()
+                    updateProductList(emptyList())
+                }
             } finally {
                 hideLoading()
             }

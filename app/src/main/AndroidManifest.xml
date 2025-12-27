@@ -52,6 +52,16 @@
             android:name=".ui.EditProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.ItemPlatform" />
+            
+        <activity
+            android:name=".ui.ProductDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ItemPlatform" />
+            
+        <activity
+            android:name=".ui.ApiTestActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ItemPlatform" />
     </application>
 
 </manifest>

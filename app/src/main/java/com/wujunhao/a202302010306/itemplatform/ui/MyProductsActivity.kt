@@ -31,12 +31,7 @@ class MyProductsActivity : AppCompatActivity() {
         binding = ActivityMyProductsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        // Initialize
-        setupToolbar()
-        setupRecyclerView()
-        setupClickListeners()
-        
-        // Get current user
+        // Get current user first
         val userInfo = TokenManager.getUserInfo(this)
         if (userInfo == null) {
             Toast.makeText(this, "用户未登录", Toast.LENGTH_SHORT).show()
@@ -48,6 +43,11 @@ class MyProductsActivity : AppCompatActivity() {
         // Initialize DAO
         val databaseHelper = DatabaseHelper(this)
         productDao = ProductDao(databaseHelper)
+        
+        // Initialize UI components
+        setupToolbar()
+        setupRecyclerView()
+        setupClickListeners()
         
         // Load products
         loadMyProducts()
@@ -70,6 +70,13 @@ class MyProductsActivity : AppCompatActivity() {
             },
             onDeleteClick = { product ->
                 confirmDeleteProduct(product)
+            },
+            onItemClick = { product ->
+                // Navigate to product detail page
+                val intent = Intent(this, ProductDetailActivity::class.java).apply {
+                    putExtra("product_id", product.id)
+                }
+                startActivity(intent)
             }
         )
         
@@ -129,6 +136,7 @@ class MyProductsActivity : AppCompatActivity() {
     
     private fun editProduct(product: Product) {
         // Navigate to edit product (reuse publish fragment)
+        android.util.Log.d("MyProductsActivity", "编辑商品: ID=${product.id}, 标题=${product.title}")
         val intent = Intent(this, MainActivity::class.java).apply {
             putExtra("navigate_to_publish", true)
             putExtra("edit_product_id", product.id)
