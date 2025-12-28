@@ -47,4 +47,12 @@ interface ApiService {
     // 同步相关
     @POST("sync/favorites")
     suspend fun syncFavorites(@Body request: SyncFavoritesRequest): Response<SyncResponse>
+    
+    // 管理员相关
+    @GET("admin/users")
+    suspend fun getAdminUsers(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 20,
+        @Query("search") search: String? = null
+    ): Response<AdminUsersResponse>
 }

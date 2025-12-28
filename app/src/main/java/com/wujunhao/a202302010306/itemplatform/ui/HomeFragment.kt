@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.adapter.ProductAdapter
 import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
@@ -50,7 +51,7 @@ class HomeFragment : Fragment() {
         
         // Initialize DAO
         val databaseHelper = DatabaseHelper(requireContext())
-        databaseHelper.ensureProductsTableExists() // Ensure products table exists
+        databaseHelper.ensureProductsTableExists()
         productDao = ProductDao(databaseHelper)
         
         // Initialize API Service
@@ -64,6 +65,9 @@ class HomeFragment : Fragment() {
         
         // Setup search
         setupSearch()
+        
+        // Setup pull-to-refresh
+        setupSwipeRefresh()
         
         // Load products
         loadProducts()
@@ -146,6 +150,18 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
+    }
+    
+    private fun setupSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            loadProducts()
+        }
+        
+        binding.swipeRefreshLayout.setColorSchemeResources(
+            R.color.primary_color,
+            R.color.primary_dark_color,
+            R.color.accent_color
+        )
     }
     
     private fun loadProducts() {
@@ -231,6 +247,7 @@ class HomeFragment : Fragment() {
                 }
             } finally {
                 hideLoading()
+                binding.swipeRefreshLayout.isRefreshing = false
             }
         }
     }
@@ -355,6 +372,11 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    
+    override fun onResume() {
+        super.onResume()
+        loadProducts()
     }
     
     private fun createSampleProductsIfNeeded() {

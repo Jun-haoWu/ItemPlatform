@@ -33,5 +33,16 @@ data class RegisterResponse(
     val message: String,
     
     @SerializedName("data")
-    val data: User?
+    val data: RegisterData?
+)
+
+data class RegisterData(
+    @SerializedName("token")
+    val token: String,
+    
+    @SerializedName("user")
+    val user: User,
+    
+    @SerializedName("expiresIn")
+    val expiresIn: Long
 )

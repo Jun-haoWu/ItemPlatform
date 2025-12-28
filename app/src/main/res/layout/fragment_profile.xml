@@ -234,6 +234,15 @@
             android:text="编辑资料" />
 
         <Button
+            android:id="@+id/btn_admin_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#FF9800"
+            android:text="管理用户"
+            android:visibility="gone" />
+
+        <Button
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

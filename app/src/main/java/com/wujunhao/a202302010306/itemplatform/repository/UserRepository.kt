@@ -16,36 +16,25 @@ class UserRepository(private val context: Context) {
     
     suspend fun register(registerRequest: RegisterRequest): Result<RegisterResponse> {
         return try {
-            // 检查用户名是否已存在
-            if (userDao.isUsernameExists(registerRequest.username)) {
-                return Result.failure(Exception("用户名已存在"))
-            }
+            val response = apiService.register(registerRequest)
             
-            // 创建本地用户对象
-            val localUser = LocalUser(
-                username = registerRequest.username,
-                password = registerRequest.password, // 实际应用中应该加密密码
-                email = registerRequest.email,
-                phone = registerRequest.phone,
-                realName = registerRequest.realName,
-                studentId = registerRequest.studentId,
-                department = registerRequest.department
-            )
-            
-            // 插入到SQLite数据库
-            val userId = userDao.insertUser(localUser)
-            
-            if (userId != -1L) {
-                // 创建响应
-                val user = localUser.toUser().copy(id = userId)
-                val response = RegisterResponse(
-                    code = 200,
-                    message = "注册成功",
-                    data = user
+            if (response.code == 200 && response.data != null) {
+                val token = response.data.token
+                val user = response.data.user
+                val expiresIn = response.data.expiresIn
+                
+                TokenManager.saveToken(
+                    context = context,
+                    token = token,
+                    userId = user.id,
+                    username = user.username,
+                    email = user.email,
+                    expiryIn = expiresIn
                 )
+                
                 Result.success(response)
             } else {
-                Result.failure(Exception("注册失败，请重试"))
+                Result.failure(Exception(response.message))
             }
         } catch (e: Exception) {
             Result.failure(e)
@@ -54,45 +43,25 @@ class UserRepository(private val context: Context) {
     
     suspend fun login(loginRequest: LoginRequest): Result<LoginResponse> {
         return try {
-            // 在SQLite数据库中验证用户
-            val localUser = userDao.verifyUser(loginRequest.username, loginRequest.password)
+            val response = apiService.login(loginRequest)
             
-            if (localUser != null) {
-                // 生成模拟的JWT Token
-                val token = generateJwtToken(localUser.id, localUser.username)
-                val expiresIn = 7 * 24 * 60 * 60L // 7天
+            if (response.code == 200 && response.data != null) {
+                val token = response.data.token
+                val user = response.data.user
+                val expiresIn = response.data.expiresIn
                 
-                // 保存认证信息到SQLite
-                val authToken = AuthToken(
-                    userId = localUser.id,
-                    token = token,
-                    expiresAt = System.currentTimeMillis() + (expiresIn * 1000)
-                )
-                authDao.insertAuthToken(authToken)
-                
-                // 也保存到SharedPreferences保持兼容性
                 TokenManager.saveToken(
                     context = context,
                     token = token,
-                    userId = localUser.id,
-                    username = localUser.username,
-                    email = localUser.email,
+                    userId = user.id,
+                    username = user.username,
+                    email = user.email,
                     expiryIn = expiresIn
                 )
                 
-                // 创建响应
-                val response = LoginResponse(
-                    code = 200,
-                    message = "登录成功",
-                    data = LoginData(
-                        token = token,
-                        expiresIn = expiresIn,
-                        user = localUser.toUser()
-                    )
-                )
                 Result.success(response)
             } else {
-                Result.failure(Exception("用户名或密码错误"))
+                Result.failure(Exception(response.message))
             }
         } catch (e: Exception) {
             Result.failure(e)

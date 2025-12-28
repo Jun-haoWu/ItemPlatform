@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
 import com.wujunhao.a202302010306.itemplatform.database.FavoriteDao
+import com.wujunhao.a202302010306.itemplatform.network.CloudConfig
+import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import kotlinx.coroutines.*
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -24,7 +26,7 @@ class FavoriteSyncService(
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
     
-    private val baseUrl = "https://your-api-server.com/api" // 替换为实际的API地址
+    private val baseUrl = CloudConfig.getCurrentBaseUrl()
     
     companion object {
         private const val TAG = "FavoriteSyncService"
@@ -37,7 +39,12 @@ class FavoriteSyncService(
     suspend fun syncFavoritesToCloud(userId: Long): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                // 获取本地收藏数据
+                val token = TokenManager.getToken(context)
+                if (token == null) {
+                    Log.e(TAG, "无法获取认证token")
+                    return@withContext false
+                }
+                
                 val localFavorites = favoriteDao.getUserFavorites(userId)
                 
                 if (localFavorites.isEmpty()) {
@@ -45,37 +52,44 @@ class FavoriteSyncService(
                     return@withContext true
                 }
                 
-                // 转换为JSON格式
                 val jsonArray = JSONArray()
                 localFavorites.forEach { productId ->
                     val jsonObject = JSONObject().apply {
-                        put("product_id", productId)
-                        put("created_at", System.currentTimeMillis())
+                        put("productId", productId)
+                        put("action", "add")
+                        put("timestamp", System.currentTimeMillis())
                     }
                     jsonArray.put(jsonObject)
                 }
                 
                 val requestBody = JSONObject().apply {
-                    put("user_id", userId)
                     put("favorites", jsonArray)
                 }
                 
                 val request = Request.Builder()
-                    .url("$baseUrl/favorites/sync")
+                    .url("$baseUrl/sync/favorites")
                     .post(RequestBody.create(
                         "application/json; charset=utf-8".toMediaType(),
                         requestBody.toString()
                     ))
+                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 
                 client.newCall(request).execute().use { response ->
                     if (response.isSuccessful) {
-                        Log.d(TAG, "收藏数据同步到云端成功")
-                        // 更新本地同步时间戳
-                        updateLastSyncTime(userId)
-                        true
+                        response.body?.string()?.let { responseBody ->
+                            val jsonResponse = JSONObject(responseBody)
+                            val syncResult = jsonResponse.getJSONObject("syncResult")
+                            val successCount = syncResult.getInt("success")
+                            val errorCount = syncResult.getInt("errors")
+                            
+                            Log.d(TAG, "收藏数据同步到云端成功: 成功${successCount}条, 失败${errorCount}条")
+                            updateLastSyncTime(userId)
+                            true
+                        } ?: false
                     } else {
-                        Log.e(TAG, "同步失败: ${response.code}")
+                        val errorBody = response.body?.string()
+                        Log.e(TAG, "同步失败: ${response.code}, $errorBody")
                         false
                     }
                 }
@@ -92,17 +106,16 @@ class FavoriteSyncService(
     suspend fun syncFavoritesFromCloud(userId: Long): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                val lastSyncTime = getLastSyncTime(userId)
-                
-                val url = if (lastSyncTime > 0) {
-                    "$baseUrl/favorites?user_id=$userId&since=$lastSyncTime"
-                } else {
-                    "$baseUrl/favorites?user_id=$userId"
+                val token = TokenManager.getToken(context)
+                if (token == null) {
+                    Log.e(TAG, "无法获取认证token")
+                    return@withContext false
                 }
                 
                 val request = Request.Builder()
-                    .url(url)
+                    .url("$baseUrl/favorites")
                     .get()
+                    .addHeader("Authorization", "Bearer $token")
                     .build()
                 
                 client.newCall(request).execute().use { response ->
@@ -111,17 +124,16 @@ class FavoriteSyncService(
                             val jsonResponse = JSONObject(responseBody)
                             val favoritesArray = jsonResponse.getJSONArray("favorites")
                             
-                            // 批量处理收藏数据
                             processCloudFavorites(userId, favoritesArray)
                             
-                            // 更新本地同步时间戳
                             updateLastSyncTime(userId)
                             
                             Log.d(TAG, "从云端同步收藏数据成功，共${favoritesArray.length()}条")
                             true
                         } ?: false
                     } else {
-                        Log.e(TAG, "获取云端收藏数据失败: ${response.code}")
+                        val errorBody = response.body?.string()
+                        Log.e(TAG, "获取云端收藏数据失败: ${response.code}, $errorBody")
                         false
                     }
                 }
@@ -142,18 +154,11 @@ class FavoriteSyncService(
                 
                 for (i in 0 until favoritesArray.length()) {
                     val favoriteObj = favoritesArray.getJSONObject(i)
-                    val productId = favoriteObj.getLong("product_id")
-                    val createdAt = favoriteObj.getLong("created_at")
-                    val isDeleted = favoriteObj.optBoolean("is_deleted", false)
+                    val productId = favoriteObj.getLong("id")
+                    val favoritedAt = favoriteObj.optLong("favorited_at", System.currentTimeMillis())
                     
-                    if (isDeleted) {
-                        // 删除收藏
-                        favoriteDao.removeFavorite(userId, productId)
-                    } else {
-                        // 添加或更新收藏
-                        if (!favoriteDao.isProductFavorited(userId, productId)) {
-                            favoriteDao.addFavorite(userId, productId, createdAt)
-                        }
+                    if (!favoriteDao.isProductFavorited(userId, productId)) {
+                        favoriteDao.addFavorite(userId, productId, favoritedAt)
                     }
                 }
                 

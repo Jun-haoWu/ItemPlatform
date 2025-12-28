@@ -60,6 +60,13 @@ class ProfileFragment : Fragment() {
         // Display basic info
         binding.tvUsername.text = userInfo.username
         
+        // Show admin button only for admin user
+        if (userInfo.username == "admin") {
+            binding.btnAdminUsers.visibility = View.VISIBLE
+        } else {
+            binding.btnAdminUsers.visibility = View.GONE
+        }
+        
         // Load detailed user info
         lifecycleScope.launch {
             try {
@@ -113,6 +120,14 @@ class ProfileFragment : Fragment() {
             // Navigate to edit profile
             val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
+        }
+        
+        binding.btnAdminUsers.setOnClickListener {
+            // Navigate to admin users list
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AdminUsersFragment())
+                .addToBackStack(null)
+                .commit()
         }
         
         binding.btnLogout.setOnClickListener {
