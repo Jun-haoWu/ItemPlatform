@@ -200,8 +200,8 @@ app.post('/api/auth/login', async (req, res, next) => {
 // 商品相关API
 app.get('/api/products', async (req, res, next) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 20;
+    const page = Math.max(1, parseInt(req.query.page) || 1);
+    const limit = Math.max(1, Math.min(100, parseInt(req.query.limit) || 20));
     const offset = (page - 1) * limit;
     const category = req.query.category;
     const search = req.query.search;
@@ -219,15 +219,14 @@ app.get('/api/products', async (req, res, next) => {
       params.push(`%${search}%`, `%${search}%`);
     }
     
-    const [products] = await pool.execute(
-      `SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
+    const sql = `SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
        FROM products ${whereClause} 
        ORDER BY created_at DESC 
-       LIMIT ? OFFSET ?`,
-      [...params, limit, offset]
-    );
+       LIMIT ${limit} OFFSET ${offset}`;
     
-    const [totalResult] = await pool.execute(
+    const [products] = await pool.query(sql, params);
+    
+    const [totalResult] = await pool.query(
       `SELECT COUNT(*) as total FROM products ${whereClause}`,
       params
     );

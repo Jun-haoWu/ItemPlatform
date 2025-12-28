@@ -18,7 +18,7 @@ object ApiClient {
     private const val USE_MOCK_MODE = false
     
     // 本地数据库模式 - 使用SQLite存储数据
-    private const val USE_LOCAL_DATABASE = false
+    private const val USE_LOCAL_DATABASE = true
     
     private fun createLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {

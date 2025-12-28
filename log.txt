@@ -1,953 +1,110 @@
-itemplatform-app  | 
-itemplatform-app  | added 98 packages, and audited 99 packages in 9s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | npm notice 
-itemplatform-app  | npm notice New major version of npm available! 8.19.4 -> 11.7.0
-itemplatform-app  | npm notice Changelog: <https://github.com/npm/cli/releases/tag/v11.7.0>
-itemplatform-app  | npm notice Run `npm install -g npm@11.7.0` to update!
-itemplatform-app  | npm notice 
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 991ms
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 993ms
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 963ms
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 2s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | /app/server.js:264
-itemplatform-app  |       'SELECT id, name, description, price, original_price, images, category, location, like_count, view_count, created_at 
-itemplatform-app  |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-itemplatform-app  | 
-itemplatform-app  | SyntaxError: Invalid or unexpected token
-itemplatform-app  |     at Object.compileFunction (node:vm:360:18)
-itemplatform-app  |     at wrapSafe (node:internal/modules/cjs/loader:1126:15)
-itemplatform-app  |     at Module._compile (node:internal/modules/cjs/loader:1162:27)
-itemplatform-app  |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
-itemplatform-app  |     at Module.load (node:internal/modules/cjs/loader:1076:32)
-itemplatform-app  |     at Function.Module._load (node:internal/modules/cjs/loader:911:12)
-itemplatform-app  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-itemplatform-app  |     at node:internal/main/run_main_module:22:47
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | Ignoring invalid configuration option passed to Connection: acquireTimeout. This is currently a warning, but in future versions of MySQL2, an error will be thrown if you pass an invalid configuration option to a Connection
-itemplatform-app  | Ignoring invalid configuration option passed to Connection: timeout. This is currently a warning, but in future versions of MySQL2, an error will be thrown if you pass an invalid configuration option to a Connection
-itemplatform-app  | 数据库连接成功
-itemplatform-app  | 服务器运行在端口 3000
-itemplatform-app  | 健康检查: http://localhost:3000/health
-itemplatform-app  | API文档: http://localhost:3000/api/*
-itemplatform-app  | 收到SIGTERM信号，正在关闭服务器...
-itemplatform-app  | 数据库连接池已关闭
-itemplatform-app  | 
-itemplatform-app  | up to date, audited 99 packages in 1s
-itemplatform-app  | 
-itemplatform-app  | 19 packages are looking for funding
-itemplatform-app  |   run `npm fund` for details
-itemplatform-app  | 
-itemplatform-app  | found 0 vulnerabilities
-itemplatform-app  | 
-itemplatform-app  | > itemplatform-server@1.0.0 start
-itemplatform-app  | > node server.js
-itemplatform-app  | 
-itemplatform-app  | Ignoring invalid configuration option passed to Connection: acquireTimeout. This is currently a warning, but in future versions of MySQL2, an error will be thrown if you pass an invalid configuration option to a Connection
-itemplatform-app  | Ignoring invalid configuration option passed to Connection: timeout. This is currently a warning, but in future versions of MySQL2, an error will be thrown if you pass an invalid configuration option to a Connection
-itemplatform-app  | 数据库连接成功
-itemplatform-app  | 服务器运行在端口 3000
-itemplatform-app  | 健康检查: http://localhost:3000/health
-itemplatform-app  | API文档: http://localhost:3000/api/*
+
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 2. 执行 SQL 脚本
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' item_platform < /opt/itemplatform/sql/init_database.sql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 3. 验证表创建
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' -e "USE item_platform; SHOW TABLES;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Tables_in_item_platform
+favorites
+products
+users
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 4. 查看products表结构
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' -e "USE item_platform; DESCRIBE products;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Field   Type    Null    Key     Default Extra
+id      int     NO      PRI     NULL    auto_increment
+user_id int     NO      MUL     NULL
+name    varchar(200)    NO              NULL
+description     text    YES             NULL
+price   decimal(10,2)   NO              NULL
+original_price  decimal(10,2)   YES             NULL
+images  text    YES             NULL
+category        varchar(50)     YES             NULL
+location        varchar(100)    YES             NULL
+status  enum('active','sold','inactive')        YES     MUL     active
+like_count      int     YES             0
+view_count      int     YES             0
+created_at      timestamp       YES     MUL     CURRENT_TIMESTAMP       DEFAULT_GENERATED
+updated_at      timestamp       YES             CURRENT_TIMESTAMP       DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# ^C
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 查看完整的docker-compose.yml
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# cat /opt/itemplatform/docker-compose.yml
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: itemplatform-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ItemPlatform2024!
+      MYSQL_DATABASE: item_platform
+      MYSQL_USER: item_user
+      MYSQL_PASSWORD: ItemPlatform2024!
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pItemPlatform2024!"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: node:16-alpine
+    container_name: itemplatform-app
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: item_platform
+      DB_USER: item_user
+      DB_PASSWORD: ItemPlatform2024!
+      JWT_SECRET: ItemPlatform2024SecretKey
+      JWT_EXPIRES_IN: 24h
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:80
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    command: sh -c "npm install && npm start"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    container_name: itemplatform-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./static:/usr/share/nginx/html/static:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mysql_data:
+[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
