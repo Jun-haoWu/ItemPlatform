@@ -18,7 +18,7 @@ object ApiClient {
     private const val USE_MOCK_MODE = false
     
     // 本地数据库模式 - 使用SQLite存储数据
-    private const val USE_LOCAL_DATABASE = true
+    private const val USE_LOCAL_DATABASE = false
     
     private fun createLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
@@ -29,11 +29,14 @@ object ApiClient {
     private fun createAuthInterceptor(context: Context): Interceptor {
         return Interceptor { chain ->
             val token = TokenManager.getToken(context)
+            android.util.Log.d("ApiClient", "Token from TokenManager: ${token?.take(20)}...")
             val request = if (token != null) {
+                android.util.Log.d("ApiClient", "Adding Authorization header")
                 chain.request().newBuilder()
                     .addHeader("Authorization", "Bearer $token")
                     .build()
             } else {
+                android.util.Log.d("ApiClient", "No token found, not adding Authorization header")
                 chain.request()
             }
             chain.proceed(request)

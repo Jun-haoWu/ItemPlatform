@@ -14,7 +14,7 @@ import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.adapter.AdminUserAdapter
 import com.wujunhao.a202302010306.itemplatform.databinding.FragmentAdminUsersBinding
 import com.wujunhao.a202302010306.itemplatform.model.AdminUser
-import com.wujunhao.a202302010306.itemplatform.model.Pagination
+import com.wujunhao.a202302010306.itemplatform.model.AdminPagination
 import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import kotlinx.coroutines.Dispatchers
@@ -54,9 +54,14 @@ class AdminUsersFragment : Fragment() {
     
     private fun checkAdminPermission() {
         val username = TokenManager.getUsername(requireContext())
+        android.util.Log.d("AdminUsersFragment", "checkAdminPermission: username=$username")
+        
         if (username != "admin") {
+            android.util.Log.d("AdminUsersFragment", "非admin用户，返回上一页")
             Toast.makeText(context, "需要管理员权限", Toast.LENGTH_SHORT).show()
             requireActivity().onBackPressed()
+        } else {
+            android.util.Log.d("AdminUsersFragment", "admin用户验证通过")
         }
     }
     
@@ -86,7 +91,7 @@ class AdminUsersFragment : Fragment() {
     }
     
     private fun setupSearch() {
-        binding.searchView.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 currentSearchQuery = query ?: ""
                 currentPage = 1
@@ -117,11 +122,20 @@ class AdminUsersFragment : Fragment() {
                     )
                 }
                 
+                android.util.Log.d("AdminUsersFragment", "Response code: ${response.code()}")
+                android.util.Log.d("AdminUsersFragment", "Response body: ${response.body()}")
+                
                 if (response.isSuccessful && response.body() != null) {
                     val body = response.body()!!
+                    android.util.Log.d("AdminUsersFragment", "Response code: ${body.code}, message: ${body.message}")
+                    android.util.Log.d("AdminUsersFragment", "Data: ${body.data}")
+                    
                     if (body.code == 200 && body.data != null) {
                         val newUsers = body.data.users
                         val pagination = body.data.pagination
+                        
+                        android.util.Log.d("AdminUsersFragment", "Users count: ${newUsers.size}")
+                        android.util.Log.d("AdminUsersFragment", "Pagination: page=${pagination.page}, total=${pagination.total}")
                         
                         if (currentPage == 1) {
                             adminUserAdapter.updateUsers(newUsers)
@@ -134,16 +148,21 @@ class AdminUsersFragment : Fragment() {
                         
                         updatePaginationInfo(pagination)
                     } else {
+                        android.util.Log.e("AdminUsersFragment", "Error: ${body.message}")
                         showError(body.message)
                     }
                 } else {
+                    android.util.Log.e("AdminUsersFragment", "Response not successful: ${response.code()}")
                     showError("获取用户列表失败")
                 }
             } catch (e: IOException) {
+                android.util.Log.e("AdminUsersFragment", "IOException: ${e.message}", e)
                 showError("网络错误，请检查网络连接")
             } catch (e: HttpException) {
+                android.util.Log.e("AdminUsersFragment", "HttpException: ${e.code()}", e)
                 showError("服务器错误: ${e.code()}")
             } catch (e: Exception) {
+                android.util.Log.e("AdminUsersFragment", "Exception: ${e.message}", e)
                 showError("发生错误: ${e.message}")
             } finally {
                 isLoading = false
@@ -152,7 +171,7 @@ class AdminUsersFragment : Fragment() {
         }
     }
     
-    private fun updatePaginationInfo(pagination: Pagination) {
+    private fun updatePaginationInfo(pagination: AdminPagination) {
         binding.paginationInfo.text = "第 ${pagination.page} / ${pagination.totalPages} 页，共 ${pagination.total} 个用户"
         
         binding.prevButton.isEnabled = pagination.hasPrev

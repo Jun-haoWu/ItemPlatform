@@ -22,16 +22,13 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             _uiState.value = LoginUiState.Loading
             
-            // 检查是否为管理员登录
-            if (request.username == "admin" && request.password == "123456") {
-                // 管理员登录成功
-                _uiState.value = LoginUiState.AdminSuccess
-                return@launch
-            }
-            
             userRepository.login(request)
                 .onSuccess { response ->
-                    _uiState.value = LoginUiState.Success
+                    if (request.username == "admin") {
+                        _uiState.value = LoginUiState.AdminSuccess
+                    } else {
+                        _uiState.value = LoginUiState.Success
+                    }
                 }
                 .onFailure { exception ->
                     _uiState.value = LoginUiState.Error(exception.message ?: "登录失败")

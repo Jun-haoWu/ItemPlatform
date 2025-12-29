@@ -1,110 +1,79 @@
-
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 2. 执行 SQL 脚本
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' item_platform < /opt/itemplatform/sql/init_database.sql
-mysql: [Warning] Using a password on the command line interface can be insecure.
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 3. 验证表创建
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' -e "USE item_platform; SHOW TABLES;"
-mysql: [Warning] Using a password on the command line interface can be insecure.
-Tables_in_item_platform
-favorites
-products
-users
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 4. 查看products表结构
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# docker exec -i itemplatform-mysql mysql -u item_user -p'ItemPlatform2024!' -e "USE item_platform; DESCRIBE products;"
-mysql: [Warning] Using a password on the command line interface can be insecure.
-Field   Type    Null    Key     Default Extra
-id      int     NO      PRI     NULL    auto_increment
-user_id int     NO      MUL     NULL
-name    varchar(200)    NO              NULL
-description     text    YES             NULL
-price   decimal(10,2)   NO              NULL
-original_price  decimal(10,2)   YES             NULL
-images  text    YES             NULL
-category        varchar(50)     YES             NULL
-location        varchar(100)    YES             NULL
-status  enum('active','sold','inactive')        YES     MUL     active
-like_count      int     YES             0
-view_count      int     YES             0
-created_at      timestamp       YES     MUL     CURRENT_TIMESTAMP       DEFAULT_GENERATED
-updated_at      timestamp       YES             CURRENT_TIMESTAMP       DEFAULT_GENERATED on update CURRENT_TIMESTAMP
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# ^C
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# # 查看完整的docker-compose.yml
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]# cat /opt/itemplatform/docker-compose.yml
-version: '3.8'
-
-services:
-  mysql:
-    image: mysql:8.0
-    container_name: itemplatform-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ItemPlatform2024!
-      MYSQL_DATABASE: item_platform
-      MYSQL_USER: item_user
-      MYSQL_PASSWORD: ItemPlatform2024!
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - ./sql:/docker-entrypoint-initdb.d:ro
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pItemPlatform2024!"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  app:
-    image: node:16-alpine
-    container_name: itemplatform-app
-    working_dir: /app
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    ports:
-      - "3000:3000"
-    environment:
-      NODE_ENV: production
-      PORT: 3000
-      DB_HOST: mysql
-      DB_PORT: 3306
-      DB_NAME: item_platform
-      DB_USER: item_user
-      DB_PASSWORD: ItemPlatform2024!
-      JWT_SECRET: ItemPlatform2024SecretKey
-      JWT_EXPIRES_IN: 24h
-      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:80
-    depends_on:
-      mysql:
-        condition: service_healthy
-    restart: unless-stopped
-    command: sh -c "npm install && npm start"
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-
-  nginx:
-    image: nginx:alpine
-    container_name: itemplatform-nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./static:/usr/share/nginx/html/static:ro
-    depends_on:
-      - app
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
-volumes:
-  mysql_data:
-[root@iZbp11qv79ym43ja74j0i3Z itemplatform]#
+2025-12-29 11:58:31.027  5110-5174  InteractionJankMonitor  com...ao.a202302010306.itemplatform  W  Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.wujunhao.a202302010306.itemplatform
+2025-12-29 11:58:31.236  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:c6cc0bba: onShown
+2025-12-29 11:58:33.811  5110-5110  AutofillManager         com...ao.a202302010306.itemplatform  I  showAutofillDialog() return false due to improve fill dialog
+2025-12-29 11:58:33.812  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:15742d2c: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser true
+2025-12-29 11:58:33.813  5110-5110  InsetsController        com...ao.a202302010306.itemplatform  D  show(ime())
+2025-12-29 11:58:33.814  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:15742d2c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+2025-12-29 11:58:33.835  5110-5110  RemoteInpu...ectionImpl com...ao.a202302010306.itemplatform  W  requestCursorUpdates on inactive InputConnection
+2025-12-29 11:58:33.848  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@372d4ce
+2025-12-29 11:58:33.892  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@c46b76f
+2025-12-29 11:58:42.802  5110-5194  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: null...
+2025-12-29 11:58:42.802  5110-5194  ApiClient               com...ao.a202302010306.itemplatform  D  No token found, not adding Authorization header
+2025-12-29 11:58:42.802  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/auth/login
+2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
+2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 45
+2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"password":"password123","username":"admin"}
+2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (45-byte body)
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/auth/login (126ms)
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Mon, 29 Dec 2025 03:58:42 GMT
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Origin
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Access-Control-Allow-Credentials: true
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 100
+2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 90
+2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1766981369
+2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"148-oBhMqWKkWLOYLjJ3SdsHgse86fM"
+2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"登录成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NjY5ODA3MjIsImV4cCI6MTc2NzA2NzEyMn0.yXup_CsVSe7Fs3qeGa2QMOfFA-4WMZ-KFWa2SpSZTnw","user":{"id":4,"username":"admin","email":"admin@example.com","phone":"13800000000"},"expiresIn":86400}}
+2025-12-29 11:58:42.932  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (328-byte body)
+2025-12-29 11:58:43.071  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  开始加载用户列表
+2025-12-29 11:58:43.074  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  创建API服务
+2025-12-29 11:58:43.075  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  调用API获取用户列表
+2025-12-29 11:58:43.080  5110-5198  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-29 11:58:43.080  5110-5198  ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-29 11:58:43.083  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/admin/users?page=1&limit=100
+2025-12-29 11:58:43.085  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NjY5ODA3MjIsImV4cCI6MTc2NzA2NzEyMn0.yXup_CsVSe7Fs3qeGa2QMOfFA-4WMZ-KFWa2SpSZTnw
+2025-12-29 11:58:43.085  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2025-12-29 11:58:43.118  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c
+2025-12-29 11:58:43.119  5110-5110  VRI[AdminActivity]      com...ao.a202302010306.itemplatform  D  WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/admin/users?page=1&limit=100 (40ms)
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Mon, 29 Dec 2025 03:58:42 GMT
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-29 11:58:43.128  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Origin
+2025-12-29 11:58:43.130  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Access-Control-Allow-Credentials: true
+2025-12-29 11:58:43.130  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 100
+2025-12-29 11:58:43.131  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 89
+2025-12-29 11:58:43.132  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1766981369
+2025-12-29 11:58:43.133  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"32d-ZdO6Tjzoj6VNJ3ODq8NEIq8/5L0"
+2025-12-29 11:58:43.135  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取用户列表成功","data":{"users":[{"id":4,"username":"admin","email":"admin@example.com","phone":"13800000000","real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T12:41:25.000Z"},{"id":3,"username":"3","email":"3@qq.com","phone":"33333333333","real_name":"33","student_id":"3","department":"3","created_at":"2025-12-28T10:07:10.000Z"},{"id":2,"username":"2","email":"1@email.com","phone":"22222222222","real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T09:20:58.000Z"},{"id":1,"username":"testuser","email":"test@example.com","phone":null,"real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T06:57:46.000Z"}],"pagination":{"page":1,"limit":100,"total":4,"totalPages":1,"hasNext":false,"hasPrev":false}}}
+2025-12-29 11:58:43.136  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (813-byte body)
+2025-12-29 11:58:43.213  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:f265dcc9: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response code: 200
+2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response body: AdminUsersResponse(code=200, message=获取用户列表成功, data=AdminUsersData(users=[AdminUser(id=4, username=admin, email=admin@example.com, phone=13800000000, realName=null, studentId=null, department=null, createdAt=2025-12-28T12:41:25.000Z), AdminUser(id=3, username=3, email=3@qq.com, phone=33333333333, realName=33, studentId=3, department=3, createdAt=2025-12-28T10:07:10.000Z), AdminUser(id=2, username=2, email=1@email.com, phone=22222222222, realName=null, studentId=null, department=null, createdAt=2025-12-28T09:20:58.000Z), AdminUser(id=1, username=testuser, email=test@example.com, phone=null, realName=null, studentId=null, department=null, createdAt=2025-12-28T06:57:46.000Z)], pagination=AdminPagination(page=1, limit=100, total=4, totalPages=1, hasNext=false, hasPrev=false)))
+2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response error: null
+2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Admin users count: 4
+2025-12-29 11:58:43.323  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Users count: 4
+2025-12-29 11:58:43.323  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  用户列表加载成功
+2025-12-29 11:58:43.327  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@372d4ce
+2025-12-29 11:58:43.327  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@2128c42
+2025-12-29 11:58:43.408  5110-5110  InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())
+2025-12-29 11:58:43.408  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:e143381d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+2025-12-29 11:58:43.409  5110-5110  RemoteInpu...ectionImpl com...ao.a202302010306.itemplatform  W  requestCursorUpdates on inactive InputConnection
+2025-12-29 11:58:43.414  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  system_server:33db3c84: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+2025-12-29 11:58:43.430  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c
+2025-12-29 11:58:43.518  5110-5110  VRI[LoginActivity]      com...ao.a202302010306.itemplatform  D  visibilityChanged oldVisibility=true newVisibility=false
+2025-12-29 11:58:43.526  5110-5124  HWUI                    com...ao.a202302010306.itemplatform  D  endAllActiveAnimators on 0x7e0330ea9bc0 (RippleDrawable) with handle 0x7e0360e4cc50
+2025-12-29 11:58:43.553  5110-5110  AutofillManager         com...ao.a202302010306.itemplatform  I  onInvisibleForAutofill(): expiringResponse
+2025-12-29 11:58:43.555  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): null
+2025-12-29 11:58:43.561  5110-5110  ViewRootImpl            com...ao.a202302010306.itemplatform  D  Skipping stats log for color mode
+2025-12-29 11:58:43.566  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@2128c42
+2025-12-29 11:58:43.567  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c

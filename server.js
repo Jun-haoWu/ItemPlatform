@@ -160,8 +160,8 @@ app.post('/api/auth/register', async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     
     const [result] = await pool.execute(
-      'INSERT INTO users (username, password, email, phone) VALUES (?, ?, ?, ?)',
-      [username, hashedPassword, email || null, phone || null]
+      'INSERT INTO users (username, password, email, phone, real_name, student_id, department) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [username, hashedPassword, email || null, phone || null, realName || null, studentId || null, department || null]
     );
     
     const token = jwt.sign(
@@ -179,7 +179,10 @@ app.post('/api/auth/register', async (req, res, next) => {
           id: result.insertId, 
           username, 
           email, 
-          phone 
+          phone,
+          realName,
+          studentId,
+          department
         },
         expiresIn: 24 * 60 * 60
       }
@@ -258,7 +261,7 @@ app.get('/api/admin/users', authenticateAdmin, async (req, res, next) => {
       params.push(`%${search}%`, `%${search}%`, `%${search}%`);
     }
     
-    const sql = `SELECT id, username, email, phone, created_at 
+    const sql = `SELECT id, username, email, phone, real_name, student_id, department, created_at 
        FROM users ${whereClause} 
        ORDER BY created_at DESC 
        LIMIT ${limit} OFFSET ${offset}`;

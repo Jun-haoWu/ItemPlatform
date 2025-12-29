@@ -71,15 +71,35 @@ class MainActivity : AppCompatActivity() {
     }
     
     override fun onBackPressed() {
-        // Handle back navigation
+        val backStackEntryCount = supportFragmentManager.backStackEntryCount
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
         
-        // If we're not on the home fragment, go back to home
-        if (currentFragment !is HomeFragment) {
-            binding.bottomNavigation.selectedItemId = R.id.nav_home
+        android.util.Log.d("MainActivity", "onBackPressed: backStackEntryCount=$backStackEntryCount")
+        android.util.Log.d("MainActivity", "当前Fragment: ${currentFragment?.javaClass?.simpleName}")
+        android.util.Log.d("MainActivity", "当前Fragment实例: $currentFragment")
+        
+        if (backStackEntryCount > 0) {
+            android.util.Log.d("MainActivity", "弹出返回栈")
+            supportFragmentManager.popBackStack()
         } else {
-            // If we're on home fragment, exit the app
-            super.onBackPressed()
+            android.util.Log.d("MainActivity", "返回栈为空，检查当前Fragment")
+            
+            if (currentFragment is AdminUsersFragment) {
+                android.util.Log.d("MainActivity", "在AdminUsersFragment，导航到ProfileFragment")
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, ProfileFragment())
+                    .addToBackStack(null)
+                    .commit()
+            } else if (currentFragment !is HomeFragment && currentFragment !is ProfileFragment) {
+                android.util.Log.d("MainActivity", "导航到首页")
+                binding.bottomNavigation.selectedItemId = R.id.nav_home
+            } else if (currentFragment is ProfileFragment) {
+                android.util.Log.d("MainActivity", "在ProfileFragment，导航到首页")
+                binding.bottomNavigation.selectedItemId = R.id.nav_home
+            } else {
+                android.util.Log.d("MainActivity", "退出应用")
+                super.onBackPressed()
+            }
         }
     }
 }

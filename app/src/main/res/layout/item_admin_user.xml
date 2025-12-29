@@ -38,6 +38,30 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/realNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="真实姓名: 张三"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/studentIdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="学号: 20230001"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/departmentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="院系: 计算机学院"
+            android:textSize="14sp" />
+
+        <TextView
             android:id="@+id/createdAtTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

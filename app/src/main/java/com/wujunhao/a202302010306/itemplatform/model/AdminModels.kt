@@ -15,8 +15,17 @@ data class AdminUser(
     @SerializedName("phone")
     val phone: String?,
     
+    @SerializedName("real_name")
+    val realName: String?,
+    
+    @SerializedName("student_id")
+    val studentId: String?,
+    
+    @SerializedName("department")
+    val department: String?,
+    
     @SerializedName("created_at")
-    val createdAt: Long
+    val createdAt: String
 )
 
 data class AdminUsersResponse(
@@ -35,10 +44,10 @@ data class AdminUsersData(
     val users: List<AdminUser>,
     
     @SerializedName("pagination")
-    val pagination: Pagination
+    val pagination: AdminPagination
 )
 
-data class Pagination(
+data class AdminPagination(
     @SerializedName("page")
     val page: Int,
     

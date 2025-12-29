@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.model.Product
 import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
 import com.wujunhao.a202302010306.itemplatform.database.ProductDao

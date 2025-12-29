@@ -12,6 +12,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE,
     phone VARCHAR(20) UNIQUE,
+    real_name VARCHAR(50),
+    student_id VARCHAR(20),
+    department VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_username (username),
@@ -53,8 +56,17 @@ CREATE TABLE favorites (
     INDEX idx_created_at (created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO users (username, password, email) VALUES
-('testuser', 'password123', 'test@example.com');
+INSERT INTO users (username, password, email, phone) VALUES
+('admin', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'admin@example.com', '13800000001'),
+('2', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user2@example.com', '13800000002'),
+('testuser', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'test@example.com', '13800000003'),
+('user3', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user3@example.com', '13800000004'),
+('user4', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user4@example.com', '13800000005'),
+('user5', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user5@example.com', '13800000006'),
+('user6', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user6@example.com', '13800000007'),
+('user7', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user7@example.com', '13800000008'),
+('user8', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user8@example.com', '13800000009'),
+('user9', '$2a$10$X7w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0O8w0', 'user9@example.com', '13800000010');
 
 INSERT INTO products (user_id, name, description, price, original_price, images, category, location, status) VALUES
 (1, 'iPhone 15 Pro Max', '全新未拆封，256GB，原装正品，支持验机', 8999.00, 9999.00, '["https://example.com/iphone1.jpg", "https://example.com/iphone2.jpg"]', '数码', '北京', 'active'),
