@@ -18,12 +18,16 @@ import com.wujunhao.a202302010306.itemplatform.adapter.SelectedImagesAdapter
 import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
 import com.wujunhao.a202302010306.itemplatform.database.ProductDao
 import com.wujunhao.a202302010306.itemplatform.databinding.FragmentPublishBinding
+import com.wujunhao.a202302010306.itemplatform.model.PublishProductRequest
+import com.wujunhao.a202302010306.itemplatform.model.PublishProductResponse
 import com.wujunhao.a202302010306.itemplatform.model.Product
+import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
 import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Response
 
 class PublishFragment : Fragment() {
     
@@ -148,6 +152,8 @@ class PublishFragment : Fragment() {
             return
         }
         
+        android.util.Log.d("PublishFragment", "开始发布商品 - title: $title, price: $price")
+        
         val currentTime = System.currentTimeMillis()
         val product = Product(
             title = title,
@@ -156,7 +162,7 @@ class PublishFragment : Fragment() {
             category = category,
             condition = condition,
             location = location,
-            images = null, // Will be updated after product creation
+            images = null,
             sellerId = userInfo.userId,
             status = Product.STATUS_ACTIVE,
             viewCount = 0,
@@ -165,7 +171,9 @@ class PublishFragment : Fragment() {
             updatedAt = currentTime
         )
         
-        // Publish product
+        val apiService = ApiClient.createApiService(requireContext())
+        val token = TokenManager.getToken(requireContext())
+        
         lifecycleScope.launch {
             try {
                 val result = withContext(Dispatchers.IO) {
@@ -175,11 +183,10 @@ class PublishFragment : Fragment() {
                 if (result != -1L) {
                     productId = result
                     
-                    // Save images if any were selected
+                    var imagePaths: String? = null
                     if (selectedImages.isNotEmpty()) {
-                        val imagePaths = saveProductImages(productId)
+                        imagePaths = saveProductImages(productId)
                         if (imagePaths != null) {
-                            // Update product with image paths
                             val updatedProduct = product.copy(id = productId, images = imagePaths)
                             withContext(Dispatchers.IO) {
                                 productDao.updateProductImages(productId, imagePaths)
@@ -187,12 +194,37 @@ class PublishFragment : Fragment() {
                         }
                     }
                     
-                    Toast.makeText(context, "商品发布成功！", Toast.LENGTH_SHORT).show()
-                    clearForm()
+                    android.util.Log.d("PublishFragment", "本地保存成功，开始上传到服务器 - productId: $productId")
+                    
+                    val publishRequest = PublishProductRequest(
+                        name = title,
+                        description = description,
+                        price = price,
+                        originalPrice = null,
+                        images = if (imagePaths != null) ImageUtils.getProductImagePaths(imagePaths) else null,
+                        category = category,
+                        location = location
+                    )
+                    
+                    val response: Response<PublishProductResponse> = withContext(Dispatchers.IO) {
+                        apiService.postProduct(publishRequest)
+                    }
+                    
+                    if (response.isSuccessful && response.body() != null) {
+                        val publishResponse = response.body()!!
+                        android.util.Log.d("PublishFragment", "服务器发布成功 - serverProductId: ${publishResponse.productId}")
+                        Toast.makeText(context, "商品发布成功！", Toast.LENGTH_SHORT).show()
+                        clearForm()
+                    } else {
+                        android.util.Log.e("PublishFragment", "服务器发布失败 - code: ${response.code()}, message: ${response.message()}")
+                        Toast.makeText(context, "商品已保存到本地，但上传服务器失败", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
+                    android.util.Log.e("PublishFragment", "本地保存失败")
                     Toast.makeText(context, "商品发布失败", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
+                android.util.Log.e("PublishFragment", "发布异常", e)
                 Toast.makeText(context, "发布失败: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }

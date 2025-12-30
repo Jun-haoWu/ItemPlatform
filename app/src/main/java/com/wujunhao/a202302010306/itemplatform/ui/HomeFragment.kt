@@ -17,10 +17,13 @@ import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.adapter.ProductAdapter
 import com.wujunhao.a202302010306.itemplatform.database.DatabaseHelper
 import com.wujunhao.a202302010306.itemplatform.database.ProductDao
+import com.wujunhao.a202302010306.itemplatform.database.FavoriteDao
 import com.wujunhao.a202302010306.itemplatform.databinding.FragmentHomeBinding
 import com.wujunhao.a202302010306.itemplatform.model.Product
+import com.wujunhao.a202302010306.itemplatform.model.FavoritesStatusRequest
 import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.network.ApiService
+import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -33,9 +36,11 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     
     private lateinit var productDao: ProductDao
+    private lateinit var favoriteDao: FavoriteDao
     private lateinit var productAdapter: ProductAdapter
     private lateinit var apiService: ApiService
     private var currentProducts: List<Product> = emptyList()
+    private var isLoading = false
     
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,6 +58,7 @@ class HomeFragment : Fragment() {
         val databaseHelper = DatabaseHelper(requireContext())
         databaseHelper.ensureProductsTableExists()
         productDao = ProductDao(databaseHelper)
+        favoriteDao = FavoriteDao(databaseHelper)
         
         // Initialize API Service
         apiService = ApiClient.createApiService(requireContext())
@@ -165,6 +171,10 @@ class HomeFragment : Fragment() {
     }
     
     private fun loadProducts() {
+        if (isLoading) {
+            return
+        }
+        isLoading = true
         showLoading()
         lifecycleScope.launch {
             try {
@@ -181,6 +191,18 @@ class HomeFragment : Fragment() {
                     
                     // 将云端商品同步到本地数据库
                     withContext(Dispatchers.IO) {
+                        // 获取云端商品ID列表
+                        val cloudProductIds = cloudProducts.map { it.id }
+                        
+                        // 删除本地数据库中不在云端商品列表中的商品
+                        val localProducts = productDao.getAllProducts()
+                        for (localProduct in localProducts) {
+                            if (localProduct.id !in cloudProductIds) {
+                                productDao.deleteProduct(localProduct.id)
+                            }
+                        }
+                        
+                        // 同步云端商品到本地数据库
                         for (cloudProduct in cloudProducts) {
                             val existingProduct = productDao.getProductById(cloudProduct.id)
                             val localProduct = cloudProduct.toLocalProduct(-1L)
@@ -199,8 +221,17 @@ class HomeFragment : Fragment() {
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
                     }
+                    android.util.Log.d("HomeFragment", "从本地数据库加载到 ${products.size} 个商品")
                     currentProducts = products
                     updateProductList(products)
+                    
+                    // 同步收藏状态和点赞数
+                    syncFavoriteStatus(products)
+                    
+                    // 如果是下拉刷新触发的，显示成功提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "刷新成功，已更新${cloudProducts.size}个商品", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     // 云端获取失败，从本地数据库加载
                     val products = withContext(Dispatchers.IO) {
@@ -208,6 +239,11 @@ class HomeFragment : Fragment() {
                     }
                     currentProducts = products
                     updateProductList(products)
+                    
+                    // 如果是下拉刷新触发的，显示失败提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "从服务器获取失败，显示本地数据", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: IOException) {
                 // 网络错误，从本地数据库加载
@@ -217,9 +253,19 @@ class HomeFragment : Fragment() {
                     }
                     currentProducts = products
                     updateProductList(products)
+                    
+                    // 如果是下拉刷新触发的，显示网络错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "网络错误，显示本地数据", Toast.LENGTH_SHORT).show()
+                    }
                 } catch (e2: Exception) {
                     currentProducts = emptyList()
                     updateProductList(emptyList())
+                    
+                    // 如果是下拉刷新触发的，显示错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "加载失败", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: HttpException) {
                 // HTTP错误，从本地数据库加载
@@ -229,9 +275,19 @@ class HomeFragment : Fragment() {
                     }
                     currentProducts = products
                     updateProductList(products)
+                    
+                    // 如果是下拉刷新触发的，显示HTTP错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "服务器错误，显示本地数据", Toast.LENGTH_SHORT).show()
+                    }
                 } catch (e2: Exception) {
                     currentProducts = emptyList()
                     updateProductList(emptyList())
+                    
+                    // 如果是下拉刷新触发的，显示错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "加载失败", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: Exception) {
                 // 其他错误，从本地数据库加载
@@ -241,11 +297,22 @@ class HomeFragment : Fragment() {
                     }
                     currentProducts = products
                     updateProductList(products)
+                    
+                    // 如果是下拉刷新触发的，显示错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "加载失败，显示本地数据", Toast.LENGTH_SHORT).show()
+                    }
                 } catch (e2: Exception) {
                     currentProducts = emptyList()
                     updateProductList(emptyList())
+                    
+                    // 如果是下拉刷新触发的，显示错误提示
+                    if (binding.swipeRefreshLayout.isRefreshing) {
+                        Toast.makeText(requireContext(), "加载失败", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } finally {
+                isLoading = false
                 hideLoading()
                 binding.swipeRefreshLayout.isRefreshing = false
             }
@@ -342,14 +409,70 @@ class HomeFragment : Fragment() {
     }
     
     private fun updateProductList(products: List<Product>) {
+        android.util.Log.d("HomeFragment", "updateProductList - 商品数量: ${products.size}")
         productAdapter.updateProducts(products)
         
         if (products.isEmpty()) {
+            android.util.Log.d("HomeFragment", "商品列表为空，显示空提示")
             binding.emptyText.visibility = View.VISIBLE
             binding.productsRecyclerView.visibility = View.GONE
         } else {
+            android.util.Log.d("HomeFragment", "商品列表不为空，显示RecyclerView")
             binding.emptyText.visibility = View.GONE
             binding.productsRecyclerView.visibility = View.VISIBLE
+        }
+    }
+    
+    private fun syncFavoriteStatus(products: List<Product>) {
+        val userInfo = TokenManager.getUserInfo(requireContext())
+        val currentUserId = userInfo?.userId ?: -1L
+        
+        if (currentUserId == -1L) {
+            android.util.Log.d("HomeFragment", "用户未登录，跳过收藏状态同步")
+            return
+        }
+        
+        if (products.isEmpty()) {
+            return
+        }
+        
+        lifecycleScope.launch {
+            try {
+                val productIds = products.map { it.id }
+                
+                val response = withContext(Dispatchers.IO) {
+                    try {
+                        apiService.getFavoritesStatus(FavoritesStatusRequest(productIds))
+                    } catch (e: Exception) {
+                        android.util.Log.e("HomeFragment", "获取收藏状态失败", e)
+                        null
+                    }
+                }
+                
+                if (response != null && response.isSuccessful && response.body() != null) {
+                    val statusMap = response.body()!!.status
+                    
+                    withContext(Dispatchers.IO) {
+                        for (product in products) {
+                            val isFavorited = statusMap[product.id.toString()] ?: false
+                            
+                            if (isFavorited) {
+                                if (!favoriteDao.isProductFavorited(currentUserId, product.id)) {
+                                    favoriteDao.addFavorite(currentUserId, product.id, System.currentTimeMillis())
+                                }
+                            } else {
+                                if (favoriteDao.isProductFavorited(currentUserId, product.id)) {
+                                    favoriteDao.removeFavorite(currentUserId, product.id)
+                                }
+                            }
+                        }
+                    }
+                    
+                    android.util.Log.d("HomeFragment", "收藏状态同步完成")
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("HomeFragment", "同步收藏状态时发生错误", e)
+            }
         }
     }
     

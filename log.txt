@@ -1,128 +1,155 @@
-> Task :app:compileDebugKotlin FAILED
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:246:18 Expecting 'catch' or 'finally'
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:246:19 Unexpected tokens (use ';' to separate expressions on the same line)
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:23 Expecting ')'
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:23 Unexpected tokens (use ';' to separate expressions on the same line)
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:469:1 Expecting a top level declaration
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:247:27 Unresolved reference: response
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:15 Unresolved reference: catch
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:22 Unresolved reference: e
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:258:17 Unresolved reference: e
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:260:15 Unresolved reference: finally
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:13 Unresolved reference: isLoading
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:27 Unresolved reference: hasMore
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:38 Unresolved reference: pendingRequest
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:270:9 Unresolved reference: lifecycleScope
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:22 Unresolved reference: isAdded
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:33 Unresolved reference: isDestroyed
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:48 Unresolved reference: context
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:276:17 Unresolved reference: isLoading
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:277:17 Unresolved reference: pendingRequest
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:278:17 Unresolved reference: currentPage
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:278:17 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:59 Unresolved reference: requireContext
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:77 Suspend function 'getChatHistory' should be called only from a coroutine or another suspend function
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:92 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:105 Unresolved reference: currentPage
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:283:35 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:285:21 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:286:21 Unresolved reference: adapter
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:288:21 Unresolved reference: hasMore
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:21 Unresolved reference: messageCache
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:34 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:49 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:292:21 Unresolved reference: cacheTimestamp
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:292:36 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:299:29 Unresolved reference: currentPage
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:299:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:302:29 Unresolved reference: currentPage
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:302:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:308:17 Unresolved reference: currentPage
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:308:17 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:310:17 Unresolved reference: isLoading
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:311:17 Unresolved reference: pendingRequest
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:317:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:317:28 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:318:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:320:9 Unresolved reference: lifecycleScope
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:322:50 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:323:59 Unresolved reference: requireContext
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:323:77 Suspend function 'sendMessage' should be called only from a coroutine or another suspend function
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:328:25 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:329:25 Unresolved reference: adapter
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:329:52 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:25 Unresolved reference: messageCache
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:38 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:53 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:334:25 Unresolved reference: cacheTimestamp
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:334:40 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:337:25 Unresolved reference: consecutiveEmptyPolls
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:338:25 Unresolved reference: pollInterval
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:356:17 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:356:36 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:362:13 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:363:13 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:363:59 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:368:9 Unresolved reference: messageUpdateHandler
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:368:35 Unresolved reference: messageUpdateRunnable
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:372:9 Unresolved reference: messageUpdateHandler
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:372:46 Unresolved reference: messageUpdateRunnable
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:377:13 Unresolved reference: pendingRequest
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:382:9 Unresolved reference: lifecycleScope
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:22 Unresolved reference: isAdded
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:33 Unresolved reference: isDestroyed
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:48 Unresolved reference: context
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:389:39 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:59 Unresolved reference: requireContext
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:77 Suspend function 'getChatHistory' should be called only from a coroutine or another suspend function
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:92 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:393:30 Unresolved reference: isSuccessful
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:394:30 Unresolved reference: body
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:394:44 Cannot infer a type for this parameter. Please specify it explicitly.
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:395:61 Not enough information to infer type variable T
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:395:83 Cannot infer a type for this parameter. Please specify it explicitly.
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:401:29 Unresolved reference: consecutiveEmptyPolls
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:404:29 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:405:29 Unresolved reference: adapter
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:405:61 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:29 Unresolved reference: messageCache
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:42 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:57 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:409:29 Unresolved reference: cacheTimestamp
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:409:44 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:412:49 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:414:60 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:421:29 Unresolved reference: consecutiveEmptyPolls
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:421:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:425:52 Unresolved reference: lastMessageCount
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:425:99 Unresolved reference: lastMessageCount
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:426:68 Not enough information to infer type variable T
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:426:90 Cannot infer a type for this parameter. Please specify it explicitly.
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:430:33 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:431:33 Unresolved reference: adapter
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:431:65 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:33 Unresolved reference: messageCache
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:46 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:61 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:436:33 Unresolved reference: cacheTimestamp
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:436:48 Unresolved reference: otherUserId
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:439:25 Unresolved reference: lastMessageCount
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:439:44 Unresolved reference: messages
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:451:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:451:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:452:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:452:38 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:453:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:453:36 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:458:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:458:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:459:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:459:38 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:460:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:460:36 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:464:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:464:29 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:465:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:465:38 Variable expected
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:466:9 Unresolved reference: binding
-e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:466:36 Variable expected
+2025-12-30 19:54:54.570 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-30 19:54:54.570 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/products?page=1&limit=100
+2025-12-30 19:54:54.579 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/chat/unread-count
+2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:54:54.579 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2025-12-30 19:54:54.580 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/chat/unread-count (138ms)
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/products?page=1&limit=100 (139ms)
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 200
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 198
+2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095746
+2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:54:54.720 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-30 19:54:54.720 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:54:54.721 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-30 19:54:54.722 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:54:54.722 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"51-VuCUA+nWNzOfdgw+4E3SLjcpawA"
+2025-12-30 19:54:54.722 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 499
+2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
+2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"273-3+Kh1mVnDWSktYhkIKgY8OzDIRw"
+2025-12-30 19:54:54.731 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取未读消息数量成功","data":{"unread_count":5}}
+2025-12-30 19:54:54.732 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (81-byte body)
+2025-12-30 19:54:54.732 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"products":[{"id":12,"name":"user4's cup","description":"a cup","price":"5.00","original_price":null,"images":["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg"],"category":"生活用品","location":"C1","like_count":2,"view_count":19,"created_at":"2025-12-30T11:26:16.000Z"},{"id":11,"name":"user3's bag","description":"a bag","price":"20.00","original_price":null,"images":[],"category":"生活用品","location":"C1","like_count":2,"view_count":15,"created_at":"2025-12-30T11:11:06.000Z"}],"pagination":{"page":1,"limit":100,"total":2,"pages":1}}
+2025-12-30 19:54:54.733 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (627-byte body)
+2025-12-30 19:54:54.826 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
+2025-12-30 19:54:54.826 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 2
+2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 2
+2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 12
+2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2025-12-30 19:54:54.850 14036-14036 InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())
+2025-12-30 19:54:54.851 14036-14036 ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:57cae497: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+2025-12-30 19:54:54.855 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's cup, id: 12, status: 0, 影响行数: 1
+2025-12-30 19:54:54.856 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 11
+2025-12-30 19:54:54.858 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2025-12-30 19:54:54.859 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2025-12-30 19:54:54.873 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user3's bag, id: 11, status: 0, 影响行数: 1
+2025-12-30 19:54:54.902 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
+2025-12-30 19:54:54.909 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 2
+2025-12-30 19:54:54.909 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 2
+2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  从本地数据库加载到 2 个商品
+2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  updateProductList - 商品数量: 2
+2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  商品列表不为空，显示RecyclerView
+2025-12-30 19:54:54.947 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-30 19:54:54.955 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-30 19:54:54.960 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/favorites/status
+2025-12-30 19:54:54.970 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
+2025-12-30 19:54:54.971 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 22
+2025-12-30 19:54:54.972 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:54:54.973 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"productIds":[11,12]}
+2025-12-30 19:54:54.978 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (22-byte body)
+2025-12-30 19:54:55.014 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 400 Bad Request http://223.6.254.237/api/favorites/status (35ms)
+2025-12-30 19:54:55.014 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:54:55.019 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
+2025-12-30 19:54:55.021 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:54:55.024 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 29
+2025-12-30 19:54:55.026 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:54:55.026 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:54:55.027 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2025-12-30 19:54:55.028 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 498
+2025-12-30 19:54:55.029 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
+2025-12-30 19:54:55.031 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"1d-jsqna1DhYbG6+E8JtF7JKX9FO2U"
+2025-12-30 19:54:55.034 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"error":"无效的商品ID"}
+2025-12-30 19:54:55.035 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (29-byte body)
+2025-12-30 19:54:55.409 14036-14042 06.itemplatform         com...ao.a202302010306.itemplatform  I  Compiler allocated 5200KB to compile void android.view.ViewRootImpl.performTraversals()
+2025-12-30 19:55:00.052 14036-14074 ProfileInstaller        com...ao.a202302010306.itemplatform  D  Installing profile for com.wujunhao.a202302010306.itemplatform
+2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  创建Retrofit实例，基础URL: http://223.6.254.237:80/api/
+2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  USE_MOCK_MODE: false, USE_LOCAL_DATABASE: false
+2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  使用真实服务器模式
+2025-12-30 19:55:04.545 14036-14075 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-30 19:55:04.545 14036-14075 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/chat/unread-count
+2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2025-12-30 19:55:04.561 14036-14043 06.itemplatform         com...ao.a202302010306.itemplatform  W  userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+2025-12-30 19:55:04.575 14036-14045 System                  com...ao.a202302010306.itemplatform  W  A resource failed to call close. 
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/chat/unread-count (42ms)
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:06 GMT
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 200
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 197
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095746
+2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"51-VuCUA+nWNzOfdgw+4E3SLjcpawA"
+2025-12-30 19:55:04.590 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取未读消息数量成功","data":{"unread_count":5}}
+2025-12-30 19:55:04.591 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (81-byte body)
+2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  创建Retrofit实例，基础URL: http://223.6.254.237:80/api/
+2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  USE_MOCK_MODE: false, USE_LOCAL_DATABASE: false
+2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  使用真实服务器模式
+2025-12-30 19:55:08.585 14036-14079 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-30 19:55:08.585 14036-14079 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-30 19:55:08.586 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/products/11
+2025-12-30 19:55:08.586 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:55:08.587 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2025-12-30 19:55:08.591 14036-14080 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2025-12-30 19:55:08.591 14036-14080 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/favorites/status
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 19
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"productIds":[11]}
+2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (19-byte body)
+2025-12-30 19:55:08.611 14036-14036 WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@8c5d97e
+2025-12-30 19:55:08.622 14036-14036 VRI[Produc...lActivity] com...ao.a202302010306.itemplatform  D  WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/products/11 (54ms)
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:10 GMT
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:55:08.643 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2025-12-30 19:55:08.643 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:55:08.644 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2025-12-30 19:55:08.645 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 497
+2025-12-30 19:55:08.646 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
+2025-12-30 19:55:08.646 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"140-AIXzV2AwWJEuSivDxl6AICOzK7c"
+2025-12-30 19:55:08.648 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"product":{"id":11,"user_id":18,"name":"user3's bag","description":"a bag","price":"20.00","original_price":null,"images":[],"category":"生活用品","location":"C1","status":"active","like_count":2,"view_count":16,"created_at":"2025-12-30T11:11:06.000Z","updated_at":"2025-12-30T11:55:10.000Z","seller_name":"user3"}}
+2025-12-30 19:55:08.649 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (320-byte body)
+2025-12-30 19:55:08.650 14036-14058 FavoriteSyncService     com...ao.a202302010306.itemplatform  E  获取云端收藏数据失败: 500, {"error":"服务器内部错误"}
+2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 400 Bad Request http://223.6.254.237/api/favorites/status (54ms)
+2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:10 GMT
+2025-12-30 19:55:08.655 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 29
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 495
+2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
+2025-12-30 19:55:08.657 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"1d-jsqna1DhYbG6+E8JtF7JKX9FO2U"
+2025-12-30 19:55:08.658 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"error":"无效的商品ID"}
+2025-12-30 19:55:08.659 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (29-byte body)
+2025-12-30 19:55:08.676 14036-14058 FavoriteSyncService     com...ao.a202302010306.itemplatform  E  同步失败: 404, {"error":"API接口不存在"}
+2025-12-30 19:55:08.743 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 11
+2025-12-30 19:55:08.743 14036-14036 ProductDetailActivity   com...ao.a202302010306.itemplatform  W  收藏数据同步失败
+2025-12-30 19:55:08.747 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2025-12-30 19:55:08.747 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2025-12-30 19:55:08.752 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user3's bag, id: 11, status: 0, 影响行数: 1
+2025-12-30 19:55:08.898 14036-14036 InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())

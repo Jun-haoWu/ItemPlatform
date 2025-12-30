@@ -16,6 +16,7 @@ import com.wujunhao.a202302010306.itemplatform.database.ProductDao
 import com.wujunhao.a202302010306.itemplatform.databinding.ActivityProductDetailBinding
 import com.wujunhao.a202302010306.itemplatform.model.Product
 import com.wujunhao.a202302010306.itemplatform.model.CloudProduct
+import com.wujunhao.a202302010306.itemplatform.model.FavoritesStatusRequest
 import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.network.ApiService
 import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
@@ -301,19 +302,67 @@ class ProductDetailActivity : AppCompatActivity() {
     
     private fun checkFavoriteStatus() {
         if (currentUserId == -1L) {
-            // 用户未登录，隐藏收藏按钮
             binding.btnFavorite.visibility = View.GONE
             return
         }
         
         lifecycleScope.launch {
             try {
-                isFavorite = withContext(Dispatchers.IO) {
-                    favoriteDao.isProductFavorited(currentUserId, productId)
+                val isFavoritedInCloud = withContext(Dispatchers.IO) {
+                    try {
+                        val response = apiService.getFavoritesStatus(FavoritesStatusRequest(listOf(productId)))
+                        if (response.isSuccessful && response.body() != null) {
+                            val statusMap = response.body()!!.status
+                            statusMap[productId.toString()] ?: false
+                        } else {
+                            false
+                        }
+                    } catch (e: Exception) {
+                        android.util.Log.e("ProductDetailActivity", "获取云端收藏状态失败", e)
+                        false
+                    }
                 }
+                
+                isFavorite = isFavoritedInCloud
                 updateFavoriteButton()
+                
+                withContext(Dispatchers.IO) {
+                    if (isFavorite) {
+                        if (!favoriteDao.isProductFavorited(currentUserId, productId)) {
+                            favoriteDao.addFavorite(currentUserId, productId, System.currentTimeMillis())
+                        }
+                    } else {
+                        if (favoriteDao.isProductFavorited(currentUserId, productId)) {
+                            favoriteDao.removeFavorite(currentUserId, productId)
+                        }
+                    }
+                }
             } catch (e: Exception) {
                 android.util.Log.e("ProductDetailActivity", "检查收藏状态失败", e)
+            }
+        }
+    }
+    
+    private fun refreshProductDetail() {
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    apiService.getProductDetail(productId)
+                }
+                
+                if (response.isSuccessful && response.body() != null) {
+                    val cloudProduct = response.body()!!.product
+                    val product = cloudProduct.toLocalProduct(currentUserId)
+                    currentProduct = product
+                    
+                    withContext(Dispatchers.IO) {
+                        productDao.updateProduct(product)
+                    }
+                    
+                    binding.tvLikeCount.text = "${product.likeCount} 收藏"
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("ProductDetailActivity", "刷新商品详情失败", e)
             }
         }
     }
@@ -326,35 +375,45 @@ class ProductDetailActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             try {
-                val success = withContext(Dispatchers.IO) {
-                    if (isFavorite) {
-                        favoriteDao.removeFavorite(currentUserId, productId)
-                    } else {
-                        favoriteDao.addFavorite(currentUserId, productId, System.currentTimeMillis())
+                val isAddAction = !isFavorite
+                
+                val apiResult = withContext(Dispatchers.IO) {
+                    try {
+                        if (isAddAction) {
+                            val response = apiService.addFavorite(productId)
+                            Pair(response.isSuccessful, response.code())
+                        } else {
+                            val response = apiService.removeFavorite(productId)
+                            Pair(response.isSuccessful, response.code())
+                        }
+                    } catch (e: Exception) {
+                        android.util.Log.e("ProductDetailActivity", "调用收藏API失败", e)
+                        Pair(false, 0)
                     }
                 }
                 
-                if (success) {
-                    isFavorite = !isFavorite
-                    updateFavoriteButton()
-                    
-                    // 更新收藏数显示
-                    if (currentProduct != null) {
-                        val newLikeCount = withContext(Dispatchers.IO) {
-                            if (isFavorite) {
-                                productDao.incrementLikeCount(productId)
-                            } else {
-                                productDao.decrementLikeCount(productId)
-                            }
+                val (isSuccessful, statusCode) = apiResult
+                
+                if (isSuccessful || (isAddAction && statusCode == 409) || (!isAddAction && statusCode == 404)) {
+                    val success = withContext(Dispatchers.IO) {
+                        if (isAddAction) {
+                            favoriteDao.addFavorite(currentUserId, productId, System.currentTimeMillis())
+                        } else {
+                            favoriteDao.removeFavorite(currentUserId, productId)
                         }
-                        binding.tvLikeCount.text = "$newLikeCount 收藏"
                     }
                     
-                    val message = if (isFavorite) "已添加到收藏" else "已取消收藏"
-                    Toast.makeText(this@ProductDetailActivity, message, Toast.LENGTH_SHORT).show()
-                    
-                    // 触发云端同步
-                    syncFavoritesAfterDelay()
+                    if (success) {
+                        isFavorite = isAddAction
+                        updateFavoriteButton()
+                        
+                        val message = if (isFavorite) "已添加到收藏" else "已取消收藏"
+                        Toast.makeText(this@ProductDetailActivity, message, Toast.LENGTH_SHORT).show()
+                        
+                        refreshProductDetail()
+                    }
+                } else {
+                    Toast.makeText(this@ProductDetailActivity, "操作失败，请重试", Toast.LENGTH_SHORT).show()
                 }
                 
             } catch (e: Exception) {

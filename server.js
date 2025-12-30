@@ -24,6 +24,7 @@ async function createPool() {
       user: process.env.DB_USER || 'item_user',
       password: process.env.DB_PASSWORD || 'ItemPlatform2024!',
       database: process.env.DB_NAME || 'item_platform',
+      charset: 'utf8mb4',
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
@@ -90,7 +91,6 @@ app.use(cors({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
-app.use(limiter);
 
 // 错误处理中间件
 function errorHandler(err, req, res, next) {
@@ -275,7 +275,7 @@ app.post('/api/auth/login', userLimiter, async (req, res, next) => {
 });
 
 // 获取用户信息
-app.get('/api/auth/me', authenticateToken, async (req, res, next) => {
+app.get('/api/auth/me', userLimiter, authenticateToken, async (req, res, next) => {
   try {
     const [users] = await pool.query(
       'SELECT id, username, email, phone, real_name, student_id, department FROM users WHERE id = ?',
@@ -311,7 +311,7 @@ app.get('/api/auth/me', authenticateToken, async (req, res, next) => {
 // ========== 商品管理 API ==========
 
 // 发布商品
-app.post('/api/products', authenticateToken, async (req, res, next) => {
+app.post('/api/products', userLimiter, authenticateToken, async (req, res, next) => {
   try {
     const { name, description, price, original_price, category, images, location } = req.body;
     
@@ -339,7 +339,7 @@ app.post('/api/products', authenticateToken, async (req, res, next) => {
 });
 
 // 获取商品列表
-app.get('/api/products', async (req, res, next) => {
+app.get('/api/products', userLimiter, async (req, res, next) => {
   try {
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const limit = Math.max(1, Math.min(100, parseInt(req.query.limit) || 20));
@@ -387,7 +387,8 @@ app.get('/api/products', async (req, res, next) => {
 });
 
 // 获取商品详情
-app.get('/api/products/:id', async (req, res, next) => {
+// 获取商品详情
+app.get('/api/products/:id', userLimiter, async (req, res, next) => {
   try {
     const productId = parseInt(req.params.id);
     
@@ -395,35 +396,89 @@ app.get('/api/products/:id', async (req, res, next) => {
       return res.status(400).json({ error: '无效的商品ID' });
     }
     
-    // 更新浏览次数
-    await pool.query(
-      'UPDATE products SET view_count = view_count + 1 WHERE id = ?',
-      [productId]
-    );
+    let product = null;
     
-    const [products] = await pool.query(
-      'SELECT p.*, u.username as seller_name FROM products p JOIN users u ON p.user_id = u.id WHERE p.id = ? AND p.status = "active"',
-      [productId]
-    );
-    
-    if (products.length === 0) {
-      return res.status(404).json({ error: '商品不存在' });
+    try {
+      await pool.query(
+        'UPDATE products SET view_count = view_count + 1 WHERE id = ?',
+        [productId]
+      );
+    } catch (updateError) {
+      console.error('更新浏览次数失败:', updateError);
     }
     
-    const product = products[0];
-    product.images = JSON.parse(product.images || '[]');
+    try {
+      const [products] = await pool.query(
+        'SELECT p.*, u.username as seller_name FROM products p JOIN users u ON p.user_id = u.id WHERE p.id = ? AND p.status = "active"',
+        [productId]
+      );
+      
+      if (products.length === 0) {
+        return res.status(404).json({ error: '商品不存在' });
+      }
+      
+      product = products[0];
+    } catch (queryError) {
+      console.error('查询商品详情失败:', queryError);
+      return res.status(500).json({ error: '查询商品详情失败' });
+    }
+    
+    try {
+      if (product.images) {
+        try {
+          product.images = JSON.parse(product.images);
+        } catch (parseError) {
+          console.error('解析商品图片失败:', parseError);
+          product.images = [];
+        }
+      } else {
+        product.images = [];
+      }
+    } catch (imagesError) {
+      console.error('处理商品图片失败:', imagesError);
+      product.images = [];
+    }
     
     res.json({ product });
     
   } catch (error) {
+    console.error('获取商品详情时发生错误:', error);
     next(error);
   }
 });
 
 // ========== 收藏功能 API ==========
 
+// 批量获取收藏状态
+app.post('/api/favorites/status', userLimiter, authenticateToken, async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { productIds } = req.body;
+    
+    if (!Array.isArray(productIds) || productIds.length === 0) {
+      return res.status(400).json({ error: '商品ID列表不能为空' });
+    }
+    
+    const [favorites] = await pool.execute(
+      'SELECT product_id FROM favorites WHERE user_id = ? AND product_id IN (?)',
+      [userId, productIds]
+    );
+    
+    const favoritedProductIds = favorites.map(f => f.product_id);
+    const status = {};
+    
+    productIds.forEach(productId => {
+      status[productId] = favoritedProductIds.includes(productId);
+    });
+    
+    res.json({ status });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // 收藏商品
-app.post('/api/favorites/:productId', authenticateToken, async (req, res, next) => {
+app.post('/api/favorites/:productId', userLimiter, authenticateToken, async (req, res, next) => {
   try {
     const productId = parseInt(req.params.productId);
     const userId = req.user.id;
@@ -471,7 +526,7 @@ app.post('/api/favorites/:productId', authenticateToken, async (req, res, next) 
 });
 
 // 取消收藏
-app.delete('/api/favorites/:productId', authenticateToken, async (req, res, next) => {
+app.delete('/api/favorites/:productId', userLimiter, authenticateToken, async (req, res, next) => {
   try {
     const productId = parseInt(req.params.productId);
     const userId = req.user.id;
@@ -503,7 +558,7 @@ app.delete('/api/favorites/:productId', authenticateToken, async (req, res, next
 });
 
 // 获取用户收藏列表
-app.get('/api/favorites', authenticateToken, async (req, res, next) => {
+app.get('/api/favorites', userLimiter, authenticateToken, async (req, res, next) => {
   try {
     const userId = req.user.id;
     const page = Math.max(1, parseInt(req.query.page) || 1);
@@ -538,34 +593,6 @@ app.get('/api/favorites', authenticateToken, async (req, res, next) => {
       }
     });
     
-  } catch (error) {
-    next(error);
-  }
-});
-
-// 批量获取收藏状态
-app.post('/api/favorites/status', authenticateToken, async (req, res, next) => {
-  try {
-    const userId = req.user.id;
-    const { productIds } = req.body;
-    
-    if (!Array.isArray(productIds) || productIds.length === 0) {
-      return res.status(400).json({ error: '商品ID列表不能为空' });
-    }
-    
-    const [favorites] = await pool.execute(
-      'SELECT product_id FROM favorites WHERE user_id = ? AND product_id IN (?)',
-      [userId, productIds]
-    );
-    
-    const favoritedProductIds = favorites.map(f => f.product_id);
-    const status = {};
-    
-    productIds.forEach(productId => {
-      status[productId] = favoritedProductIds.includes(productId);
-    });
-    
-    res.json({ status });
   } catch (error) {
     next(error);
   }

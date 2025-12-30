@@ -74,6 +74,15 @@
                     android:textSize="12sp"
                     android:textColor="@android:color/darker_gray" />
 
+                <TextView
+                    android:id="@+id/product_likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="0收藏"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/darker_gray" />
+
             </LinearLayout>
 
         </LinearLayout>

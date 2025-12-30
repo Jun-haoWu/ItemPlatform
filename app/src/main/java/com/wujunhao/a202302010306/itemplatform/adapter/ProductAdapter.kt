@@ -22,12 +22,14 @@ class ProductAdapter(
         private val productPrice: TextView = itemView.findViewById(R.id.product_price)
         private val productLocation: TextView = itemView.findViewById(R.id.product_location)
         private val productViews: TextView = itemView.findViewById(R.id.product_views)
+        private val productLikes: TextView = itemView.findViewById(R.id.product_likes)
 
         fun bind(product: Product) {
             productTitle.text = product.title
             productPrice.text = "¥${String.format("%.2f", product.price)}"
             productLocation.text = product.location
             productViews.text = "${product.viewCount}浏览"
+            productLikes.text = "${product.likeCount}收藏"
 
             // Load product image if available
             if (!product.images.isNullOrEmpty()) {

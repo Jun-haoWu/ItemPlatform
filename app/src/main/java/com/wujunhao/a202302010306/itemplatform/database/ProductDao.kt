@@ -26,12 +26,15 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
             put(DatabaseContract.ProductEntry.COLUMN_UPDATED_AT, product.updatedAt)
         }
         
-        return db.insert(DatabaseContract.ProductEntry.TABLE_NAME, null, values)
+        val result = db.insert(DatabaseContract.ProductEntry.TABLE_NAME, null, values)
+        android.util.Log.d("ProductDao", "insertProduct - 插入商品: ${product.title}, id: $result, status: ${product.status}")
+        return result
     }
     
     fun getAllProducts(): List<Product> {
         return try {
             val db = databaseHelper.readableDatabase
+            android.util.Log.d("ProductDao", "getAllProducts - 开始查询，status = ${Product.STATUS_ACTIVE}")
             val cursor = db.query(
                 DatabaseContract.ProductEntry.TABLE_NAME,
                 null,
@@ -41,10 +44,15 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
                 null,
                 "${DatabaseContract.ProductEntry.COLUMN_CREATED_AT} DESC"
             )
+            android.util.Log.d("ProductDao", "getAllProducts - 查询到记录数: ${cursor.count}")
             
-            cursor.use { cursorToProductList(it) }
+            cursor.use {
+                val products = cursorToProductList(it)
+                android.util.Log.d("ProductDao", "getAllProducts - 转换后的商品数: ${products.size}")
+                products
+            }
         } catch (e: Exception) {
-            // Table doesn't exist yet, return empty list
+            android.util.Log.e("ProductDao", "getAllProducts - 查询失败", e)
             emptyList()
         }
     }
@@ -213,15 +221,19 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
             put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.category)
             put(DatabaseContract.ProductEntry.COLUMN_CONDITION, product.condition)
             put(DatabaseContract.ProductEntry.COLUMN_LOCATION, product.location)
+            put(DatabaseContract.ProductEntry.COLUMN_STATUS, product.status)
+            put(DatabaseContract.ProductEntry.COLUMN_VIEW_COUNT, product.viewCount)
+            put(DatabaseContract.ProductEntry.COLUMN_LIKE_COUNT, product.likeCount)
             put(DatabaseContract.ProductEntry.COLUMN_UPDATED_AT, product.updatedAt)
         }
         
-        db.update(
+        val rowsAffected = db.update(
             DatabaseContract.ProductEntry.TABLE_NAME,
             values,
             "${BaseColumns._ID} = ?",
             arrayOf(product.id.toString())
         )
+        android.util.Log.d("ProductDao", "updateProduct - 更新商品: ${product.title}, id: ${product.id}, status: ${product.status}, likeCount: ${product.likeCount}, viewCount: ${product.viewCount}, 影响行数: $rowsAffected")
     }
     
     fun incrementLikeCount(productId: Long): Int {

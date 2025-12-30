@@ -28,6 +28,9 @@ interface ApiService {
         @Query("search") search: String? = null
     ): Response<ProductsResponse>
     
+    @POST("products")
+    suspend fun postProduct(@Body request: PublishProductRequest): Response<PublishProductResponse>
+    
     @GET("products/{id}")
     suspend fun getProductDetail(@Path("id") productId: Long): Response<ProductDetailResponse>
     

@@ -16,13 +16,13 @@ data class CloudProduct(
     val description: String,
     
     @SerializedName("price")
-    val price: Double,
+    val price: String,
     
     @SerializedName("original_price")
-    val originalPrice: Double? = null,
+    val originalPrice: String? = null,
     
     @SerializedName("images")
-    val images: String? = null,
+    val images: List<String>? = null,
     
     @SerializedName("category")
     val category: String,
@@ -37,28 +37,51 @@ data class CloudProduct(
     val viewCount: Int = 0,
     
     @SerializedName("created_at")
-    val createdAt: Long
+    val createdAt: String
 ) {
     /**
      * 转换为本地 Product 模型
      */
     fun toLocalProduct(sellerId: Long = -1L): Product {
+        val timestamp = parseIsoDateTime(createdAt)
+        val imagesString = if (images.isNullOrEmpty()) {
+            null
+        } else {
+            images.joinToString(",")
+        }
         return Product(
             id = id,
             title = name,
             description = description,
-            price = price,
+            price = parsePrice(price),
             category = category,
             condition = "全新",
             location = location,
-            images = images,
+            images = imagesString,
             sellerId = sellerId,
             status = Product.STATUS_ACTIVE,
             viewCount = viewCount,
             likeCount = likeCount,
-            createdAt = createdAt,
-            updatedAt = createdAt
+            createdAt = timestamp,
+            updatedAt = timestamp
         )
+    }
+    
+    private fun parseIsoDateTime(isoDateTime: String): Long {
+        return try {
+            val date = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(isoDateTime)
+            date?.time ?: System.currentTimeMillis()
+        } catch (e: Exception) {
+            System.currentTimeMillis()
+        }
+    }
+    
+    private fun parsePrice(priceString: String): Double {
+        return try {
+            priceString.toDouble()
+        } catch (e: Exception) {
+            0.0
+        }
     }
 }
 
@@ -74,6 +97,43 @@ data class ApiResponse<T>(
     
     @SerializedName("error")
     val error: String? = null
+)
+
+/**
+ * 发布商品请求
+ */
+data class PublishProductRequest(
+    @SerializedName("name")
+    val name: String,
+    
+    @SerializedName("description")
+    val description: String,
+    
+    @SerializedName("price")
+    val price: Double,
+    
+    @SerializedName("original_price")
+    val originalPrice: Double? = null,
+    
+    @SerializedName("images")
+    val images: List<String>? = null,
+    
+    @SerializedName("category")
+    val category: String,
+    
+    @SerializedName("location")
+    val location: String? = null
+)
+
+/**
+ * 发布商品响应
+ */
+data class PublishProductResponse(
+    @SerializedName("message")
+    val message: String,
+    
+    @SerializedName("productId")
+    val productId: Long
 )
 
 /**
