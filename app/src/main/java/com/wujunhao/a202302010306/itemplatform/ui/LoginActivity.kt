@@ -55,11 +55,13 @@ class LoginActivity : AppCompatActivity() {
                     is LoginViewModel.LoginUiState.Success -> {
                         showLoading(false)
                         showMessage("登录成功！")
+                        android.util.Log.d("LoginActivity", "导航到主界面")
                         navigateToMain()
                     }
                     is LoginViewModel.LoginUiState.AdminSuccess -> {
                         showLoading(false)
                         showMessage("管理员登录成功！")
+                        android.util.Log.d("LoginActivity", "导航到管理员界面")
                         navigateToAdmin()
                     }
                     is LoginViewModel.LoginUiState.Error -> {
@@ -118,16 +120,20 @@ class LoginActivity : AppCompatActivity() {
     }
     
     private fun navigateToMain() {
+        android.util.Log.d("LoginActivity", "开始导航到MainActivity")
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
+        android.util.Log.d("LoginActivity", "完成导航到MainActivity")
     }
     
     private fun navigateToAdmin() {
+        android.util.Log.d("LoginActivity", "开始导航到AdminActivity")
         val intent = Intent(this, AdminActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
+        android.util.Log.d("LoginActivity", "完成导航到AdminActivity")
     }
 }

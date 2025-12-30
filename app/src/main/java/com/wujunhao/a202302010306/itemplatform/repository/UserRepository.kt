@@ -43,12 +43,16 @@ class UserRepository(private val context: Context) {
     
     suspend fun login(loginRequest: LoginRequest): Result<LoginResponse> {
         return try {
+            android.util.Log.d("UserRepository", "开始登录API调用，用户名: ${loginRequest.username}")
             val response = apiService.login(loginRequest)
+            android.util.Log.d("UserRepository", "登录API响应，状态码: ${response.code}, 消息: ${response.message}")
             
             if (response.code == 200 && response.data != null) {
                 val token = response.data.token
                 val user = response.data.user
                 val expiresIn = response.data.expiresIn
+                
+                android.util.Log.d("UserRepository", "登录成功，用户ID: ${user.id}, 用户名: ${user.username}")
                 
                 TokenManager.saveToken(
                     context = context,
@@ -61,9 +65,11 @@ class UserRepository(private val context: Context) {
                 
                 Result.success(response)
             } else {
+                android.util.Log.e("UserRepository", "登录失败，响应码: ${response.code}, 消息: ${response.message}")
                 Result.failure(Exception(response.message))
             }
         } catch (e: Exception) {
+            android.util.Log.e("UserRepository", "登录API调用异常", e)
             Result.failure(e)
         }
     }

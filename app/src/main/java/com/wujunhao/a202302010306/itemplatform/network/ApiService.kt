@@ -55,4 +55,32 @@ interface ApiService {
         @Query("limit") limit: Int = 20,
         @Query("search") search: String? = null
     ): Response<AdminUsersResponse>
+    
+    // 普通用户相关 - 获取用户列表
+    @GET("users")
+    suspend fun getUsers(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 20,
+        @Query("search") search: String? = null
+    ): Response<AdminUsersResponse>
+    
+    // 即时通讯相关
+    @POST("chat/send")
+    suspend fun sendMessage(@Body request: SendMessageRequest): Response<SendMessageResponse>
+    
+    @GET("chat/history/{userId}")
+    suspend fun getChatHistory(
+        @Path("userId") userId: Long,
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 50
+    ): ChatHistoryResponse
+    
+    @GET("chat/conversations")
+    suspend fun getChatConversations(
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 20
+    ): Response<ChatConversationsResponse>
+    
+    @GET("chat/unread-count")
+    suspend fun getUnreadCount(): Response<UnreadCountResponse>
 }

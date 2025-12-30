@@ -234,6 +234,14 @@
             android:text="编辑资料" />
 
         <Button
+            android:id="@+id/btn_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#4CAF50"
+            android:text="用户列表" />
+
+        <Button
             android:id="@+id/btn_admin_users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

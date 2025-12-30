@@ -1,79 +1,128 @@
-2025-12-29 11:58:31.027  5110-5174  InteractionJankMonitor  com...ao.a202302010306.itemplatform  W  Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.wujunhao.a202302010306.itemplatform
-2025-12-29 11:58:31.236  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:c6cc0bba: onShown
-2025-12-29 11:58:33.811  5110-5110  AutofillManager         com...ao.a202302010306.itemplatform  I  showAutofillDialog() return false due to improve fill dialog
-2025-12-29 11:58:33.812  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:15742d2c: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser true
-2025-12-29 11:58:33.813  5110-5110  InsetsController        com...ao.a202302010306.itemplatform  D  show(ime())
-2025-12-29 11:58:33.814  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:15742d2c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
-2025-12-29 11:58:33.835  5110-5110  RemoteInpu...ectionImpl com...ao.a202302010306.itemplatform  W  requestCursorUpdates on inactive InputConnection
-2025-12-29 11:58:33.848  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@372d4ce
-2025-12-29 11:58:33.892  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@c46b76f
-2025-12-29 11:58:42.802  5110-5194  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: null...
-2025-12-29 11:58:42.802  5110-5194  ApiClient               com...ao.a202302010306.itemplatform  D  No token found, not adding Authorization header
-2025-12-29 11:58:42.802  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/auth/login
-2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
-2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 45
-2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"password":"password123","username":"admin"}
-2025-12-29 11:58:42.803  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (45-byte body)
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/auth/login (126ms)
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Mon, 29 Dec 2025 03:58:42 GMT
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Origin
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Access-Control-Allow-Credentials: true
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 100
-2025-12-29 11:58:42.930  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 90
-2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1766981369
-2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"148-oBhMqWKkWLOYLjJ3SdsHgse86fM"
-2025-12-29 11:58:42.931  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"登录成功","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NjY5ODA3MjIsImV4cCI6MTc2NzA2NzEyMn0.yXup_CsVSe7Fs3qeGa2QMOfFA-4WMZ-KFWa2SpSZTnw","user":{"id":4,"username":"admin","email":"admin@example.com","phone":"13800000000"},"expiresIn":86400}}
-2025-12-29 11:58:42.932  5110-5194  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (328-byte body)
-2025-12-29 11:58:43.071  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  开始加载用户列表
-2025-12-29 11:58:43.074  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  创建API服务
-2025-12-29 11:58:43.075  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  调用API获取用户列表
-2025-12-29 11:58:43.080  5110-5198  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-29 11:58:43.080  5110-5198  ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-29 11:58:43.083  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/admin/users?page=1&limit=100
-2025-12-29 11:58:43.085  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE3NjY5ODA3MjIsImV4cCI6MTc2NzA2NzEyMn0.yXup_CsVSe7Fs3qeGa2QMOfFA-4WMZ-KFWa2SpSZTnw
-2025-12-29 11:58:43.085  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
-2025-12-29 11:58:43.118  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c
-2025-12-29 11:58:43.119  5110-5110  VRI[AdminActivity]      com...ao.a202302010306.itemplatform  D  WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/admin/users?page=1&limit=100 (40ms)
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Mon, 29 Dec 2025 03:58:42 GMT
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-29 11:58:43.127  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-29 11:58:43.128  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Origin
-2025-12-29 11:58:43.130  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Access-Control-Allow-Credentials: true
-2025-12-29 11:58:43.130  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 100
-2025-12-29 11:58:43.131  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 89
-2025-12-29 11:58:43.132  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1766981369
-2025-12-29 11:58:43.133  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"32d-ZdO6Tjzoj6VNJ3ODq8NEIq8/5L0"
-2025-12-29 11:58:43.135  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取用户列表成功","data":{"users":[{"id":4,"username":"admin","email":"admin@example.com","phone":"13800000000","real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T12:41:25.000Z"},{"id":3,"username":"3","email":"3@qq.com","phone":"33333333333","real_name":"33","student_id":"3","department":"3","created_at":"2025-12-28T10:07:10.000Z"},{"id":2,"username":"2","email":"1@email.com","phone":"22222222222","real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T09:20:58.000Z"},{"id":1,"username":"testuser","email":"test@example.com","phone":null,"real_name":null,"student_id":null,"department":null,"created_at":"2025-12-28T06:57:46.000Z"}],"pagination":{"page":1,"limit":100,"total":4,"totalPages":1,"hasNext":false,"hasPrev":false}}}
-2025-12-29 11:58:43.136  5110-5198  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (813-byte body)
-2025-12-29 11:58:43.213  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:f265dcc9: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
-2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response code: 200
-2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response body: AdminUsersResponse(code=200, message=获取用户列表成功, data=AdminUsersData(users=[AdminUser(id=4, username=admin, email=admin@example.com, phone=13800000000, realName=null, studentId=null, department=null, createdAt=2025-12-28T12:41:25.000Z), AdminUser(id=3, username=3, email=3@qq.com, phone=33333333333, realName=33, studentId=3, department=3, createdAt=2025-12-28T10:07:10.000Z), AdminUser(id=2, username=2, email=1@email.com, phone=22222222222, realName=null, studentId=null, department=null, createdAt=2025-12-28T09:20:58.000Z), AdminUser(id=1, username=testuser, email=test@example.com, phone=null, realName=null, studentId=null, department=null, createdAt=2025-12-28T06:57:46.000Z)], pagination=AdminPagination(page=1, limit=100, total=4, totalPages=1, hasNext=false, hasPrev=false)))
-2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Response error: null
-2025-12-29 11:58:43.305  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Admin users count: 4
-2025-12-29 11:58:43.323  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  Users count: 4
-2025-12-29 11:58:43.323  5110-5110  AdminActivity           com...ao.a202302010306.itemplatform  D  用户列表加载成功
-2025-12-29 11:58:43.327  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@372d4ce
-2025-12-29 11:58:43.327  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@2128c42
-2025-12-29 11:58:43.408  5110-5110  InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())
-2025-12-29 11:58:43.408  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:e143381d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-2025-12-29 11:58:43.409  5110-5110  RemoteInpu...ectionImpl com...ao.a202302010306.itemplatform  W  requestCursorUpdates on inactive InputConnection
-2025-12-29 11:58:43.414  5110-5110  ImeTracker              com...ao.a202302010306.itemplatform  I  system_server:33db3c84: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
-2025-12-29 11:58:43.430  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c
-2025-12-29 11:58:43.518  5110-5110  VRI[LoginActivity]      com...ao.a202302010306.itemplatform  D  visibilityChanged oldVisibility=true newVisibility=false
-2025-12-29 11:58:43.526  5110-5124  HWUI                    com...ao.a202302010306.itemplatform  D  endAllActiveAnimators on 0x7e0330ea9bc0 (RippleDrawable) with handle 0x7e0360e4cc50
-2025-12-29 11:58:43.553  5110-5110  AutofillManager         com...ao.a202302010306.itemplatform  I  onInvisibleForAutofill(): expiringResponse
-2025-12-29 11:58:43.555  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): null
-2025-12-29 11:58:43.561  5110-5110  ViewRootImpl            com...ao.a202302010306.itemplatform  D  Skipping stats log for color mode
-2025-12-29 11:58:43.566  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.view.ImeBackAnimationController@2128c42
-2025-12-29 11:58:43.567  5110-5110  WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@dbc1a5c
+> Task :app:compileDebugKotlin FAILED
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:246:18 Expecting 'catch' or 'finally'
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:246:19 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:23 Expecting ')'
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:23 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:469:1 Expecting a top level declaration
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:247:27 Unresolved reference: response
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:15 Unresolved reference: catch
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:257:22 Unresolved reference: e
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:258:17 Unresolved reference: e
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:260:15 Unresolved reference: finally
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:13 Unresolved reference: isLoading
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:27 Unresolved reference: hasMore
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:268:38 Unresolved reference: pendingRequest
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:270:9 Unresolved reference: lifecycleScope
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:22 Unresolved reference: isAdded
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:33 Unresolved reference: isDestroyed
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:272:48 Unresolved reference: context
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:276:17 Unresolved reference: isLoading
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:277:17 Unresolved reference: pendingRequest
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:278:17 Unresolved reference: currentPage
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:278:17 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:59 Unresolved reference: requireContext
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:77 Suspend function 'getChatHistory' should be called only from a coroutine or another suspend function
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:92 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:280:105 Unresolved reference: currentPage
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:283:35 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:285:21 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:286:21 Unresolved reference: adapter
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:288:21 Unresolved reference: hasMore
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:21 Unresolved reference: messageCache
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:34 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:291:49 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:292:21 Unresolved reference: cacheTimestamp
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:292:36 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:299:29 Unresolved reference: currentPage
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:299:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:302:29 Unresolved reference: currentPage
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:302:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:308:17 Unresolved reference: currentPage
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:308:17 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:310:17 Unresolved reference: isLoading
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:311:17 Unresolved reference: pendingRequest
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:317:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:317:28 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:318:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:320:9 Unresolved reference: lifecycleScope
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:322:50 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:323:59 Unresolved reference: requireContext
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:323:77 Suspend function 'sendMessage' should be called only from a coroutine or another suspend function
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:328:25 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:329:25 Unresolved reference: adapter
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:329:52 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:25 Unresolved reference: messageCache
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:38 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:333:53 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:334:25 Unresolved reference: cacheTimestamp
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:334:40 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:337:25 Unresolved reference: consecutiveEmptyPolls
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:338:25 Unresolved reference: pollInterval
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:356:17 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:356:36 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:362:13 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:363:13 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:363:59 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:368:9 Unresolved reference: messageUpdateHandler
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:368:35 Unresolved reference: messageUpdateRunnable
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:372:9 Unresolved reference: messageUpdateHandler
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:372:46 Unresolved reference: messageUpdateRunnable
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:377:13 Unresolved reference: pendingRequest
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:382:9 Unresolved reference: lifecycleScope
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:22 Unresolved reference: isAdded
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:33 Unresolved reference: isDestroyed
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:384:48 Unresolved reference: context
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:389:39 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:59 Unresolved reference: requireContext
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:77 Suspend function 'getChatHistory' should be called only from a coroutine or another suspend function
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:392:92 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:393:30 Unresolved reference: isSuccessful
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:394:30 Unresolved reference: body
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:394:44 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:395:61 Not enough information to infer type variable T
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:395:83 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:401:29 Unresolved reference: consecutiveEmptyPolls
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:404:29 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:405:29 Unresolved reference: adapter
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:405:61 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:29 Unresolved reference: messageCache
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:42 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:408:57 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:409:29 Unresolved reference: cacheTimestamp
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:409:44 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:412:49 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:414:60 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:421:29 Unresolved reference: consecutiveEmptyPolls
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:421:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:425:52 Unresolved reference: lastMessageCount
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:425:99 Unresolved reference: lastMessageCount
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:426:68 Not enough information to infer type variable T
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:426:90 Cannot infer a type for this parameter. Please specify it explicitly.
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:430:33 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:431:33 Unresolved reference: adapter
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:431:65 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:33 Unresolved reference: messageCache
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:46 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:435:61 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:436:33 Unresolved reference: cacheTimestamp
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:436:48 Unresolved reference: otherUserId
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:439:25 Unresolved reference: lastMessageCount
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:439:44 Unresolved reference: messages
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:451:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:451:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:452:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:452:38 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:453:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:453:36 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:458:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:458:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:459:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:459:38 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:460:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:460:36 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:464:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:464:29 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:465:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:465:38 Variable expected
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:466:9 Unresolved reference: binding
+e: file:///D:/Android%20Project/ItemPlatform/app/src/main/java/com/wujunhao/a202302010306/itemplatform/ui/ChatMessagesFragment.kt:466:36 Variable expected

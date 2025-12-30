@@ -44,6 +44,9 @@ object ApiClient {
     }
     
     fun createRetrofit(context: Context): Retrofit {
+        android.util.Log.d("ApiClient", "创建Retrofit实例，基础URL: $BASE_URL")
+        android.util.Log.d("ApiClient", "USE_MOCK_MODE: $USE_MOCK_MODE, USE_LOCAL_DATABASE: $USE_LOCAL_DATABASE")
+        
         val clientBuilder = OkHttpClient.Builder()
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
@@ -53,14 +56,17 @@ object ApiClient {
             USE_LOCAL_DATABASE -> {
                 // 本地数据库模式：不需要网络拦截器，所有操作都在本地完成
                 // 可以添加一个空拦截器或日志拦截器
+                android.util.Log.d("ApiClient", "使用本地数据库模式")
                 clientBuilder.addInterceptor(createLoggingInterceptor())
             }
             USE_MOCK_MODE -> {
                 // 模拟模式：使用模拟拦截器
+                android.util.Log.d("ApiClient", "使用模拟模式")
                 clientBuilder.addInterceptor(MockInterceptor())
             }
             else -> {
                 // 真实服务器模式：添加认证拦截器
+                android.util.Log.d("ApiClient", "使用真实服务器模式")
                 clientBuilder.addInterceptor(createAuthInterceptor(context))
                 clientBuilder.addInterceptor(createLoggingInterceptor())
             }

@@ -2,13 +2,29 @@ package com.wujunhao.a202302010306.itemplatform.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.databinding.ActivityMainBinding
+import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+    
     private lateinit var binding: ActivityMainBinding
+    
+    // 未读消息相关
+    private val unreadCountHandler = Handler(Looper.getMainLooper())
+    private val unreadCountRunnable = object : Runnable {
+        override fun run() {
+            updateUnreadCount()
+            unreadCountHandler.postDelayed(this, 10000) // 每10秒更新一次
+        }
+    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +58,15 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
         }
+        
+        // 开始更新未读消息数
+        startUnreadCountUpdates()
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        // 停止更新未读消息数
+        stopUnreadCountUpdates()
     }
     
     private fun setupBottomNavigation() {
@@ -50,6 +75,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, HomeFragment())
+                        .commit()
+                    true
+                }
+                R.id.nav_chat -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, ChatConversationsFragment())
                         .commit()
                     true
                 }
@@ -90,15 +121,47 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.fragment_container, ProfileFragment())
                     .addToBackStack(null)
                     .commit()
-            } else if (currentFragment !is HomeFragment && currentFragment !is ProfileFragment) {
+            } else if (currentFragment !is HomeFragment && currentFragment !is ProfileFragment && currentFragment !is ChatConversationsFragment) {
                 android.util.Log.d("MainActivity", "导航到首页")
                 binding.bottomNavigation.selectedItemId = R.id.nav_home
-            } else if (currentFragment is ProfileFragment) {
-                android.util.Log.d("MainActivity", "在ProfileFragment，导航到首页")
+            } else if (currentFragment is ProfileFragment || currentFragment is ChatConversationsFragment) {
+                android.util.Log.d("MainActivity", "在ProfileFragment或ChatConversationsFragment，导航到首页")
                 binding.bottomNavigation.selectedItemId = R.id.nav_home
             } else {
                 android.util.Log.d("MainActivity", "退出应用")
                 super.onBackPressed()
+            }
+        }
+    }
+    
+    private fun startUnreadCountUpdates() {
+        unreadCountHandler.post(unreadCountRunnable)
+    }
+    
+    private fun stopUnreadCountUpdates() {
+        unreadCountHandler.removeCallbacks(unreadCountRunnable)
+    }
+    
+    private fun updateUnreadCount() {
+        lifecycleScope.launch {
+            try {
+                val response = ApiClient.createApiService(this@MainActivity).getUnreadCount()
+                if (response.isSuccessful) {
+                    response.body()?.let { body ->
+                        val unreadCount = body.unreadCount
+                        
+                        // 更新底部导航的未读消息数
+                        val menuItem = binding.bottomNavigation.menu.findItem(R.id.nav_chat)
+                        if (unreadCount > 0) {
+                            menuItem.title = "消息 ($unreadCount)"
+                        } else {
+                            menuItem.title = "消息"
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // 静默处理错误
             }
         }
     }

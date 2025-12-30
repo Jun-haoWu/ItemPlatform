@@ -123,6 +123,14 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
         
+        binding.btnUserList.setOnClickListener {
+            // Navigate to user list for starting chats
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, UserListFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        
         binding.btnAdminUsers.setOnClickListener {
             // Navigate to admin users list
             parentFragmentManager.beginTransaction()
