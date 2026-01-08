@@ -11,6 +11,10 @@ import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.model.Product
 import com.wujunhao.a202302010306.itemplatform.network.CloudConfig
 import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProductAdapter(
     private var products: List<Product>,
@@ -32,26 +36,46 @@ class ProductAdapter(
             productViews.text = "${product.viewCount}浏览"
             productLikes.text = "${product.likeCount}收藏"
 
+            android.util.Log.d("ProductAdapter", "开始加载商品图片: id=${product.id}, title=${product.title}, images=${product.images}")
+
             // Load product image if available
             if (!product.images.isNullOrEmpty()) {
                 val imagePaths = ImageUtils.getProductImagePaths(product.images)
+                android.util.Log.d("ProductAdapter", "解析到的图片路径数量: ${imagePaths.size}, 路径: $imagePaths")
+                
                 if (imagePaths.isNotEmpty()) {
                     val firstImagePath = imagePaths[0]
                     val imagePathToLoad = if (firstImagePath.startsWith("/uploads/")) {
-                        CloudConfig.getServerBaseUrl() + firstImagePath
+                        CloudConfig.getServerBaseUrl() + firstImagePath.substring(1)
                     } else {
                         firstImagePath
                     }
-                    val bitmap = ImageUtils.loadImage(itemView.context, imagePathToLoad)
-                    if (bitmap != null) {
-                        productImage.setImageBitmap(bitmap)
-                    } else {
+                    
+                    android.util.Log.d("ProductAdapter", "准备加载图片: $imagePathToLoad")
+                    
+                    // 使用协程异步加载图片
+                    GlobalScope.launch(Dispatchers.Main) {
                         productImage.setImageResource(R.drawable.ic_image_placeholder)
+                        
+                        val bitmap = withContext(Dispatchers.IO) {
+                            ImageUtils.loadImage(itemView.context, imagePathToLoad)
+                        }
+                        
+                        if (bitmap != null) {
+                            android.util.Log.d("ProductAdapter", "图片加载成功: id=${product.id}")
+                            productImage.setImageBitmap(bitmap)
+                        } else {
+                            // 图片加载失败，显示占位图
+                            android.util.Log.w("ProductAdapter", "图片加载失败: $imagePathToLoad")
+                            productImage.setImageResource(R.drawable.ic_image_placeholder)
+                        }
                     }
                 } else {
+                    android.util.Log.w("ProductAdapter", "图片路径列表为空，显示占位图")
                     productImage.setImageResource(R.drawable.ic_image_placeholder)
                 }
             } else {
+                android.util.Log.d("ProductAdapter", "商品没有图片，显示占位图")
                 productImage.setImageResource(R.drawable.ic_image_placeholder)
             }
 

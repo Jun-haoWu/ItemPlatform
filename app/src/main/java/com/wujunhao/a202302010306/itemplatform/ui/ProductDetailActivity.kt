@@ -109,22 +109,6 @@ class ProductDetailActivity : AppCompatActivity() {
             Toast.makeText(this, "联系卖家功能开发中", Toast.LENGTH_SHORT).show()
         }
         
-        binding.btnViewMap.setOnClickListener {
-            currentProduct?.let { product ->
-                if (product.hasLocation()) {
-                    val intent = android.content.Intent(this, MapActivity::class.java).apply {
-                        putExtra("product_id", product.id)
-                        putExtra("product_name", product.title)
-                        putExtra("latitude", product.latitude)
-                        putExtra("longitude", product.longitude)
-                    }
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, "该商品没有位置信息", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-        
         binding.btnReport.setOnClickListener {
             // TODO: 实现举报功能
             Toast.makeText(this, "举报功能开发中", Toast.LENGTH_SHORT).show()
@@ -133,10 +117,11 @@ class ProductDetailActivity : AppCompatActivity() {
     
     private fun loadProductDetails() {
         showLoading(true)
+        android.util.Log.d("ProductDetailActivity", "开始加载商品详情，productId: $productId")
         
         lifecycleScope.launch {
             try {
-                // 先尝试从云端获取商品详情
+                android.util.Log.d("ProductDetailActivity", "尝试从云端获取商品详情")
                 val response = withContext(Dispatchers.IO) {
                     apiService.getProductDetail(productId)
                 }
@@ -144,75 +129,86 @@ class ProductDetailActivity : AppCompatActivity() {
                 showLoading(false)
                 
                 if (response.isSuccessful && response.body() != null) {
+                    android.util.Log.d("ProductDetailActivity", "云端获取商品成功")
                     val cloudProduct = response.body()!!.product
                     val product = cloudProduct.toLocalProduct(currentUserId)
                     currentProduct = product
                     
-                    // 将云端商品保存到本地数据库
+                    android.util.Log.d("ProductDetailActivity", "商品信息: title=${product.title}, images=${product.images}")
+                    
                     withContext(Dispatchers.IO) {
                         val existingProduct = productDao.getProductById(productId)
                         if (existingProduct == null) {
-                            // 如果本地不存在，插入新商品
                             productDao.insertProduct(product)
+                            android.util.Log.d("ProductDetailActivity", "商品已插入本地数据库")
                         } else {
-                            // 如果本地已存在，更新商品信息
                             productDao.updateProduct(product)
+                            android.util.Log.d("ProductDetailActivity", "商品已在本地数据库更新")
                         }
                     }
                     
                     displayProductDetails(product)
                 } else {
-                    // 云端获取失败，尝试从本地数据库获取
+                    android.util.Log.e("ProductDetailActivity", "云端获取失败: ${response.code()}, ${response.message()}")
                     val localProduct = withContext(Dispatchers.IO) {
                         productDao.getProductById(productId)
                     }
                     
                     if (localProduct != null) {
+                        android.util.Log.d("ProductDetailActivity", "从本地数据库获取商品成功")
                         currentProduct = localProduct
                         displayProductDetails(localProduct)
                     } else {
+                        android.util.Log.e("ProductDetailActivity", "本地数据库中也找不到商品")
                         Toast.makeText(this@ProductDetailActivity, "商品不存在", Toast.LENGTH_SHORT).show()
                         finish()
                     }
                 }
                 
             } catch (e: IOException) {
+                android.util.Log.e("ProductDetailActivity", "网络错误: ${e.message}", e)
                 showLoading(false)
-                // 网络错误，尝试从本地数据库获取
                 try {
                     val localProduct = withContext(Dispatchers.IO) {
                         productDao.getProductById(productId)
                     }
                     
                     if (localProduct != null) {
+                        android.util.Log.d("ProductDetailActivity", "从本地数据库获取商品成功")
                         currentProduct = localProduct
                         displayProductDetails(localProduct)
                     } else {
+                        android.util.Log.e("ProductDetailActivity", "本地数据库中也找不到商品")
                         Toast.makeText(this@ProductDetailActivity, "网络错误，且本地无商品数据", Toast.LENGTH_SHORT).show()
                         finish()
                     }
                 } catch (e2: Exception) {
+                    android.util.Log.e("ProductDetailActivity", "从本地数据库加载失败: ${e2.message}", e2)
                     Toast.makeText(this@ProductDetailActivity, "加载商品详情失败: ${e2.message}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: HttpException) {
+                android.util.Log.e("ProductDetailActivity", "HTTP错误: ${e.message}", e)
                 showLoading(false)
-                // HTTP错误，尝试从本地数据库获取
                 try {
                     val localProduct = withContext(Dispatchers.IO) {
                         productDao.getProductById(productId)
                     }
                     
                     if (localProduct != null) {
+                        android.util.Log.d("ProductDetailActivity", "从本地数据库获取商品成功")
                         currentProduct = localProduct
                         displayProductDetails(localProduct)
                     } else {
+                        android.util.Log.e("ProductDetailActivity", "本地数据库中也找不到商品")
                         Toast.makeText(this@ProductDetailActivity, "商品不存在", Toast.LENGTH_SHORT).show()
                         finish()
                     }
                 } catch (e2: Exception) {
+                    android.util.Log.e("ProductDetailActivity", "从本地数据库加载失败: ${e2.message}", e2)
                     Toast.makeText(this@ProductDetailActivity, "加载商品详情失败: ${e2.message}", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
+                android.util.Log.e("ProductDetailActivity", "未知错误: ${e.message}", e)
                 showLoading(false)
                 Toast.makeText(this@ProductDetailActivity, "加载商品详情失败: ${e.message}", Toast.LENGTH_SHORT).show()
             }
@@ -281,14 +277,16 @@ class ProductDetailActivity : AppCompatActivity() {
             return
         }
         
-        // 加载图片
+        val serverBaseUrl = CloudConfig.getServerBaseUrl()
+        
         val bitmaps = mutableListOf<Bitmap>()
         for (imagePath in imagePaths) {
             val imagePathToLoad = if (imagePath.startsWith("/uploads/")) {
-                CloudConfig.getServerBaseUrl() + imagePath
+                serverBaseUrl + imagePath.substring(1)
             } else {
                 imagePath
             }
+            android.util.Log.d("ProductDetailActivity", "加载图片: $imagePathToLoad")
             val bitmap = ImageUtils.loadImage(this, imagePathToLoad)
             if (bitmap != null) {
                 bitmaps.add(bitmap)
@@ -395,6 +393,11 @@ class ProductDetailActivity : AppCompatActivity() {
             return
         }
         
+        if (!TokenManager.isTokenValid(this)) {
+            Toast.makeText(this, "登录已过期，请重新登录", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
         lifecycleScope.launch {
             try {
                 val isAddAction = !isFavorite
@@ -434,6 +437,8 @@ class ProductDetailActivity : AppCompatActivity() {
                         
                         refreshProductDetail()
                     }
+                } else if (statusCode == 403) {
+                    Toast.makeText(this@ProductDetailActivity, "登录已过期，请重新登录", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@ProductDetailActivity, "操作失败，请重试", Toast.LENGTH_SHORT).show()
                 }

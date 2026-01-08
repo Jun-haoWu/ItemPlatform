@@ -1,6 +1,10 @@
 package com.wujunhao.a202302010306.itemplatform.network
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.wujunhao.a202302010306.itemplatform.model.CloudProduct
+import com.wujunhao.a202302010306.itemplatform.model.CloudProductDeserializer
 import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -30,6 +34,7 @@ object ApiClient {
         return Interceptor { chain ->
             val token = TokenManager.getToken(context)
             android.util.Log.d("ApiClient", "Token from TokenManager: ${token?.take(20)}...")
+            
             val request = if (token != null) {
                 android.util.Log.d("ApiClient", "Adding Authorization header")
                 chain.request().newBuilder()
@@ -39,7 +44,15 @@ object ApiClient {
                 android.util.Log.d("ApiClient", "No token found, not adding Authorization header")
                 chain.request()
             }
-            chain.proceed(request)
+            
+            val response = chain.proceed(request)
+            
+            if (response.code == 403) {
+                android.util.Log.w("ApiClient", "Token无效或已过期，清除token")
+                TokenManager.clearToken(context)
+            }
+            
+            response
         }
     }
     
@@ -50,6 +63,12 @@ object ApiClient {
         val clientBuilder = OkHttpClient.Builder()
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+        
+        val gson = GsonBuilder()
+            .registerTypeAdapter(CloudProduct::class.java, CloudProductDeserializer())
+            .create()
+        
+        android.util.Log.d("ApiClient", "已注册CloudProductDeserializer处理images字段")
         
         // 配置网络拦截器
         when {
@@ -75,7 +94,7 @@ object ApiClient {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(clientBuilder.build())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
     

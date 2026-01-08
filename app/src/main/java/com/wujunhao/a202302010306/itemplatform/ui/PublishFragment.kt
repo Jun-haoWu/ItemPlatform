@@ -191,10 +191,17 @@ class PublishFragment : Fragment() {
                             
                             val contentResolver = requireContext().contentResolver
                             val inputStream = contentResolver.openInputStream(uri)
-                            val fileName = "image_${System.currentTimeMillis()}.jpg"
+                            val mimeType = contentResolver.getType(uri) ?: "image/jpeg"
+                            val fileExtension = when {
+                                mimeType.contains("png") -> "png"
+                                mimeType.contains("webp") -> "webp"
+                                mimeType.contains("gif") -> "gif"
+                                else -> "jpg"
+                            }
+                            val fileName = "image_${System.currentTimeMillis()}.$fileExtension"
                             
                             val requestBody = okhttp3.RequestBody.create(
-                                "image/jpeg".toMediaType(),
+                                mimeType.toMediaType(),
                                 inputStream!!.readBytes()
                             )
                             val multipartBody = okhttp3.MultipartBody.Part.createFormData(
@@ -212,13 +219,20 @@ class PublishFragment : Fragment() {
                                 uploadedImageUrls.add(imageUrl)
                                 android.util.Log.d("PublishFragment", "图片上传成功: $imageUrl")
                             } else {
-                                android.util.Log.e("PublishFragment", "图片上传失败: ${uploadResponse.code()}")
-                                Toast.makeText(context, "图片上传失败", Toast.LENGTH_SHORT).show()
+                                val errorBody = uploadResponse.errorBody()?.string()
+                                android.util.Log.e("PublishFragment", "图片上传失败: ${uploadResponse.code()}, $errorBody")
+                                Toast.makeText(context, "图片上传失败: ${uploadResponse.code()}", Toast.LENGTH_SHORT).show()
                                 return@launch
                             }
                         } catch (e: Exception) {
                             android.util.Log.e("PublishFragment", "图片上传异常", e)
-                            Toast.makeText(context, "图片上传失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                            val errorMessage = when (e) {
+                                is java.net.UnknownHostException -> "网络连接失败"
+                                is java.net.SocketTimeoutException -> "连接超时"
+                                is java.net.ConnectException -> "无法连接到服务器"
+                                else -> e.message ?: "未知错误"
+                            }
+                            Toast.makeText(context, "图片上传失败: $errorMessage", Toast.LENGTH_SHORT).show()
                             return@launch
                         }
                     }

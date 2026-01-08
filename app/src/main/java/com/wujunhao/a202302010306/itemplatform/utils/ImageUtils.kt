@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Environment
-import com.wujunhao.a202302010306.itemplatform.network.ApiClient
+import com.wujunhao.a202302010306.itemplatform.network.CloudConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -91,16 +91,21 @@ object ImageUtils {
         return try {
             if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
                 loadBitmapFromUrl(imagePath)
+            } else if (imagePath.startsWith("/uploads/")) {
+                val serverBaseUrl = CloudConfig.getServerBaseUrl()
+                val fullUrl = serverBaseUrl + imagePath.substring(1)
+                loadBitmapFromUrl(fullUrl)
             } else {
                 val file = File(imagePath)
                 if (file.exists()) {
                     BitmapFactory.decodeFile(imagePath)
                 } else {
+                    android.util.Log.w("ImageUtils", "本地图片文件不存在: $imagePath")
                     null
                 }
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            android.util.Log.e("ImageUtils", "加载图片失败: $imagePath", e)
             null
         }
     }
@@ -110,14 +115,24 @@ object ImageUtils {
      */
     private fun loadBitmapFromUrl(urlString: String): Bitmap? {
         return try {
+            android.util.Log.d("ImageUtils", "开始从URL加载图片: $urlString")
             val url = java.net.URL(urlString)
             val connection = url.openConnection() as java.net.HttpURLConnection
             connection.doInput = true
+            connection.connectTimeout = 30000
+            connection.readTimeout = 30000
             connection.connect()
+            android.util.Log.d("ImageUtils", "连接成功，响应码: ${connection.responseCode}")
             val input = connection.inputStream
-            BitmapFactory.decodeStream(input)
+            val bitmap = BitmapFactory.decodeStream(input)
+            if (bitmap != null) {
+                android.util.Log.d("ImageUtils", "图片解码成功: ${bitmap.width}x${bitmap.height}")
+            } else {
+                android.util.Log.e("ImageUtils", "图片解码失败")
+            }
+            bitmap
         } catch (e: Exception) {
-            e.printStackTrace()
+            android.util.Log.e("ImageUtils", "从URL加载图片失败: $urlString", e)
             null
         }
     }

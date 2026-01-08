@@ -221,6 +221,7 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
             put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.category)
             put(DatabaseContract.ProductEntry.COLUMN_CONDITION, product.condition)
             put(DatabaseContract.ProductEntry.COLUMN_LOCATION, product.location)
+            put(DatabaseContract.ProductEntry.COLUMN_IMAGES, product.images)
             put(DatabaseContract.ProductEntry.COLUMN_STATUS, product.status)
             put(DatabaseContract.ProductEntry.COLUMN_VIEW_COUNT, product.viewCount)
             put(DatabaseContract.ProductEntry.COLUMN_LIKE_COUNT, product.likeCount)
@@ -233,7 +234,7 @@ class ProductDao(private val databaseHelper: DatabaseHelper) {
             "${BaseColumns._ID} = ?",
             arrayOf(product.id.toString())
         )
-        android.util.Log.d("ProductDao", "updateProduct - 更新商品: ${product.title}, id: ${product.id}, status: ${product.status}, likeCount: ${product.likeCount}, viewCount: ${product.viewCount}, 影响行数: $rowsAffected")
+        android.util.Log.d("ProductDao", "updateProduct - 更新商品: ${product.title}, id: ${product.id}, status: ${product.status}, likeCount: ${product.likeCount}, viewCount: ${product.viewCount}, images: ${product.images}, 影响行数: $rowsAffected")
     }
     
     fun incrementLikeCount(productId: Long): Int {

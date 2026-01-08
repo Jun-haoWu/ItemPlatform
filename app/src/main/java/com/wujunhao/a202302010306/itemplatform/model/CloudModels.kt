@@ -1,6 +1,9 @@
 package com.wujunhao.a202302010306.itemplatform.model
 
+import com.google.gson.*
 import com.google.gson.annotations.SerializedName
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 /**
  * 云端商品模型（用于API响应）
@@ -22,7 +25,7 @@ data class CloudProduct(
     val originalPrice: String? = null,
     
     @SerializedName("images")
-    val images: String? = null,
+    val images: List<String>? = null,
     
     @SerializedName("category")
     val category: String,
@@ -50,7 +53,7 @@ data class CloudProduct(
      */
     fun toLocalProduct(sellerId: Long = -1L): Product {
         val timestamp = parseIsoDateTime(createdAt)
-        val imagesList = parseImages(images)
+        val imagesList = images ?: emptyList()
         val imagesString = if (imagesList.isEmpty()) {
             null
         } else {
@@ -74,27 +77,6 @@ data class CloudProduct(
             createdAt = timestamp,
             updatedAt = timestamp
         )
-    }
-    
-    private fun parseImages(imagesString: String?): List<String> {
-        if (imagesString == null || imagesString.isEmpty()) {
-            return emptyList()
-        }
-        
-        val trimmed = imagesString.trim()
-        
-        try {
-            if (trimmed.startsWith("[")) {
-                val gson = com.google.gson.Gson()
-                val imagesList = gson.fromJson(trimmed, Array<String>::class.java)
-                return imagesList?.toList() ?: emptyList()
-            } else {
-                return listOf(trimmed)
-            }
-        } catch (e: Exception) {
-            android.util.Log.w("CloudProduct", "解析images失败: $imagesString", e)
-            return listOf(trimmed)
-        }
     }
     
     private fun parseIsoDateTime(isoDateTime: String): Long {
@@ -361,3 +343,99 @@ data class UploadImagesResponse(
     @SerializedName("imageUrls")
     val imageUrls: List<String>
 )
+
+/**
+ * CloudProduct 的自定义反序列化器
+ * 处理 images 字段可能是字符串或字符串数组的情况
+ */
+class CloudProductDeserializer : JsonDeserializer<CloudProduct> {
+    override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): CloudProduct {
+        val jsonObject = json.asJsonObject
+        
+        val id = jsonObject.get("id").asLong
+        val name = jsonObject.get("name").asString
+        val description = jsonObject.get("description").asString
+        val price = jsonObject.get("price").asString
+        val originalPrice = if (jsonObject.has("original_price") && !jsonObject.get("original_price").isJsonNull) {
+            jsonObject.get("original_price").asString
+        } else {
+            null
+        }
+        
+        val images: List<String>? = if (jsonObject.has("images") && !jsonObject.get("images").isJsonNull) {
+            val imagesElement = jsonObject.get("images")
+            android.util.Log.d("CloudProductDeserializer", "images字段类型: ${imagesElement::class.simpleName}, 值: ${imagesElement}")
+            
+            when {
+                imagesElement.isJsonArray -> {
+                    android.util.Log.d("CloudProductDeserializer", "images是JSON数组")
+                    context.deserialize(imagesElement, object : TypeToken<List<String>>() {}.type)
+                }
+                imagesElement.isJsonPrimitive && imagesElement.asString.startsWith("[") -> {
+                    android.util.Log.d("CloudProductDeserializer", "images是字符串化的数组: ${imagesElement.asString}")
+                    try {
+                        val parsed = JsonParser.parseString(imagesElement.asString) as JsonElement
+                        android.util.Log.d("CloudProductDeserializer", "解析后的JSON: $parsed")
+                        val result: List<String> = context.deserialize(parsed, object : TypeToken<List<String>>() {}.type)
+                        android.util.Log.d("CloudProductDeserializer", "反序列化结果: $result")
+                        result
+                    } catch (e: Exception) {
+                        android.util.Log.e("CloudProductDeserializer", "解析字符串化数组失败: ${e.message}", e)
+                        null
+                    }
+                }
+                imagesElement.isJsonPrimitive -> {
+                    android.util.Log.d("CloudProductDeserializer", "images是普通字符串: ${imagesElement.asString}")
+                    listOf(imagesElement.asString)
+                }
+                else -> {
+                    android.util.Log.w("CloudProductDeserializer", "images字段类型未知: ${imagesElement::class.simpleName}")
+                    null
+                }
+            }
+        } else {
+            android.util.Log.d("CloudProductDeserializer", "images字段不存在或为null")
+            null
+        }
+        
+        val category = jsonObject.get("category").asString
+        val location = jsonObject.get("location").asString
+        val latitude = if (jsonObject.has("latitude") && !jsonObject.get("latitude").isJsonNull) {
+            jsonObject.get("latitude").asDouble
+        } else {
+            null
+        }
+        val longitude = if (jsonObject.has("longitude") && !jsonObject.get("longitude").isJsonNull) {
+            jsonObject.get("longitude").asDouble
+        } else {
+            null
+        }
+        val likeCount = if (jsonObject.has("like_count")) {
+            jsonObject.get("like_count").asInt
+        } else {
+            0
+        }
+        val viewCount = if (jsonObject.has("view_count")) {
+            jsonObject.get("view_count").asInt
+        } else {
+            0
+        }
+        val createdAt = jsonObject.get("created_at").asString
+        
+        return CloudProduct(
+            id = id,
+            name = name,
+            description = description,
+            price = price,
+            originalPrice = originalPrice,
+            images = images,
+            category = category,
+            location = location,
+            latitude = latitude,
+            longitude = longitude,
+            likeCount = likeCount,
+            viewCount = viewCount,
+            createdAt = createdAt
+        )
+    }
+}

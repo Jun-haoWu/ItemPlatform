@@ -1,0 +1,168 @@
+2026-01-08 16:27:37.963  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/chat/unread-count
+2026-01-08 16:27:37.964  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3Njc4NTcyODUsImV4cCI6MTc2ODQ2MjA4NX0.51Ka4nIUIXsM0OAEsOaCeaAeEr1zelVG-FFo30Nt9ME
+2026-01-08 16:27:37.964  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2026-01-08 16:27:38.003  8876-8884  06.itemplatform         com...ao.a202302010306.itemplatform  W  userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/chat/unread-count (58ms)
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Thu, 08 Jan 2026 08:27:37 GMT
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2026-01-08 16:27:38.023  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2026-01-08 16:27:38.024  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2026-01-08 16:27:38.024  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 200
+2026-01-08 16:27:38.024  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 195
+2026-01-08 16:27:38.024  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767860875
+2026-01-08 16:27:38.027  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"51-VuCUA+nWNzOfdgw+4E3SLjcpawA"
+2026-01-08 16:27:38.032  8876-8886  System                  com...ao.a202302010306.itemplatform  W  A resource failed to call close. 
+2026-01-08 16:27:38.035  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取未读消息数量成功","data":{"unread_count":5}}
+2026-01-08 16:27:38.035  8876-8919  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (81-byte body)
+2026-01-08 16:27:42.440  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=15, title=user4's flower, images=null
+2026-01-08 16:27:42.440  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.467  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  开始加载商品
+2026-01-08 16:27:42.467  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  开始请求API
+2026-01-08 16:27:42.474  8876-8904  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2026-01-08 16:27:42.475  8876-8904  ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2026-01-08 16:27:42.476  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/products?page=1&limit=100
+2026-01-08 16:27:42.476  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3Njc4NTcyODUsImV4cCI6MTc2ODQ2MjA4NX0.51Ka4nIUIXsM0OAEsOaCeaAeEr1zelVG-FFo30Nt9ME
+2026-01-08 16:27:42.476  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/products?page=1&limit=100 (23ms)
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Thu, 08 Jan 2026 08:27:41 GMT
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2026-01-08 16:27:42.500  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 495
+2026-01-08 16:27:42.503  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767861148
+2026-01-08 16:27:42.503  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"8a1-/OPZbNP3Rc4dAeiOQzs/T8l9ndQ"
+2026-01-08 16:27:42.507  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"products":[{"id":17,"name":"计算机网络二手书","description":"带有学长的笔记","price":"20.00","original_price":null,"images":"/uploads/product-1767858522497-529156074.jpg","category":"书籍资料","location":"浙江农林大学17号学院楼","like_count":0,"view_count":1,"created_at":"2026-01-08T07:48:42.000Z"},{"id":16,"name":"一把尺子","description":"尺子","price":"2.00","original_price":null,"images":"/uploads/product-1767857477677-467154873.jpg","category":"生活用品","location":"浙江农林大学学生活动中心","like_count":0,"view_count":1,"created_at":"2026-01-08T07:31:17.000Z"},{"id":15,"name":"user4's flower","description":"flower","price":"3.00","original_price":null,"images":"/uploads/product-1767603273026-186128262.jpg","category":"其他","location":"C1","like_count":0,"view_count":3,"created_at":"2026-01-05T08:54:33.000Z"},{"id":14,"name":"user4's mouse","description":"a mouse","price":"10.00","original_price":null,"images":"[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg\"]","category":"电子产品","location":"教1","like_count":0,"view_count":4,"created_at":"2026-01-05T07:54:32.000Z"},{"id":13,"name":"user4's picture","description":"a picture","price":"1.00","original_price":null,"images":"[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg\"]","category":"电子产品","location":"线上","like_count":1,"view_count":20,"created_at":"2025-12-30T13:08:29.000Z"},{"id":12,"name":"user4's cup","description":"a cup","price":"5.00","original_price":null,"images":"[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg\"]","category":"生活用品","location":"C1","like_count":1,"view_count":52,"created_at":"2025-12-30T11:26:16.000Z"},{"id":11,"name":"user3's bag","description":"a bag","price":"20.00","original_price":null,"images":"[]","category":"生活用品","location":"C1","like_count":1,"view_count":61,"created_at":"2025-12-30T11:11:06.000Z"}],"pagination":{"page":1,"limit":100,"total":7,"pages":1}}
+2026-01-08 16:27:42.507  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (2209-byte body)
+2026-01-08 16:27:42.509  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "/uploads/product-1767858522497-529156074.jpg"
+2026-01-08 16:27:42.509  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是普通字符串: /uploads/product-1767858522497-529156074.jpg
+2026-01-08 16:27:42.510  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "/uploads/product-1767857477677-467154873.jpg"
+2026-01-08 16:27:42.510  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是普通字符串: /uploads/product-1767857477677-467154873.jpg
+2026-01-08 16:27:42.511  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "/uploads/product-1767603273026-186128262.jpg"
+2026-01-08 16:27:42.511  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是普通字符串: /uploads/product-1767603273026-186128262.jpg
+2026-01-08 16:27:42.516  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg\"]"
+2026-01-08 16:27:42.516  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是字符串化的数组: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg"]
+2026-01-08 16:27:42.519  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  解析后的JSON: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg"]
+2026-01-08 16:27:42.520  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  反序列化结果: [/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg]
+2026-01-08 16:27:42.523  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg\"]"
+2026-01-08 16:27:42.523  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是字符串化的数组: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg"]
+2026-01-08 16:27:42.524  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  解析后的JSON: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg"]
+2026-01-08 16:27:42.524  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  反序列化结果: [/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg]
+2026-01-08 16:27:42.527  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "[\"/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg\"]"
+2026-01-08 16:27:42.527  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是字符串化的数组: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg"]
+2026-01-08 16:27:42.528  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  解析后的JSON: ["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg"]
+2026-01-08 16:27:42.530  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  反序列化结果: [/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg]
+2026-01-08 16:27:42.531  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images字段类型: JsonPrimitive, 值: "[]"
+2026-01-08 16:27:42.533  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  images是字符串化的数组: []
+2026-01-08 16:27:42.533  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  解析后的JSON: []
+2026-01-08 16:27:42.534  8876-8904  CloudProdu...serializer com...ao.a202302010306.itemplatform  D  反序列化结果: []
+2026-01-08 16:27:42.547  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  API响应码: 200, 成功: true
+2026-01-08 16:27:42.547  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  从云端获取到 7 个商品
+2026-01-08 16:27:42.547  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  开始同步商品到本地数据库
+2026-01-08 16:27:42.549  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  云端商品ID列表: [17, 16, 15, 14, 13, 12, 11]
+2026-01-08 16:27:42.552  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
+2026-01-08 16:27:42.554  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 7
+2026-01-08 16:27:42.555  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 7
+2026-01-08 16:27:42.555  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  本地数据库中有 7 个商品
+2026-01-08 16:27:42.555  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 17, 名称: 计算机网络二手书
+2026-01-08 16:27:42.556  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 17
+2026-01-08 16:27:42.557  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.557  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.558  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=17, title=计算机网络二手书, images=/uploads/product-1767858522497-529156074.jpg
+2026-01-08 16:27:42.558  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.561  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: 计算机网络二手书, id: 17, status: 0, likeCount: 0, viewCount: 1, 影响行数: 1
+2026-01-08 16:27:42.561  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 16, 名称: 一把尺子
+2026-01-08 16:27:42.561  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 16
+2026-01-08 16:27:42.563  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.563  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.564  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=16, title=一把尺子, images=/uploads/product-1767857477677-467154873.jpg
+2026-01-08 16:27:42.564  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.565  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: 一把尺子, id: 16, status: 0, likeCount: 0, viewCount: 1, 影响行数: 1
+2026-01-08 16:27:42.566  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 15, 名称: user4's flower
+2026-01-08 16:27:42.566  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 15
+2026-01-08 16:27:42.566  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.566  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.566  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=15, title=user4's flower, images=/uploads/product-1767603273026-186128262.jpg
+2026-01-08 16:27:42.566  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.567  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's flower, id: 15, status: 0, likeCount: 0, viewCount: 3, 影响行数: 1
+2026-01-08 16:27:42.567  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 14, 名称: user4's mouse
+2026-01-08 16:27:42.567  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 14
+2026-01-08 16:27:42.568  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.569  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.572  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=14, title=user4's mouse, images=/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_14_20260105_155432.jpg
+2026-01-08 16:27:42.572  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.573  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's mouse, id: 14, status: 0, likeCount: 0, viewCount: 4, 影响行数: 1
+2026-01-08 16:27:42.573  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 13, 名称: user4's picture
+2026-01-08 16:27:42.574  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 13
+2026-01-08 16:27:42.575  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.575  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.576  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=13, title=user4's picture, images=/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_13_20251230_210830.jpg
+2026-01-08 16:27:42.576  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.577  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's picture, id: 13, status: 0, likeCount: 1, viewCount: 20, 影响行数: 1
+2026-01-08 16:27:42.578  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 12, 名称: user4's cup
+2026-01-08 16:27:42.579  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 12
+2026-01-08 16:27:42.580  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.580  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.582  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=12, title=user4's cup, images=/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg
+2026-01-08 16:27:42.582  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.582  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's cup, id: 12, status: 0, likeCount: 1, viewCount: 52, 影响行数: 1
+2026-01-08 16:27:42.582  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  处理云端商品: 11, 名称: user3's bag
+2026-01-08 16:27:42.582  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 11
+2026-01-08 16:27:42.584  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
+2026-01-08 16:27:42.584  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
+2026-01-08 16:27:42.586  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  转换为本地商品: id=11, title=user3's bag, images=null
+2026-01-08 16:27:42.586  8876-8899  HomeFragment            com...ao.a202302010306.itemplatform  D  更新本地数据库中的商品
+2026-01-08 16:27:42.586  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user3's bag, id: 11, status: 0, likeCount: 1, viewCount: 61, 影响行数: 1
+2026-01-08 16:27:42.595  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  商品同步完成
+2026-01-08 16:27:42.595  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  从本地数据库加载商品
+2026-01-08 16:27:42.596  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
+2026-01-08 16:27:42.598  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 7
+2026-01-08 16:27:42.598  8876-8899  ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 7
+2026-01-08 16:27:42.598  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  从本地数据库加载到 7 个商品
+2026-01-08 16:27:42.598  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  updateProductList - 商品数量: 7
+2026-01-08 16:27:42.599  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  商品列表不为空，显示RecyclerView
+2026-01-08 16:27:42.599  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  开始同步收藏状态
+2026-01-08 16:27:42.603  8876-8904  ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
+2026-01-08 16:27:42.604  8876-8904  ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
+2026-01-08 16:27:42.605  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/favorites/status
+2026-01-08 16:27:42.606  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
+2026-01-08 16:27:42.606  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 37
+2026-01-08 16:27:42.606  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3Njc4NTcyODUsImV4cCI6MTc2ODQ2MjA4NX0.51Ka4nIUIXsM0OAEsOaCeaAeEr1zelVG-FFo30Nt9ME
+2026-01-08 16:27:42.610  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"productIds":[11,16,12,17,13,14,15]}
+2026-01-08 16:27:42.610  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  商品加载完成
+2026-01-08 16:27:42.610  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (37-byte body)
+2026-01-08 16:27:42.622  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=11, title=user3's bag, images=null
+2026-01-08 16:27:42.622  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.628  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=16, title=一把尺子, images=null
+2026-01-08 16:27:42.628  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.634  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=12, title=user4's cup, images=null
+2026-01-08 16:27:42.635  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.635  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/favorites/status (24ms)
+2026-01-08 16:27:42.635  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
+2026-01-08 16:27:42.635  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Thu, 08 Jan 2026 08:27:42 GMT
+2026-01-08 16:27:42.639  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=17, title=计算机网络二手书, images=null
+2026-01-08 16:27:42.639  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.640  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
+2026-01-08 16:27:42.640  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
+2026-01-08 16:27:42.640  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
+2026-01-08 16:27:42.640  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
+2026-01-08 16:27:42.640  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
+2026-01-08 16:27:42.641  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
+2026-01-08 16:27:42.642  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 494
+2026-01-08 16:27:42.642  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767861148
+2026-01-08 16:27:42.642  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"59-ty65LpECgzQs/NYc6Em2uURPZ28"
+2026-01-08 16:27:42.644  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"status":{"11":false,"12":false,"13":false,"14":false,"15":false,"16":false,"17":false}}
+2026-01-08 16:27:42.646  8876-8904  okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (89-byte body)
+2026-01-08 16:27:42.647  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=13, title=user4's picture, images=null
+2026-01-08 16:27:42.647  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.660  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=14, title=user4's mouse, images=null
+2026-01-08 16:27:42.660  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.675  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  开始加载商品图片: id=15, title=user4's flower, images=null
+2026-01-08 16:27:42.675  8876-8876  ProductAdapter          com...ao.a202302010306.itemplatform  D  商品没有图片，显示占位图
+2026-01-08 16:27:42.718  8876-8876  HomeFragment            com...ao.a202302010306.itemplatform  D  收藏状态同步完成
