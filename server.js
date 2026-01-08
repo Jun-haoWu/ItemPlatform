@@ -4,6 +4,9 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const rateLimit = require('express-rate-limit');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -57,6 +60,40 @@ const limiter = rateLimit({
   }
 });
 
+// 配置multer用于图片上传
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadsDir);
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, 'product-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 限制文件大小为5MB
+  },
+  fileFilter: function (req, file, cb) {
+    const allowedTypes = /jpeg|jpg|png|gif|webp/;
+    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedTypes.test(file.mimetype);
+
+    if (extname && mimetype) {
+      return cb(null, true);
+    } else {
+      cb(new Error('只允许上传图片文件'));
+    }
+  }
+});
+
 // 用户相关接口限流 - 允许较频繁的请求
 const userLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5分钟
@@ -91,6 +128,9 @@ app.use(cors({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+// 静态文件服务 - 提供上传的图片访问
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // 错误处理中间件
 function errorHandler(err, req, res, next) {
@@ -310,6 +350,42 @@ app.get('/api/auth/me', userLimiter, authenticateToken, async (req, res, next) =
 
 // ========== 商品管理 API ==========
 
+// 上传商品图片
+app.post('/api/upload/image', userLimiter, authenticateToken, upload.single('image'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: '没有上传文件' });
+    }
+    
+    const imageUrl = `/uploads/${req.file.filename}`;
+    res.json({
+      message: '图片上传成功',
+      imageUrl: imageUrl
+    });
+  } catch (error) {
+    console.error('图片上传失败:', error);
+    res.status(500).json({ error: '图片上传失败' });
+  }
+});
+
+// 批量上传商品图片
+app.post('/api/upload/images', userLimiter, authenticateToken, upload.array('images', 5), (req, res) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ error: '没有上传文件' });
+    }
+    
+    const imageUrls = req.files.map(file => `/uploads/${file.filename}`);
+    res.json({
+      message: '图片上传成功',
+      imageUrls: imageUrls
+    });
+  } catch (error) {
+    console.error('图片上传失败:', error);
+    res.status(500).json({ error: '图片上传失败' });
+  }
+});
+
 // 发布商品
 app.post('/api/products', userLimiter, authenticateToken, async (req, res, next) => {
   try {
@@ -325,7 +401,7 @@ app.post('/api/products', userLimiter, authenticateToken, async (req, res, next)
     
     const [result] = await pool.query(
       'INSERT INTO products (name, description, price, original_price, category, images, location, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [name, description, price, original_price || null, category, JSON.stringify(images || []), location || null, req.user.id]
+      [name, description, price, original_price || null, category, (images && images.length > 0) ? images.join(',') : null, location || null, req.user.id]
     );
     
     res.json({

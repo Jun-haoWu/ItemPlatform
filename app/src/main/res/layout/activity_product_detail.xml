@@ -374,6 +374,16 @@
             android:textColor="@android:color/white" />
 
         <Button
+            android:id="@+id/btnViewMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:text="查看地图"
+            android:textColor="@android:color/white" />
+
+        <Button
             android:id="@+id/btnReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

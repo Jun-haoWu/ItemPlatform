@@ -8,6 +8,8 @@ data class Product(
     val category: String,
     val condition: String,
     val location: String,
+    val latitude: Double? = null,
+    val longitude: Double? = null,
     val images: String? = null,
     val sellerId: Long,
     val status: Int = 0,
@@ -21,5 +23,9 @@ data class Product(
         const val STATUS_SOLD = 1
         const val STATUS_HIDDEN = 2
         const val STATUS_DELETED = 3
+    }
+    
+    fun hasLocation(): Boolean {
+        return latitude != null && longitude != null
     }
 }

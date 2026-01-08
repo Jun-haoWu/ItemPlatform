@@ -1,155 +1,314 @@
-2025-12-30 19:54:54.570 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-30 19:54:54.570 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/products?page=1&limit=100
-2025-12-30 19:54:54.579 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/chat/unread-count
-2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:54:54.579 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:54:54.579 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
-2025-12-30 19:54:54.580 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/chat/unread-count (138ms)
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/products?page=1&limit=100 (139ms)
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 200
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 198
-2025-12-30 19:54:54.719 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095746
-2025-12-30 19:54:54.719 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:54:54.720 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-30 19:54:54.720 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:54:54.721 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-30 19:54:54.722 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:54:54.722 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"51-VuCUA+nWNzOfdgw+4E3SLjcpawA"
-2025-12-30 19:54:54.722 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
-2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 499
-2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
-2025-12-30 19:54:54.723 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"273-3+Kh1mVnDWSktYhkIKgY8OzDIRw"
-2025-12-30 19:54:54.731 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取未读消息数量成功","data":{"unread_count":5}}
-2025-12-30 19:54:54.732 14036-14064 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (81-byte body)
-2025-12-30 19:54:54.732 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"products":[{"id":12,"name":"user4's cup","description":"a cup","price":"5.00","original_price":null,"images":["/storage/emulated/0/Android/data/com.wujunhao.a202302010306.itemplatform/files/product_images/product_12_20251230_192616.jpg"],"category":"生活用品","location":"C1","like_count":2,"view_count":19,"created_at":"2025-12-30T11:26:16.000Z"},{"id":11,"name":"user3's bag","description":"a bag","price":"20.00","original_price":null,"images":[],"category":"生活用品","location":"C1","like_count":2,"view_count":15,"created_at":"2025-12-30T11:11:06.000Z"}],"pagination":{"page":1,"limit":100,"total":2,"pages":1}}
-2025-12-30 19:54:54.733 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (627-byte body)
-2025-12-30 19:54:54.826 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
-2025-12-30 19:54:54.826 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 2
-2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 2
-2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 12
-2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
-2025-12-30 19:54:54.827 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
-2025-12-30 19:54:54.850 14036-14036 InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())
-2025-12-30 19:54:54.851 14036-14036 ImeTracker              com...ao.a202302010306.itemplatform  I  com.wujunhao.a202302010306.itemplatform:57cae497: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-2025-12-30 19:54:54.855 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user4's cup, id: 12, status: 0, 影响行数: 1
-2025-12-30 19:54:54.856 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 11
-2025-12-30 19:54:54.858 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
-2025-12-30 19:54:54.859 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
-2025-12-30 19:54:54.873 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user3's bag, id: 11, status: 0, 影响行数: 1
-2025-12-30 19:54:54.902 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 开始查询，status = 0
-2025-12-30 19:54:54.909 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 查询到记录数: 2
-2025-12-30 19:54:54.909 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getAllProducts - 转换后的商品数: 2
-2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  从本地数据库加载到 2 个商品
-2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  updateProductList - 商品数量: 2
-2025-12-30 19:54:54.919 14036-14036 HomeFragment            com...ao.a202302010306.itemplatform  D  商品列表不为空，显示RecyclerView
-2025-12-30 19:54:54.947 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-30 19:54:54.955 14036-14063 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-30 19:54:54.960 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/favorites/status
-2025-12-30 19:54:54.970 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
-2025-12-30 19:54:54.971 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 22
-2025-12-30 19:54:54.972 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:54:54.973 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"productIds":[11,12]}
-2025-12-30 19:54:54.978 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (22-byte body)
-2025-12-30 19:54:55.014 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 400 Bad Request http://223.6.254.237/api/favorites/status (35ms)
-2025-12-30 19:54:55.014 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:54:55.019 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:54:56 GMT
-2025-12-30 19:54:55.021 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:54:55.024 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 29
-2025-12-30 19:54:55.026 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:54:55.026 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:54:55.027 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
-2025-12-30 19:54:55.028 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 498
-2025-12-30 19:54:55.029 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
-2025-12-30 19:54:55.031 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"1d-jsqna1DhYbG6+E8JtF7JKX9FO2U"
-2025-12-30 19:54:55.034 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"error":"无效的商品ID"}
-2025-12-30 19:54:55.035 14036-14063 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (29-byte body)
-2025-12-30 19:54:55.409 14036-14042 06.itemplatform         com...ao.a202302010306.itemplatform  I  Compiler allocated 5200KB to compile void android.view.ViewRootImpl.performTraversals()
-2025-12-30 19:55:00.052 14036-14074 ProfileInstaller        com...ao.a202302010306.itemplatform  D  Installing profile for com.wujunhao.a202302010306.itemplatform
-2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  创建Retrofit实例，基础URL: http://223.6.254.237:80/api/
-2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  USE_MOCK_MODE: false, USE_LOCAL_DATABASE: false
-2025-12-30 19:55:04.541 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  使用真实服务器模式
-2025-12-30 19:55:04.545 14036-14075 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-30 19:55:04.545 14036-14075 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/chat/unread-count
-2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:55:04.546 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
-2025-12-30 19:55:04.561 14036-14043 06.itemplatform         com...ao.a202302010306.itemplatform  W  userfaultfd: MOVE ioctl seems unsupported: Connection timed out
-2025-12-30 19:55:04.575 14036-14045 System                  com...ao.a202302010306.itemplatform  W  A resource failed to call close. 
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/chat/unread-count (42ms)
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:06 GMT
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 200
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 197
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095746
-2025-12-30 19:55:04.589 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"51-VuCUA+nWNzOfdgw+4E3SLjcpawA"
-2025-12-30 19:55:04.590 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"code":200,"message":"获取未读消息数量成功","data":{"unread_count":5}}
-2025-12-30 19:55:04.591 14036-14075 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (81-byte body)
-2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  创建Retrofit实例，基础URL: http://223.6.254.237:80/api/
-2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  USE_MOCK_MODE: false, USE_LOCAL_DATABASE: false
-2025-12-30 19:55:08.570 14036-14036 ApiClient               com...ao.a202302010306.itemplatform  D  使用真实服务器模式
-2025-12-30 19:55:08.585 14036-14079 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-30 19:55:08.585 14036-14079 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-30 19:55:08.586 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> GET http://223.6.254.237/api/products/11
-2025-12-30 19:55:08.586 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:55:08.587 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END GET
-2025-12-30 19:55:08.591 14036-14080 ApiClient               com...ao.a202302010306.itemplatform  D  Token from TokenManager: eyJhbGciOiJIUzI1NiIs...
-2025-12-30 19:55:08.591 14036-14080 ApiClient               com...ao.a202302010306.itemplatform  D  Adding Authorization header
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> POST http://223.6.254.237/api/favorites/status
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=UTF-8
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 19
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoidXNlcjMiLCJpYXQiOjE3NjcwOTM2NzgsImV4cCI6MTc2NzY5ODQ3OH0.0tB3ZU-vsPuIGPJN4Kd1p8hAzy0-IHbGPaYUuR1G-Jc
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"productIds":[11]}
-2025-12-30 19:55:08.598 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  --> END POST (19-byte body)
-2025-12-30 19:55:08.611 14036-14036 WindowOnBackDispatcher  com...ao.a202302010306.itemplatform  D  setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@8c5d97e
-2025-12-30 19:55:08.622 14036-14036 VRI[Produc...lActivity] com...ao.a202302010306.itemplatform  D  WindowInsets changed: 1080x2400 statusBars:[0,63,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,63,0,84] 
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 200 OK http://223.6.254.237/api/products/11 (54ms)
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:10 GMT
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Transfer-Encoding: chunked
-2025-12-30 19:55:08.642 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:55:08.643 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Vary: Accept-Encoding
-2025-12-30 19:55:08.643 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:55:08.644 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
-2025-12-30 19:55:08.645 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 497
-2025-12-30 19:55:08.646 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
-2025-12-30 19:55:08.646 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"140-AIXzV2AwWJEuSivDxl6AICOzK7c"
-2025-12-30 19:55:08.648 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"product":{"id":11,"user_id":18,"name":"user3's bag","description":"a bag","price":"20.00","original_price":null,"images":[],"category":"生活用品","location":"C1","status":"active","like_count":2,"view_count":16,"created_at":"2025-12-30T11:11:06.000Z","updated_at":"2025-12-30T11:55:10.000Z","seller_name":"user3"}}
-2025-12-30 19:55:08.649 14036-14079 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (320-byte body)
-2025-12-30 19:55:08.650 14036-14058 FavoriteSyncService     com...ao.a202302010306.itemplatform  E  获取云端收藏数据失败: 500, {"error":"服务器内部错误"}
-2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- 400 Bad Request http://223.6.254.237/api/favorites/status (54ms)
-2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Server: nginx/1.29.4
-2025-12-30 19:55:08.653 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Date: Tue, 30 Dec 2025 11:55:10 GMT
-2025-12-30 19:55:08.655 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Type: application/json; charset=utf-8
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Content-Length: 29
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  Connection: keep-alive
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-Powered-By: Express
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Limit: 500
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Remaining: 495
-2025-12-30 19:55:08.656 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  X-RateLimit-Reset: 1767095997
-2025-12-30 19:55:08.657 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  ETag: W/"1d-jsqna1DhYbG6+E8JtF7JKX9FO2U"
-2025-12-30 19:55:08.658 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  {"error":"无效的商品ID"}
-2025-12-30 19:55:08.659 14036-14080 okhttp.OkHttpClient     com...ao.a202302010306.itemplatform  I  <-- END HTTP (29-byte body)
-2025-12-30 19:55:08.676 14036-14058 FavoriteSyncService     com...ao.a202302010306.itemplatform  E  同步失败: 404, {"error":"API接口不存在"}
-2025-12-30 19:55:08.743 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询商品ID: 11
-2025-12-30 19:55:08.743 14036-14036 ProductDetailActivity   com...ao.a202302010306.itemplatform  W  收藏数据同步失败
-2025-12-30 19:55:08.747 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 查询到记录数: 1
-2025-12-30 19:55:08.747 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  getProductById - 转换后的商品数: 1
-2025-12-30 19:55:08.752 14036-14058 ProductDao              com...ao.a202302010306.itemplatform  D  updateProduct - 更新商品: user3's bag, id: 11, status: 0, 影响行数: 1
-2025-12-30 19:55:08.898 14036-14036 InsetsController        com...ao.a202302010306.itemplatform  D  hide(ime())
+2026-01-08 14:22:02.903  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索结果[2]: errorCode=1000, 结果数量: 11
+2026-01-08 14:22:02.907  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  提取建筑标识: 教1
+2026-01-08 14:22:02.907  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 杭州育才中学-1号教学楼, 地址: 大运河商务区冠军路8号杭州育才中学, 经纬度: 30.310673, 120.145425
+2026-01-08 14:22:02.908  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 41.11348915210716 公里, 是否在范围内: false
+2026-01-08 14:22:02.908  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 宁围初级中学1号教学楼, 地址: 文明路与学东路交叉口西北140米, 经纬度: 30.211407, 120.279439
+2026-01-08 14:22:02.909  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 53.90366099355249 公里, 是否在范围内: false
+2026-01-08 14:22:02.909  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江大学(紫金港校区)竺可桢学院, 地址: 余杭塘路866号东1A教学楼, 经纬度: 30.302676, 120.088242
+2026-01-08 14:22:02.910  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 35.5546020983296 公里, 是否在范围内: false
+2026-01-08 14:22:02.910  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 杭州市第一人民医院教学楼, 地址: 吴山路158号(龙翔桥地铁站D口步行110米), 经纬度: 30.254422, 120.165272
+2026-01-08 14:22:02.910  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 42.65540183872142 公里, 是否在范围内: false
+2026-01-08 14:22:02.911  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江工商大学教工路校区法语联盟, 地址: 教工路149号浙江工商大学杭州商学院3号教学楼1层, 经纬度: 30.285478, 120.135208
+2026-01-08 14:22:02.912  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 39.85370966222505 公里, 是否在范围内: false
+2026-01-08 14:22:02.912  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 良渚第一中学教学楼5号楼, 地址: 荀甫路与良平街交叉口北480米, 经纬度: 30.375082, 120.039824
+2026-01-08 14:22:02.913  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 33.13302203059914 公里, 是否在范围内: false
+2026-01-08 14:22:02.913  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 回澜初中教学楼, 地址: 文化路350号回澜初中, 经纬度: 30.161275, 120.281808
+2026-01-08 14:22:02.913  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 54.98545262433346 公里, 是否在范围内: false
+2026-01-08 14:22:02.914  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 良渚第一中学教学楼2号楼, 地址: 良渚街道荀真路1号杭州市余杭区良渚第一中学, 经纬度: 30.374425, 120.039452
+2026-01-08 14:22:02.914  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 33.072093670660244 公里, 是否在范围内: false
+2026-01-08 14:22:02.915  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 余杭区良渚第一中学教学楼3号楼, 地址: 荀真路余杭区良渚第一中学, 经纬度: 30.37479, 120.039391
+2026-01-08 14:22:02.915  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 33.08221141597126 公里, 是否在范围内: false
+2026-01-08 14:22:02.916  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区停车场, 地址: 环城北路88号浙江农林大学东湖校区1号教学楼附近, 经纬度: 30.252725, 119.730328
+2026-01-08 14:22:02.916  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2252829294853973 公里, 是否在范围内: false
+2026-01-08 14:22:02.917  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江省社会学学会环境社会学专业委员会, 地址: 环城北路88号浙江农林大学-1号教学楼附近, 经纬度: 30.252898, 119.730367
+2026-01-08 14:22:02.917  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2146049960013647 公里, 是否在范围内: false
+2026-01-08 14:22:02.917  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  关键词[2]未找到匹配POI, 最近距离: 1.2146049960013647 公里, 最近POI: 浙江省社会学学会环境社会学专业委员会
+2026-01-08 14:22:02.917  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  最近POI不包含建筑标识: 浙江省社会学学会环境社会学专业委员会, 标识: 教1, 继续搜索下一个关键词
+2026-01-08 14:22:02.920  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索查询[3]: 教1楼, 城市: 杭州
+2026-01-08 14:22:02.940  4814-485   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:check permission begin!
+2026-01-08 14:22:02.940  4814-485   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:not MMS!
+2026-01-08 14:22:02.940  4814-485   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:not Email!
+2026-01-08 14:22:02.942  4814-485   TrafficStats            com...ao.a202302010306.itemplatform  D  tagSocket(137) with statsTag=0xffffffff, statsUid=-1
+2026-01-08 14:22:02.948  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索结果[2]: errorCode=1000, 结果数量: 25
+2026-01-08 14:22:02.950  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  提取建筑标识: C1
+2026-01-08 14:22:02.950  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区, 地址: 武肃街666号, 经纬度: 30.257483, 119.727873
+2026-01-08 14:22:02.951  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7188125751890155 公里, 是否在范围内: true
+2026-01-08 14:22:02.951  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区, 不包含建筑标识: C1
+2026-01-08 14:22:02.951  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区数学与计算机科学学院, 地址: 武肃街666号浙江农林大学东湖校区学11, 经纬度: 30.256775, 119.731675
+2026-01-08 14:22:02.952  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.0839341495897927 公里, 是否在范围内: true
+2026-01-08 14:22:02.952  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区数学与计算机科学学院, 不包含建筑标识: C1
+2026-01-08 14:22:02.952  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区茶文化学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.260041, 119.729379
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7852436701320068 公里, 是否在范围内: true
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区茶文化学院, 不包含建筑标识: C1
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区专家楼服务中心, 地址: 东湖校区A11楼, 经纬度: 30.258618, 119.722367
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2305023185656325 公里, 是否在范围内: true
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区专家楼服务中心, 不包含建筑标识: C1
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区艺术设计学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254234, 119.732458
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2812593524069034 公里, 是否在范围内: false
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区园林学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253375, 119.731375
+2026-01-08 14:22:02.953  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2524814728488451 公里, 是否在范围内: false
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区动物科技学院, 地址: 武肃街浙江农林大学(东湖校区), 经纬度: 30.253015, 119.730926
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2453452327455745 公里, 是否在范围内: false
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区农林碳汇馆, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253465, 119.733492
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.411111884794198 公里, 是否在范围内: false
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区19号学院楼, 地址: 农林大路987号, 经纬度: 30.26383, 119.721487
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.37818108928191985 公里, 是否在范围内: true
+2026-01-08 14:22:02.954  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区19号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区D区宿舍楼, 地址: 武肃街666号浙江农林大学东湖校区C区和B区之间, 经纬度: 30.260763, 119.723092
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.18378839852807563 公里, 是否在范围内: true
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区D区宿舍楼, 不包含建筑标识: C1
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区化学与材料工程学院, 地址: 在浙江农林大学东湖校区9号楼, 经纬度: 30.256445, 119.731913
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1191937962566576 公里, 是否在范围内: true
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区化学与材料工程学院, 不包含建筑标识: C1
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区教师公寓, 地址: 武肃街666号, 经纬度: 30.258249, 119.722691
+2026-01-08 14:22:02.955  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.28153431593833345 公里, 是否在范围内: true
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区教师公寓, 不包含建筑标识: C1
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学林业与生物技术学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.25482, 119.731527
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1708416966039388 公里, 是否在范围内: true
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学林业与生物技术学院, 不包含建筑标识: C1
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区农业与食品科学学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.256173, 119.732106
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1483887486677082 公里, 是否在范围内: true
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区农业与食品科学学院, 不包含建筑标识: C1
+2026-01-08 14:22:02.956  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区办事大厅, 地址: 武肃街666号, 经纬度: 30.258316, 119.726779
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.5840351489918802 公里, 是否在范围内: true
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区办事大厅, 不包含建筑标识: C1
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区国际教育学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253399, 119.731066
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2277983459978035 公里, 是否在范围内: false
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区森林文化馆, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.258897, 119.730893
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.945067580498122 公里, 是否在范围内: true
+2026-01-08 14:22:02.957  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区森林文化馆, 不包含建筑标识: C1
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学环境与资源学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254803, 119.732488
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2508288179138518 公里, 是否在范围内: false
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区停车场, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.257097, 119.727296
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.6920527800363785 公里, 是否在范围内: true
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区停车场, 不包含建筑标识: C1
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区停车场, 地址: 环城北路88号浙江农林大学东湖校区1号教学楼附近, 经纬度: 30.252725, 119.730328
+2026-01-08 14:22:02.958  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2252829294853973 公里, 是否在范围内: false
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区风景园林与建筑学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253936, 119.731488
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2230797950222274 公里, 是否在范围内: false
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学(东湖校区)-山茶园, 地址: 武肃街666号浙江农林大学东湖校区C区, 经纬度: 30.260097, 119.722117
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.09443381577196784 公里, 是否在范围内: true
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学(东湖校区)-山茶园, 不包含建筑标识: C1
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区东湖食堂, 地址: 武肃街666号浙江农林大学东湖校区小西门内, 经纬度: 30.257863, 119.72435
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.41535986268916214 公里, 是否在范围内: true
+2026-01-08 14:22:02.959  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区东湖食堂, 不包含建筑标识: C1
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区教师教学发展中心, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253391, 119.730843
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2119463466554592 公里, 是否在范围内: false
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区城乡规划学科, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253363, 119.73119
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2395351908452779 公里, 是否在范围内: false
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  关键词[2]未找到匹配POI, 最近距离: 0.09443381577196784 公里, 最近POI: 浙江农林大学(东湖校区)-山茶园
+2026-01-08 14:22:02.960  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  最近POI不包含建筑标识: 浙江农林大学(东湖校区)-山茶园, 标识: C1, 继续搜索下一个关键词
+2026-01-08 14:22:02.961  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索查询[3]: 浙江农林大学C1号, 城市: 杭州
+2026-01-08 14:22:03.122  4814-485   System.out              com...ao.a202302010306.itemplatform  I  [OkHttp] sendRequest>>
+2026-01-08 14:22:03.126  4814-485   System.out              com...ao.a202302010306.itemplatform  I  [OkHttp] sendRequest<<
+2026-01-08 14:22:03.193  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索结果[3]: errorCode=1000, 结果数量: 25
+2026-01-08 14:22:03.194  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  提取建筑标识: C1
+2026-01-08 14:22:03.195  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学创业孵化园1号楼, 地址: 农林大路352号浙江农林大学创业孵化园, 经纬度: 30.237887, 119.730919
+2026-01-08 14:22:03.196  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.675060145256627 公里, 是否在范围内: false
+2026-01-08 14:22:03.196  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区, 地址: 衣锦街252号, 经纬度: 30.237395, 119.728513
+2026-01-08 14:22:03.197  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.6562966593791697 公里, 是否在范围内: false
+2026-01-08 14:22:03.197  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区19号学院楼, 地址: 农林大路987号, 经纬度: 30.26383, 119.721487
+2026-01-08 14:22:03.198  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.37818108928191985 公里, 是否在范围内: true
+2026-01-08 14:22:03.198  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区19号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.198  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区, 地址: 武肃街666号, 经纬度: 30.257483, 119.727873
+2026-01-08 14:22:03.199  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7188125751890155 公里, 是否在范围内: true
+2026-01-08 14:22:03.199  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区, 不包含建筑标识: C1
+2026-01-08 14:22:03.200  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院学生公寓2号, 地址: 锦北街道农林大路1197号, 经纬度: 30.256841, 119.722452
+2026-01-08 14:22:03.200  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.41710698053232004 公里, 是否在范围内: true
+2026-01-08 14:22:03.200  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学继续教育学院学生公寓2号, 不包含建筑标识: C1
+2026-01-08 14:22:03.201  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 临安中医院城中街2号, 经纬度: 30.235857, 119.731426
+2026-01-08 14:22:03.201  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.9038007569214237 公里, 是否在范围内: false
+2026-01-08 14:22:03.202  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 农林大路352号, 经纬度: 30.238002, 119.731236
+2026-01-08 14:22:03.202  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.67388628752476 公里, 是否在范围内: false
+2026-01-08 14:22:03.203  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区茶文化学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.260041, 119.729379
+2026-01-08 14:22:03.203  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7852436701320068 公里, 是否在范围内: true
+2026-01-08 14:22:03.203  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区茶文化学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.204  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院衣锦1号公寓, 地址: 锦城街道胜利巷45号, 经纬度: 30.233002, 119.733035
+2026-01-08 14:22:03.204  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 3.2550376748905308 公里, 是否在范围内: false
+2026-01-08 14:22:03.205  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学学生活动中心, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.239244, 119.72725
+2026-01-08 14:22:03.205  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.426782535250316 公里, 是否在范围内: false
+2026-01-08 14:22:03.206  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区数学与计算机科学学院, 地址: 武肃街666号浙江农林大学东湖校区学11, 经纬度: 30.256775, 119.731675
+2026-01-08 14:22:03.206  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.0839341495897927 公里, 是否在范围内: true
+2026-01-08 14:22:03.206  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区数学与计算机科学学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.207  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学林业与生物技术学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.25482, 119.731527
+2026-01-08 14:22:03.207  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1708416966039388 公里, 是否在范围内: true
+2026-01-08 14:22:03.207  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学林业与生物技术学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.208  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学17号学院楼, 地址: 农林大路987号, 经纬度: 30.262832, 119.721535
+2026-01-08 14:22:03.208  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2680683977597178 公里, 是否在范围内: true
+2026-01-08 14:22:03.209  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学17号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.209  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区专家楼服务中心, 地址: 东湖校区A11楼, 经纬度: 30.258618, 119.722367
+2026-01-08 14:22:03.209  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2305023185656325 公里, 是否在范围内: true
+2026-01-08 14:22:03.210  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区专家楼服务中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.210  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区园林学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253375, 119.731375
+2026-01-08 14:22:03.210  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2524814728488451 公里, 是否在范围内: false
+2026-01-08 14:22:03.211  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区艺术设计学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254234, 119.732458
+2026-01-08 14:22:03.211  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2812593524069034 公里, 是否在范围内: false
+2026-01-08 14:22:03.212  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学环境与资源学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254803, 119.732488
+2026-01-08 14:22:03.212  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2508288179138518 公里, 是否在范围内: false
+2026-01-08 14:22:03.212  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学工创中心, 地址: 农林大路985号, 经纬度: 30.263418, 119.724653
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.46780165573858945 公里, 是否在范围内: true
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学工创中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学活动中心, 地址: 武肃街666号, 经纬度: 30.259328, 119.722825
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.1977065125398537 公里, 是否在范围内: true
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学活动中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区动物科技学院, 地址: 武肃街浙江农林大学(东湖校区), 经纬度: 30.253015, 119.730926
+2026-01-08 14:22:03.213  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2453452327455745 公里, 是否在范围内: false
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学科欣科技中心, 地址: 衣锦街252号(原62号), 经纬度: 30.235506, 119.728888
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8684806069655924 公里, 是否在范围内: false
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区化学与材料工程学院, 地址: 在浙江农林大学东湖校区9号楼, 经纬度: 30.256445, 119.731913
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1191937962566576 公里, 是否在范围内: true
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区化学与材料工程学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区教师公寓, 地址: 武肃街666号, 经纬度: 30.258249, 119.722691
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.28153431593833345 公里, 是否在范围内: true
+2026-01-08 14:22:03.214  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区教师公寓, 不包含建筑标识: C1
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区经济管理学院, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.235659, 119.728241
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8366188963486283 公里, 是否在范围内: false
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学停车场, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.257752, 119.728857
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7922874121488095 公里, 是否在范围内: true
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学停车场, 不包含建筑标识: C1
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  关键词[3]未找到匹配POI, 最近距离: 0.1977065125398537 公里, 最近POI: 浙江农林大学活动中心
+2026-01-08 14:22:03.215  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  最近POI不包含建筑标识: 浙江农林大学活动中心, 标识: C1, 继续搜索下一个关键词
+2026-01-08 14:22:03.216  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索查询[4]: C1号楼, 城市: 杭州
+2026-01-08 14:22:03.217  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索结果[3]: errorCode=1000, 结果数量: 25
+2026-01-08 14:22:03.218  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  提取建筑标识: C1
+2026-01-08 14:22:03.218  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学创业孵化园1号楼, 地址: 农林大路352号浙江农林大学创业孵化园, 经纬度: 30.237887, 119.730919
+2026-01-08 14:22:03.218  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.675060145256627 公里, 是否在范围内: false
+2026-01-08 14:22:03.218  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区, 地址: 衣锦街252号, 经纬度: 30.237395, 119.728513
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.6562966593791697 公里, 是否在范围内: false
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区19号学院楼, 地址: 农林大路987号, 经纬度: 30.26383, 119.721487
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.37818108928191985 公里, 是否在范围内: true
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区19号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区, 地址: 武肃街666号, 经纬度: 30.257483, 119.727873
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7188125751890155 公里, 是否在范围内: true
+2026-01-08 14:22:03.219  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区, 不包含建筑标识: C1
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院学生公寓2号, 地址: 锦北街道农林大路1197号, 经纬度: 30.256841, 119.722452
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.41710698053232004 公里, 是否在范围内: true
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学继续教育学院学生公寓2号, 不包含建筑标识: C1
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 临安中医院城中街2号, 经纬度: 30.235857, 119.731426
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.9038007569214237 公里, 是否在范围内: false
+2026-01-08 14:22:03.220  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 农林大路352号, 经纬度: 30.238002, 119.731236
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.67388628752476 公里, 是否在范围内: false
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区茶文化学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.260041, 119.729379
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7852436701320068 公里, 是否在范围内: true
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区茶文化学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院衣锦1号公寓, 地址: 锦城街道胜利巷45号, 经纬度: 30.233002, 119.733035
+2026-01-08 14:22:03.221  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 3.2550376748905308 公里, 是否在范围内: false
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学学生活动中心, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.239244, 119.72725
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.426782535250316 公里, 是否在范围内: false
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区数学与计算机科学学院, 地址: 武肃街666号浙江农林大学东湖校区学11, 经纬度: 30.256775, 119.731675
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.0839341495897927 公里, 是否在范围内: true
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区数学与计算机科学学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.222  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学林业与生物技术学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.25482, 119.731527
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1708416966039388 公里, 是否在范围内: true
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学林业与生物技术学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学17号学院楼, 地址: 农林大路987号, 经纬度: 30.262832, 119.721535
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2680683977597178 公里, 是否在范围内: true
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学17号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区专家楼服务中心, 地址: 东湖校区A11楼, 经纬度: 30.258618, 119.722367
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2305023185656325 公里, 是否在范围内: true
+2026-01-08 14:22:03.223  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区专家楼服务中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.224  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区园林学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253375, 119.731375
+2026-01-08 14:22:03.224  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2524814728488451 公里, 是否在范围内: false
+2026-01-08 14:22:03.224  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区艺术设计学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254234, 119.732458
+2026-01-08 14:22:03.224  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2812593524069034 公里, 是否在范围内: false
+2026-01-08 14:22:03.224  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学环境与资源学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254803, 119.732488
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2508288179138518 公里, 是否在范围内: false
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学工创中心, 地址: 农林大路985号, 经纬度: 30.263418, 119.724653
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.46780165573858945 公里, 是否在范围内: true
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学工创中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学活动中心, 地址: 武肃街666号, 经纬度: 30.259328, 119.722825
+2026-01-08 14:22:03.225  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.1977065125398537 公里, 是否在范围内: true
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学活动中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区动物科技学院, 地址: 武肃街浙江农林大学(东湖校区), 经纬度: 30.253015, 119.730926
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2453452327455745 公里, 是否在范围内: false
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学科欣科技中心, 地址: 衣锦街252号(原62号), 经纬度: 30.235506, 119.728888
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8684806069655924 公里, 是否在范围内: false
+2026-01-08 14:22:03.226  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区化学与材料工程学院, 地址: 在浙江农林大学东湖校区9号楼, 经纬度: 30.256445, 119.731913
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1191937962566576 公里, 是否在范围内: true
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区化学与材料工程学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区教师公寓, 地址: 武肃街666号, 经纬度: 30.258249, 119.722691
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.28153431593833345 公里, 是否在范围内: true
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区教师公寓, 不包含建筑标识: C1
+2026-01-08 14:22:03.227  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区经济管理学院, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.235659, 119.728241
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8366188963486283 公里, 是否在范围内: false
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学停车场, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.257752, 119.728857
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7922874121488095 公里, 是否在范围内: true
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学停车场, 不包含建筑标识: C1
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  关键词[3]未找到匹配POI, 最近距离: 0.1977065125398537 公里, 最近POI: 浙江农林大学活动中心
+2026-01-08 14:22:03.228  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  最近POI不包含建筑标识: 浙江农林大学活动中心, 标识: C1, 继续搜索下一个关键词
+2026-01-08 14:22:03.229  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索查询[4]: C1号楼, 城市: 杭州
+2026-01-08 14:22:03.230  4814-4814  Quality                 com...ao.a202302010306.itemplatform  I  Skipped: true 1 cost 29.819927 refreshRate 16508420 bit true processName com.wujunhao.a202302010306.itemplatform
+2026-01-08 14:22:03.238  4814-510   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:check permission begin!
+2026-01-08 14:22:03.238  4814-510   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:not MMS!
+2026-01-08 14:22:03.238  4814-510   System.out              com...ao.a202302010306.itemplatform  I  [okhttp]:not Email!
+2026-01-08 14:22:03.240  4814-510   TrafficStats            com...ao.a202302010306.itemplatform  D  tagSocket(179) with statsTag=0xffffffff, statsUid=-1
+2026-01-08 14:22:03.354  4814-510   System.out              com...ao.a202302010306.itemplatform  I  [OkHttp] sendRequest>>
+2026-01-08 14:22:03.355  4814-510   System.out              com...ao.a202302010306.itemplatform  I  [OkHttp] sendRequest<<
+2026-01-08 14:22:03.387  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索结果[3]: errorCode=1000, 结果数量: 25
+2026-01-08 14:22:03.388  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  提取建筑标识: C1
+2026-01-08 14:22:03.389  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学创业孵化园1号楼, 地址: 农林大路352号浙江农林大学创业孵化园, 经纬度: 30.237887, 119.730919
+2026-01-08 14:22:03.389  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.675060145256627 公里, 是否在范围内: false
+2026-01-08 14:22:03.390  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区, 地址: 衣锦街252号, 经纬度: 30.237395, 119.728513
+2026-01-08 14:22:03.390  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.6562966593791697 公里, 是否在范围内: false
+2026-01-08 14:22:03.391  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区19号学院楼, 地址: 农林大路987号, 经纬度: 30.26383, 119.721487
+2026-01-08 14:22:03.391  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.37818108928191985 公里, 是否在范围内: true
+2026-01-08 14:22:03.391  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区19号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.392  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区, 地址: 武肃街666号, 经纬度: 30.257483, 119.727873
+2026-01-08 14:22:03.392  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7188125751890155 公里, 是否在范围内: true
+2026-01-08 14:22:03.392  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区, 不包含建筑标识: C1
+2026-01-08 14:22:03.393  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院学生公寓2号, 地址: 锦北街道农林大路1197号, 经纬度: 30.256841, 119.722452
+2026-01-08 14:22:03.393  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.41710698053232004 公里, 是否在范围内: true
+2026-01-08 14:22:03.393  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学继续教育学院学生公寓2号, 不包含建筑标识: C1
+2026-01-08 14:22:03.394  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 临安中医院城中街2号, 经纬度: 30.235857, 119.731426
+2026-01-08 14:22:03.394  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.9038007569214237 公里, 是否在范围内: false
+2026-01-08 14:22:03.395  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学园林设计院, 地址: 农林大路352号, 经纬度: 30.238002, 119.731236
+2026-01-08 14:22:03.395  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.67388628752476 公里, 是否在范围内: false
+2026-01-08 14:22:03.396  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区茶文化学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.260041, 119.729379
+2026-01-08 14:22:03.396  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7852436701320068 公里, 是否在范围内: true
+2026-01-08 14:22:03.396  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区茶文化学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.397  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学继续教育学院衣锦1号公寓, 地址: 锦城街道胜利巷45号, 经纬度: 30.233002, 119.733035
+2026-01-08 14:22:03.398  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 3.2550376748905308 公里, 是否在范围内: false
+2026-01-08 14:22:03.398  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学学生活动中心, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.239244, 119.72725
+2026-01-08 14:22:03.399  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.426782535250316 公里, 是否在范围内: false
+2026-01-08 14:22:03.399  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区数学与计算机科学学院, 地址: 武肃街666号浙江农林大学东湖校区学11, 经纬度: 30.256775, 119.731675
+2026-01-08 14:22:03.399  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.0839341495897927 公里, 是否在范围内: true
+2026-01-08 14:22:03.400  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区数学与计算机科学学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.400  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学林业与生物技术学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.25482, 119.731527
+2026-01-08 14:22:03.401  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1708416966039388 公里, 是否在范围内: true
+2026-01-08 14:22:03.401  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学林业与生物技术学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.401  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学17号学院楼, 地址: 农林大路987号, 经纬度: 30.262832, 119.721535
+2026-01-08 14:22:03.402  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2680683977597178 公里, 是否在范围内: true
+2026-01-08 14:22:03.402  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学17号学院楼, 不包含建筑标识: C1
+2026-01-08 14:22:03.402  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区专家楼服务中心, 地址: 东湖校区A11楼, 经纬度: 30.258618, 119.722367
+2026-01-08 14:22:03.403  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.2305023185656325 公里, 是否在范围内: true
+2026-01-08 14:22:03.403  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区专家楼服务中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.403  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区园林学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.253375, 119.731375
+2026-01-08 14:22:03.404  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2524814728488451 公里, 是否在范围内: false
+2026-01-08 14:22:03.404  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区艺术设计学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254234, 119.732458
+2026-01-08 14:22:03.404  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2812593524069034 公里, 是否在范围内: false
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学环境与资源学院, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.254803, 119.732488
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2508288179138518 公里, 是否在范围内: false
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学工创中心, 地址: 农林大路985号, 经纬度: 30.263418, 119.724653
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.46780165573858945 公里, 是否在范围内: true
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学工创中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学活动中心, 地址: 武肃街666号, 经纬度: 30.259328, 119.722825
+2026-01-08 14:22:03.405  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.1977065125398537 公里, 是否在范围内: true
+2026-01-08 14:22:03.406  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学活动中心, 不包含建筑标识: C1
+2026-01-08 14:22:03.406  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区动物科技学院, 地址: 武肃街浙江农林大学(东湖校区), 经纬度: 30.253015, 119.730926
+2026-01-08 14:22:03.406  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.2453452327455745 公里, 是否在范围内: false
+2026-01-08 14:22:03.406  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学科欣科技中心, 地址: 衣锦街252号(原62号), 经纬度: 30.235506, 119.728888
+2026-01-08 14:22:03.406  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8684806069655924 公里, 是否在范围内: false
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区化学与材料工程学院, 地址: 在浙江农林大学东湖校区9号楼, 经纬度: 30.256445, 119.731913
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 1.1191937962566576 公里, 是否在范围内: true
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区化学与材料工程学院, 不包含建筑标识: C1
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学东湖校区教师公寓, 地址: 武肃街666号, 经纬度: 30.258249, 119.722691
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.28153431593833345 公里, 是否在范围内: true
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学东湖校区教师公寓, 不包含建筑标识: C1
+2026-01-08 14:22:03.407  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学衣锦校区经济管理学院, 地址: 衣锦街252号浙江农林大学衣锦校区, 经纬度: 30.235659, 119.728241
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 2.8366188963486283 公里, 是否在范围内: false
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI: 浙江农林大学停车场, 地址: 武肃街666号浙江农林大学东湖校区, 经纬度: 30.257752, 119.728857
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI距离: 0.7922874121488095 公里, 是否在范围内: true
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  跳过POI: 浙江农林大学停车场, 不包含建筑标识: C1
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  关键词[3]未找到匹配POI, 最近距离: 0.1977065125398537 公里, 最近POI: 浙江农林大学活动中心
+2026-01-08 14:22:03.408  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  最近POI不包含建筑标识: 浙江农林大学活动中心, 标识: C1, 继续搜索下一个关键词
+2026-01-08 14:22:03.409  4814-4814  MapActivity             com...ao.a202302010306.itemplatform  D  POI搜索查询[4]: C1号楼, 城市: 杭州

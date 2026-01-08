@@ -5,6 +5,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Environment
+import com.wujunhao.a202302010306.itemplatform.network.ApiClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -80,22 +83,50 @@ object ImageUtils {
     }
     
     /**
-     * Load image from file path
+     * Load image from file path or URL
      */
     fun loadImage(context: Context, imagePath: String?): Bitmap? {
         if (imagePath.isNullOrEmpty()) return null
         
         return try {
-            val file = File(imagePath)
-            if (file.exists()) {
-                BitmapFactory.decodeFile(imagePath)
+            if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+                loadBitmapFromUrl(imagePath)
             } else {
-                null
+                val file = File(imagePath)
+                if (file.exists()) {
+                    BitmapFactory.decodeFile(imagePath)
+                } else {
+                    null
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
             null
         }
+    }
+    
+    /**
+     * Load bitmap from URL
+     */
+    private fun loadBitmapFromUrl(urlString: String): Bitmap? {
+        return try {
+            val url = java.net.URL(urlString)
+            val connection = url.openConnection() as java.net.HttpURLConnection
+            connection.doInput = true
+            connection.connect()
+            val input = connection.inputStream
+            BitmapFactory.decodeStream(input)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+    
+    /**
+     * Check if image path is a URL
+     */
+    fun isImageUrl(imagePath: String): Boolean {
+        return imagePath.startsWith("http://") || imagePath.startsWith("https://")
     }
     
     /**

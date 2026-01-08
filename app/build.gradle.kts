@@ -15,6 +15,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        ndk {
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a")
+        }
+        
+        manifestPlaceholders["AMAP_KEY"] = "acf03ffdd3d73c455d2474262b438365"
     }
 
     buildFeatures {
@@ -29,6 +35,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    
+    packagingOptions {
+        pickFirst("lib/*/libamapv304.so")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -65,4 +75,7 @@ dependencies {
     
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation(files("libs/AMap3DMap_10.1.600_AMapSearch_9.7.4_AMapLocation_6.5.1_20251020.aar"))
 }

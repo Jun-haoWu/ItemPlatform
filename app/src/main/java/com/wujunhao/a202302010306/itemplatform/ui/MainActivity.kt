@@ -90,6 +90,11 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
+                R.id.nav_map -> {
+                    val intent = Intent(this, MapActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.nav_profile -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, ProfileFragment())

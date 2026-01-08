@@ -27,6 +27,7 @@ import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Response
 
 class PublishFragment : Fragment() {
@@ -176,6 +177,53 @@ class PublishFragment : Fragment() {
         
         lifecycleScope.launch {
             try {
+                android.util.Log.d("PublishFragment", "开始上传图片到服务器")
+                
+                val uploadedImageUrls = mutableListOf<String>()
+                if (selectedImages.isNotEmpty()) {
+                    for (imageItem in selectedImages) {
+                        try {
+                            val uri = when (imageItem) {
+                                is Uri -> imageItem
+                                is String -> Uri.parse(imageItem)
+                                else -> continue
+                            }
+                            
+                            val contentResolver = requireContext().contentResolver
+                            val inputStream = contentResolver.openInputStream(uri)
+                            val fileName = "image_${System.currentTimeMillis()}.jpg"
+                            
+                            val requestBody = okhttp3.RequestBody.create(
+                                "image/jpeg".toMediaType(),
+                                inputStream!!.readBytes()
+                            )
+                            val multipartBody = okhttp3.MultipartBody.Part.createFormData(
+                                "image",
+                                fileName,
+                                requestBody
+                            )
+                            
+                            val uploadResponse = withContext(Dispatchers.IO) {
+                                apiService.uploadImage(multipartBody)
+                            }
+                            
+                            if (uploadResponse.isSuccessful && uploadResponse.body() != null) {
+                                val imageUrl = uploadResponse.body()!!.imageUrl
+                                uploadedImageUrls.add(imageUrl)
+                                android.util.Log.d("PublishFragment", "图片上传成功: $imageUrl")
+                            } else {
+                                android.util.Log.e("PublishFragment", "图片上传失败: ${uploadResponse.code()}")
+                                Toast.makeText(context, "图片上传失败", Toast.LENGTH_SHORT).show()
+                                return@launch
+                            }
+                        } catch (e: Exception) {
+                            android.util.Log.e("PublishFragment", "图片上传异常", e)
+                            Toast.makeText(context, "图片上传失败: ${e.message}", Toast.LENGTH_SHORT).show()
+                            return@launch
+                        }
+                    }
+                }
+                
                 val result = withContext(Dispatchers.IO) {
                     productDao.insertProduct(product)
                 }
@@ -201,7 +249,7 @@ class PublishFragment : Fragment() {
                         description = description,
                         price = price,
                         originalPrice = null,
-                        images = if (imagePaths != null) ImageUtils.getProductImagePaths(imagePaths) else null,
+                        images = if (uploadedImageUrls.isNotEmpty()) uploadedImageUrls else null,
                         category = category,
                         location = location
                     )

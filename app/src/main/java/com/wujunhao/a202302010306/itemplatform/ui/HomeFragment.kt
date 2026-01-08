@@ -176,48 +176,62 @@ class HomeFragment : Fragment() {
         }
         isLoading = true
         showLoading()
+        android.util.Log.d("HomeFragment", "开始加载商品")
         lifecycleScope.launch {
             try {
                 // 先尝试从云端获取商品列表
+                android.util.Log.d("HomeFragment", "开始请求API")
                 val response = withContext(Dispatchers.IO) {
                     apiService.getProducts(
                         page = 1,
                         limit = 100
                     )
                 }
+                android.util.Log.d("HomeFragment", "API响应码: ${response.code()}, 成功: ${response.isSuccessful}")
                 
                 if (response.isSuccessful && response.body() != null) {
                     val cloudProducts = response.body()!!.products
+                    android.util.Log.d("HomeFragment", "从云端获取到 ${cloudProducts.size} 个商品")
                     
                     // 将云端商品同步到本地数据库
+                    android.util.Log.d("HomeFragment", "开始同步商品到本地数据库")
                     withContext(Dispatchers.IO) {
                         // 获取云端商品ID列表
                         val cloudProductIds = cloudProducts.map { it.id }
+                        android.util.Log.d("HomeFragment", "云端商品ID列表: $cloudProductIds")
                         
                         // 删除本地数据库中不在云端商品列表中的商品
                         val localProducts = productDao.getAllProducts()
+                        android.util.Log.d("HomeFragment", "本地数据库中有 ${localProducts.size} 个商品")
                         for (localProduct in localProducts) {
                             if (localProduct.id !in cloudProductIds) {
+                                android.util.Log.d("HomeFragment", "删除本地商品: ${localProduct.id}")
                                 productDao.deleteProduct(localProduct.id)
                             }
                         }
                         
                         // 同步云端商品到本地数据库
                         for (cloudProduct in cloudProducts) {
+                            android.util.Log.d("HomeFragment", "处理云端商品: ${cloudProduct.id}, 名称: ${cloudProduct.name}")
                             val existingProduct = productDao.getProductById(cloudProduct.id)
                             val localProduct = cloudProduct.toLocalProduct(-1L)
+                            android.util.Log.d("HomeFragment", "转换为本地商品: id=${localProduct.id}, title=${localProduct.title}, images=${localProduct.images}")
                             
                             if (existingProduct == null) {
                                 // 如果本地不存在，插入新商品
+                                android.util.Log.d("HomeFragment", "插入新商品到本地数据库")
                                 productDao.insertProduct(localProduct)
                             } else {
                                 // 如果本地已存在，更新商品信息
+                                android.util.Log.d("HomeFragment", "更新本地数据库中的商品")
                                 productDao.updateProduct(localProduct)
                             }
                         }
                     }
+                    android.util.Log.d("HomeFragment", "商品同步完成")
                     
                     // 从本地数据库加载所有商品
+                    android.util.Log.d("HomeFragment", "从本地数据库加载商品")
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
                     }
@@ -226,6 +240,7 @@ class HomeFragment : Fragment() {
                     updateProductList(products)
                     
                     // 同步收藏状态和点赞数
+                    android.util.Log.d("HomeFragment", "开始同步收藏状态")
                     syncFavoriteStatus(products)
                     
                     // 如果是下拉刷新触发的，显示成功提示
@@ -234,6 +249,7 @@ class HomeFragment : Fragment() {
                     }
                 } else {
                     // 云端获取失败，从本地数据库加载
+                    android.util.Log.e("HomeFragment", "云端获取失败: code=${response.code()}, message=${response.message()}")
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
                     }
@@ -247,6 +263,7 @@ class HomeFragment : Fragment() {
                 }
             } catch (e: IOException) {
                 // 网络错误，从本地数据库加载
+                android.util.Log.e("HomeFragment", "网络错误", e)
                 try {
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
@@ -259,6 +276,7 @@ class HomeFragment : Fragment() {
                         Toast.makeText(requireContext(), "网络错误，显示本地数据", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e2: Exception) {
+                    android.util.Log.e("HomeFragment", "从本地数据库加载失败", e2)
                     currentProducts = emptyList()
                     updateProductList(emptyList())
                     
@@ -269,6 +287,7 @@ class HomeFragment : Fragment() {
                 }
             } catch (e: HttpException) {
                 // HTTP错误，从本地数据库加载
+                android.util.Log.e("HomeFragment", "HTTP错误: code=${e.code()}, message=${e.message()}", e)
                 try {
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
@@ -281,6 +300,7 @@ class HomeFragment : Fragment() {
                         Toast.makeText(requireContext(), "服务器错误，显示本地数据", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e2: Exception) {
+                    android.util.Log.e("HomeFragment", "从本地数据库加载失败", e2)
                     currentProducts = emptyList()
                     updateProductList(emptyList())
                     
@@ -291,6 +311,7 @@ class HomeFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 // 其他错误，从本地数据库加载
+                android.util.Log.e("HomeFragment", "其他错误: ${e.javaClass.simpleName}, message=${e.message}", e)
                 try {
                     val products = withContext(Dispatchers.IO) {
                         productDao.getAllProducts()
@@ -303,6 +324,7 @@ class HomeFragment : Fragment() {
                         Toast.makeText(requireContext(), "加载失败，显示本地数据", Toast.LENGTH_SHORT).show()
                     }
                 } catch (e2: Exception) {
+                    android.util.Log.e("HomeFragment", "从本地数据库加载失败", e2)
                     currentProducts = emptyList()
                     updateProductList(emptyList())
                     
@@ -315,6 +337,7 @@ class HomeFragment : Fragment() {
                 isLoading = false
                 hideLoading()
                 binding.swipeRefreshLayout.isRefreshing = false
+                android.util.Log.d("HomeFragment", "商品加载完成")
             }
         }
     }

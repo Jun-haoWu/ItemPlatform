@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wujunhao.a202302010306.itemplatform.R
 import com.wujunhao.a202302010306.itemplatform.model.Product
+import com.wujunhao.a202302010306.itemplatform.network.CloudConfig
 import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
 
 class ProductAdapter(
@@ -36,7 +37,12 @@ class ProductAdapter(
                 val imagePaths = ImageUtils.getProductImagePaths(product.images)
                 if (imagePaths.isNotEmpty()) {
                     val firstImagePath = imagePaths[0]
-                    val bitmap = ImageUtils.loadImage(itemView.context, firstImagePath)
+                    val imagePathToLoad = if (firstImagePath.startsWith("/uploads/")) {
+                        CloudConfig.getServerBaseUrl() + firstImagePath
+                    } else {
+                        firstImagePath
+                    }
+                    val bitmap = ImageUtils.loadImage(itemView.context, imagePathToLoad)
                     if (bitmap != null) {
                         productImage.setImageBitmap(bitmap)
                     } else {

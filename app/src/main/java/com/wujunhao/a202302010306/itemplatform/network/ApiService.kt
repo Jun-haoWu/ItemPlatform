@@ -86,4 +86,17 @@ interface ApiService {
     
     @GET("chat/unread-count")
     suspend fun getUnreadCount(): Response<UnreadCountResponse>
+    
+    // 图片上传相关
+    @Multipart
+    @POST("upload/image")
+    suspend fun uploadImage(
+        @Part image: okhttp3.MultipartBody.Part
+    ): Response<UploadImageResponse>
+    
+    @Multipart
+    @POST("upload/images")
+    suspend fun uploadImages(
+        @Part images: List<okhttp3.MultipartBody.Part>
+    ): Response<UploadImagesResponse>
 }

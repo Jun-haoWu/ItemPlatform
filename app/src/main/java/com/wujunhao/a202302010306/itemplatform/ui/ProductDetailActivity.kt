@@ -19,6 +19,7 @@ import com.wujunhao.a202302010306.itemplatform.model.CloudProduct
 import com.wujunhao.a202302010306.itemplatform.model.FavoritesStatusRequest
 import com.wujunhao.a202302010306.itemplatform.network.ApiClient
 import com.wujunhao.a202302010306.itemplatform.network.ApiService
+import com.wujunhao.a202302010306.itemplatform.network.CloudConfig
 import com.wujunhao.a202302010306.itemplatform.utils.ImageUtils
 import com.wujunhao.a202302010306.itemplatform.utils.TokenManager
 import com.wujunhao.a202302010306.itemplatform.service.FavoriteSyncService
@@ -106,6 +107,22 @@ class ProductDetailActivity : AppCompatActivity() {
         binding.btnContactSeller.setOnClickListener {
             // TODO: 实现联系卖家功能
             Toast.makeText(this, "联系卖家功能开发中", Toast.LENGTH_SHORT).show()
+        }
+        
+        binding.btnViewMap.setOnClickListener {
+            currentProduct?.let { product ->
+                if (product.hasLocation()) {
+                    val intent = android.content.Intent(this, MapActivity::class.java).apply {
+                        putExtra("product_id", product.id)
+                        putExtra("product_name", product.title)
+                        putExtra("latitude", product.latitude)
+                        putExtra("longitude", product.longitude)
+                    }
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "该商品没有位置信息", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
         
         binding.btnReport.setOnClickListener {
@@ -267,7 +284,12 @@ class ProductDetailActivity : AppCompatActivity() {
         // 加载图片
         val bitmaps = mutableListOf<Bitmap>()
         for (imagePath in imagePaths) {
-            val bitmap = ImageUtils.loadImage(this, imagePath)
+            val imagePathToLoad = if (imagePath.startsWith("/uploads/")) {
+                CloudConfig.getServerBaseUrl() + imagePath
+            } else {
+                imagePath
+            }
+            val bitmap = ImageUtils.loadImage(this, imagePathToLoad)
             if (bitmap != null) {
                 bitmaps.add(bitmap)
             }

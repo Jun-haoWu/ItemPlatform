@@ -22,13 +22,19 @@ data class CloudProduct(
     val originalPrice: String? = null,
     
     @SerializedName("images")
-    val images: List<String>? = null,
+    val images: String? = null,
     
     @SerializedName("category")
     val category: String,
     
     @SerializedName("location")
     val location: String,
+    
+    @SerializedName("latitude")
+    val latitude: Double? = null,
+    
+    @SerializedName("longitude")
+    val longitude: Double? = null,
     
     @SerializedName("like_count")
     val likeCount: Int = 0,
@@ -44,10 +50,11 @@ data class CloudProduct(
      */
     fun toLocalProduct(sellerId: Long = -1L): Product {
         val timestamp = parseIsoDateTime(createdAt)
-        val imagesString = if (images.isNullOrEmpty()) {
+        val imagesList = parseImages(images)
+        val imagesString = if (imagesList.isEmpty()) {
             null
         } else {
-            images.joinToString(",")
+            imagesList.joinToString(",")
         }
         return Product(
             id = id,
@@ -57,6 +64,8 @@ data class CloudProduct(
             category = category,
             condition = "全新",
             location = location,
+            latitude = latitude,
+            longitude = longitude,
             images = imagesString,
             sellerId = sellerId,
             status = Product.STATUS_ACTIVE,
@@ -65,6 +74,27 @@ data class CloudProduct(
             createdAt = timestamp,
             updatedAt = timestamp
         )
+    }
+    
+    private fun parseImages(imagesString: String?): List<String> {
+        if (imagesString == null || imagesString.isEmpty()) {
+            return emptyList()
+        }
+        
+        val trimmed = imagesString.trim()
+        
+        try {
+            if (trimmed.startsWith("[")) {
+                val gson = com.google.gson.Gson()
+                val imagesList = gson.fromJson(trimmed, Array<String>::class.java)
+                return imagesList?.toList() ?: emptyList()
+            } else {
+                return listOf(trimmed)
+            }
+        } catch (e: Exception) {
+            android.util.Log.w("CloudProduct", "解析images失败: $imagesString", e)
+            return listOf(trimmed)
+        }
     }
     
     private fun parseIsoDateTime(isoDateTime: String): Long {
@@ -122,7 +152,13 @@ data class PublishProductRequest(
     val category: String,
     
     @SerializedName("location")
-    val location: String? = null
+    val location: String? = null,
+    
+    @SerializedName("latitude")
+    val latitude: Double? = null,
+    
+    @SerializedName("longitude")
+    val longitude: Double? = null
 )
 
 /**
@@ -302,4 +338,26 @@ data class Pagination(
     
     @SerializedName("pages")
     val pages: Int
+)
+
+/**
+ * 图片上传响应
+ */
+data class UploadImageResponse(
+    @SerializedName("message")
+    val message: String,
+    
+    @SerializedName("imageUrl")
+    val imageUrl: String
+)
+
+/**
+ * 批量图片上传响应
+ */
+data class UploadImagesResponse(
+    @SerializedName("message")
+    val message: String,
+    
+    @SerializedName("imageUrls")
+    val imageUrls: List<String>
 )
